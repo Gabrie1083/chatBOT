@@ -1,0 +1,404 @@
+<section id="BodyContent">
+
+  <div class="container-fluid pt-4 pb-5">
+    <input type="hidden" id="hidSharedFlag" />
+    <input type="hidden" id="hidPrefixName" />
+    <input type="hidden" id="hidFolderName" />
+
+    <input type="hidden" id="hidFileURL" />
+    <input type="hidden" id="hidFileName" />
+    <input type="hidden" id="hidFileType" />
+
+
+    <!-- Used for Move Content-->
+    <input type="hidden" id="hidModalPrefixName" />
+    <input type="hidden" id="hidModalFolderName" />
+
+    <input type="hidden" id="hidSourcePrefixName" />
+    <input type="hidden" id="hidDestinationPrefixName" />
+    <input type="hidden" id="hidListContentName" />
+
+    <div class="card row mb-3 d-none" id="DivUploadFile">
+      <div class="row pt-2">
+        <div class="col-8">
+          <h5>New File Upload</h5>
+          <h5>Folder Name: <span id="lblFileFolderName"></span></h5>
+        </div>
+        <div class="col-4 text-end">
+          <button type="button" class="btn btn-light me-2" id="btnCancelUploadFile"
+            data-bs-toggle="modal">Cancel</button>
+        </div>
+
+        <div class="col-12 pt-2 mb-3">
+          <form action="/target" class="dropzone" id="uploadFiles"></form>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-2" id="DivMyFiles">
+      <div class="card-footer bottomline">
+        <div class="row">
+          <ul class="nav nav-pills card-header-tabs col-md-6" id="SettingTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="myfiles-tab" data-bs-toggle="tab" data-bs-target="#myfiles"
+                type="button" role="tab" aria-controls="myfiles" aria-selected="true">My Files</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="sharedfile-tab" data-bs-toggle="tab" data-bs-target="#sharedfile"
+                type="button" role="tab" aria-controls="sharedfile" aria-selected="true">Shared Files</button>
+            </li>
+            <!-- <li class="nav-item pull-right" style="padding-left: 610px;">
+                    </li> -->
+          </ul>
+          <div class="col-md-6">
+            <button class="btn btn-light pull-right btnRefreshFiles">Refresh</button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body tab-content" id="SettingTabContent">
+
+        <div class="tab-pane fade show active" id="myfiles" role="tabpanel" aria-labelledby="myfiles-tab">
+
+          <div class="row mb-2" id="divMyFilesSearchname">
+            <!-- <label class="col-md-2 col-form-label">Search</label> -->
+            <!-- <div class="col-md-4 pt-2">
+                      <input class="form-control" type="text" name="txtMyFilesSearch" id="txtMyFilesSearch">
+                    </div> -->
+            <div class="col-md-4">
+              <div class="input-group " id="DtMyFilesSearchWrap" style="width:300px;">
+                <input type="text" class="form-control DTMyFilesSearch" placeholder="Search files by keyword">
+                <button class="btn btn-light btn-bordered d-none DTMyFilesSearchClr" type="button"><i
+                    class="fa fa-times"></i></button>
+                <button class="btn btn-light btn-bordered DTMyFilesSearchBtn" type="button"><i
+                    class="fa fa-search"></i></button>
+              </div>
+            </div>
+            <div class="col-md-8 divMyFilesSearch d-none text-end">
+              
+              <button type="button" class="btn btn-light btn-bordered me-2 dropdown-toggle" data-bs-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">Action</button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item red-text fnMyFilesSearchMultipleDelete"><i
+                      class="fa-solid fa-file-pdf icon"></i>Delete</a></li>
+                <li><a class="dropdown-item fnMyFilesSearchMultipleDownload"><i
+                      class="fa-solid fa-file-pdf icon"></i>Download</a></li>
+              </ul>
+
+              <button class="btn btn-light pull-right me-2 btnCloseMyFilesSearch">Close</button>
+            </div>
+          </div>
+          <div class="row divMyFilesSearch d-none">
+            <div class="col-md-12">
+              <table id="TblSearchMyFiles" class="table table-hover" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Icon</th>
+                    <th>File Name</th>
+                    <th>File Type</th>
+                    <th>Modified Date</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+          <div class="row divMyFilesMain">
+            <div class="col-md-4">
+
+              <div class="zTreeDemoBackground divPersonalFile">
+                <ul id="PersonalFile" class="ztree"></ul>
+              </div>
+
+            </div>
+            <div class="col-md-8">
+              <div class="row">
+
+                <div class="col-4">
+                  <div class="input-group mb-2" id="DtSearchwrapMyFS" style="width:250px;">
+                    <input type="text" class="form-control DTSearchBoxMyFS" placeholder="Search">
+                    <button class="btn btn-light btn-bordered DTfrSearchClrMyFS" type="button" style="display:none;"><i
+                        class="fa fa-times"></i></button>
+                    <button class="btn btn-light btn-bordered DTSearchBtnMyFS" type="button"><i
+                        class="fa fa-search"></i></button>
+                  </div>
+                </div>
+
+
+                <div class="col-8 text-end">
+                  <button type="button" class="btn btn-success me-2" id="btnCreateFolderMyFile"
+                    data-bs-toggle="modal"><i class="fa-solid fa-plus"></i> Create Folder</button>
+                  <button type="button" class="btn btn-success me-2" id="btnUploadMyFile" data-bs-toggle="modal"><i
+                      class="fa-solid fa-upload"></i> Upload</button>
+                  <button type="button" class="btn btn-light btn-bordered dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Action</button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item red-text fnMyFilesMultipleDelete"><i
+                          class="fa-solid fa-file-pdf icon"></i>Delete</a></li>
+                    <li><a class="dropdown-item fnMyFilesMultipleDownload"><i
+                          class="fa-solid fa-file-pdf icon"></i>Download</a></li>
+                  </ul>
+                </div>
+              </div>
+
+              <table id="TblMyFiles" class="table table-hover" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Icon</th>
+                    <th>File Name</th>
+                    <th>File Type</th>
+                    <th>Modified Date</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="sharedfile" role="tabpanel" aria-labelledby="sharedfile-tab">
+          <!-- <div class="row">
+                    <div class="col-8">
+                      
+                    </div>  
+                    <div class="col-6 text-end">
+  
+                    </div>
+                  </div> -->
+          <div class="row mb-2" id="divSharedFilesSearchname">
+            <!-- <label class="col-md-2 col-form-label">Search</label> -->
+            <!-- <div class="col-md-4 pt-2">
+                        <input class="form-control" type="text" name="txtSharedFilesSearch" id="txtSharedFilesSearch">
+                      </div> -->
+            <div class="col-md-4">
+              <div class="input-group " id="DtSharedFilesSearchWrap" style="width:300px;">
+                <input type="text" class="form-control DTSharedyFilesSearch" placeholder="Search files by keyword">
+                <button class="btn btn-light btn-bordered d-none DTSharedFilesSearchClr" type="button" ><i
+                    class="fa fa-times"></i></button>
+                <button class="btn btn-light btn-bordered DTSharedFilesSearchBtn" type="button"><i
+                    class="fa fa-search"></i></button>
+              </div>
+            </div>
+            <div class="col-md-8 divSharedFilesSearch d-none text-end">
+              <button type="button" class="btn btn-light btn-bordered me-2 dropdown-toggle" data-bs-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">Action</button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item red-text fnMyFilesSearchMultipleDelete"><i
+                      class="fa-solid fa-file-pdf icon"></i>Delete</a></li>
+                <li><a class="dropdown-item fnMyFilesSearchMultipleDownload"><i
+                      class="fa-solid fa-file-pdf icon"></i>Download</a></li>
+              </ul>
+              <button class="btn btn-light pull-right me-2 btnCloseSharedFilesSearch">Close</button>
+            </div>
+          </div>
+          <div class="row divSharedFilesSearch d-none">
+            <div class="col-md-12">
+              <table id="TblSearchSharedFiles" class="table table-hover" cellspacing="0" style="width:100%">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Icon</th>
+                    <th>File Name</th>
+                    <th>File Type</th>
+                    <th>Modified Date</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="row divSharedMain">
+            <div class="col-md-4">
+              <!-- <div class="zTreeDemoBackground divSearchSharedFile d-none">
+                        <label>Search Results in Shared Files</label>
+                        <ul id="SearchSharedFile" class="ulSearch"></ul>
+                      </div> -->
+
+              <div class="zTreeDemoBackground divSharedFile">
+                <ul id="SharedFile" class="ztree"></ul>
+              </div>
+
+            </div>
+            <div class="col-md-8">
+              <div class="row">
+
+                <div class="col-4">
+                  <div class="input-group mb-2" id="DtSSearchWrapShareFS" style="width:250px;">
+                    <input type="text" class="form-control DTSearchBoxShareFS" placeholder="Search">
+                    <button class="btn btn-light btn-bordered DTfrSearchClrShareFS" type="button"
+                      style="display:none;"><i class="fa fa-times"></i></button>
+                    <button class="btn btn-light btn-bordered DTSearchBtnShareFS" type="button"><i
+                        class="fa fa-search"></i></button>
+                  </div>
+
+                </div>
+
+                <div class="col-8 text-end">
+                  <button type="button" class="btn btn-success me-2" id="btnCreateFolderShareFile"
+                    data-bs-toggle="modal"><i class="fa-solid fa-plus"></i> Create Folder</button>
+                  <button type="button" class="btn btn-success me-2" id="btnUploadShareFile"
+                    data-bs-toggle="modal"><i class="fa-solid fa-upload"></i>Upload</button>
+                  <button type="button" class="btn btn-light btn-bordered dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Action</button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item red-text fnSharedFilesMultipleDelete"><i
+                          class="fa-solid fa-file-pdf icon"></i>Delete</a></li>
+                    <li><a class="dropdown-item fnSharedFilesMultipleDownload"><i
+                          class="fa-solid fa-file-pdf icon"></i>Download</a></li>
+                  </ul>
+                </div>
+              </div>
+
+              <table id="TblSharedFiles" class="table table-hover" cellspacing="0" style="width:100%">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Icon</th>
+                    <th>File Name</th>
+                    <th>File Type</th>
+                    <th>Modified Date</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ModalContent">
+  <div class="modal fade" id="ModalNewUploadFiles" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">New Folder Create</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <div class="row">
+            <div class="col-md-12">
+              <form id="formFileManager" class="p-3 needs-validation" novalidate>
+                <div class="row mb-3 required" id="divFoldername">
+                  <label class="col-md-4 col-form-label">Folder Name</label>
+                  <div class="col-md-6 pt-2">
+                    <input class="form-control" type="text" name="txtfoldername" id="txtfoldername" required>
+                    <div class="invalid-feedback">
+                      Please Enter Folder Name.
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-success raised fnCreateNewFolder" style="width: 12rem;">Submit</button>
+          <button type="button" class="btn btn-light btn-bordered" data-bs-dismiss="modal"
+            style="width: 12rem;">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="DocPreviewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <iframe class="iframe" id="DocPreviewIframe" src=""></iframe>
+          <input type="hidden" id="hidDocPreviewFilename" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="ModalContentRename" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-md modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <form id="formRename" class="p-3 needs-validation" novalidate>
+                <div class="row mb-3 required" id="divRename">
+                  <label class="col-md-10 col-form-label">Rename</label>
+                  <div class="col-md-10 pt-2">
+                    <input class="form-control" type="text" name="txtrename" id="txtrename" required>
+                    <div class="invalid-feedback">
+                      Please enter the name.
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-success raised fnRenameContent" style="width: 12rem;">Submit</button>
+          <button type="button" class="btn btn-light btn-bordered" data-bs-dismiss="modal"
+            style="width: 12rem;">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Personal Folder Structure -->
+  <div class="modal fade" id="ModalContentMove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-body" style="min-height: 595px;">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="zTreeDemoBackground">
+                <ul id="ModalPersonalFile" class="ztree"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-success raised fnMovePersonalContent"
+            style="width: 12rem;">Submit</button>
+          <button type="button" class="btn btn-light btn-bordered" data-bs-dismiss="modal"
+            style="width: 12rem;">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shared Folder Structure -->
+  <div class="modal fade" id="ModalSharedContentMove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-body" style="min-height: 595px;">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="zTreeDemoBackground">
+                <ul id="ModalSharedFile" class="ztree"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-success raised fnMoveSharedContent" style="width: 12rem;">Submit</button>
+          <button type="button" class="btn btn-light btn-bordered" data-bs-dismiss="modal"
+            style="width: 12rem;">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,200 @@
+<section id="BodyContent">
+
+  <div class="container">
+  
+    <div class="card moreradious mb-3">
+      <!--<div class="login-screen-title">Login</div>-->
+      
+          
+              <div class="card-body">
+                <div class="row mb-3">
+                  <label class="col-form-label col-md-4 fw-bold">Site</label>
+                  <div class="col-md-8">
+                      <select class="form-select">
+                        <option value="180" selected>Singapore Food Agency</option>
+                      </select>
+                    
+                  </div> 
+              </div>
+             
+
+                  <div class="row">
+                      <div class="col-md-6">
+                          
+                          <div class="row mb-3 required">
+                              <label class="col-form-label col-md-4 fw-bold">Incident Date</label>
+                              <div class="col-md-8">
+                                  <input type="text" id="txtInciDate" name="txtInciDate" class="form-control" />
+                              </div>
+                          </div>
+                          <div class="row mb-3 required">
+                            <label class="col-form-label col-md-4 fw-bold">Report Date</label>
+                            <div class="col-md-8">
+                                <input type="text" id="txtReportDate" name="txtReportDate" class="form-control" />
+                            </div>
+                        </div>
+                         
+                            
+                          <div class="row mb-3">
+                              <label class="col-form-label col-md-4 fw-bold">Incident Type</label>
+                              <div class="col-md-8">
+                                <select class="form-select" id="SelInciType">
+                                  <option value="0">Select Type</option>
+                                  <option value="1">Fire Incident</option>
+                                  <option value="2">Alarm Activation</option>
+                                  <option value="3">Damage to Property</option>
+                                  <option value="4">Trespass</option>
+                                  <option value="5">Robbery/Theft</option>
+                                  <option value="6">Break In</option>
+                                  <option value="7">Suspious Person/Parcel</option>
+                                  <option value="8">Threats</option>
+                                  <option value="9">CCTV</option>
+                                  <option value="10">Oil Spill</option>
+                                  <option value="11">Water Pipe Leak</option>
+                                  <option value="12">Others</option>
+                                </select>
+                              </div>
+                          </div>
+                         
+                          <div class="row mb-3 required">
+                              <label class="col-form-label col-md-4 fw-bold">Location</label>
+                              <div class="col-md-8">
+                                <input type="text" id="txtLocation" name="txtLocation" class="form-control" />
+                              </div>
+                          </div>
+                         
+                          <div class="row mb-3 required">
+                              <label class="col-form-label col-md-4 fw-bold">Is there security implications?</label>
+                              <div class="col-md-8">
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="securityimpl" id="rdoSecYes" value="" checked>
+                                  <label class="form-check-label" for="rdoSecYes">Yes</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="securityimpl" id="rdoSecNo" value="ST">
+                                  <label class="form-check-label" for="rdoSecNo">No</label>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="row mb-3 required">
+                            <label class="col-form-label col-md-4 fw-bold">Incident Time</label>
+                            <div class="col-md-8">
+                                    <input type="time" class="form-control" id="txtinctime" name="txtinctime" placeholder="hh/mm">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3 required">
+                          <label class="col-form-label col-md-4 fw-bold">Report Time</label>
+                          <div class="col-md-8">
+                                  <input type="time" class="form-control" id="txtreptime" name="txtreptime" placeholder="hh/mm">
+                          </div>
+                       </div>
+                       
+                       <div class="row mb-3 required">
+                        <label class="col-form-label col-md-4 fw-bold">Employee Name</label>
+                        <div class="col-md-8">
+                          <select class="form-select" id="SelEmpName">
+                            <option value="1">Wang</option>
+                            <option value="2">Xiong</option>
+                            <option value="3">Raj</option>
+                            <option value="4">Dinesh</option>
+                          </select>
+                        </div>
+                    </div>
+
+                          <div class="row mb-3 required">
+                            <label class="col-form-label col-md-4 fw-bold">Incident Severity</label>
+                            <div class="col-md-8">
+                              <select class="form-select" id="SelInciSeverity">
+                                <option value="1">Critical</option>
+                                <option value="2">High</option>
+                                <option value="3">Medium</option>
+                                <option value="4">Low</option>
+
+                              </select>
+                            </div>
+                        </div>
+                        
+                       
+  
+                         
+                      <div class="row mb-3">
+                          <label class="col-form-label col-md-4 fw-bold">Status</label>
+                          <div class="col-md-8 pt-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="InciStatus" id="rdStatusPending" value="30" checked>
+                              <label class="form-check-label" for="rdStatusPending">Pending</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="InciStatus" id="rdStatusClose" value="60">
+                              <label class="form-check-label" for="rdStatusClose">Closed</label>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="row mb-3">
+                          <label class="col-md-4 col-form-label fw-bold">Attachments</label>
+                          <div class="col-md-8">
+                              <table id="EditAttachmentWrap" class="w-100 attachwrap d-none" cellpadding="7"></table>
+                              <table id="AttachmentWrap" class="w-100 attachwrap" cellpadding="7"></table>
+                              <div class="my-3">
+                                  <button class="btn btn-outline-primary btn-sm fnaddattachment" type="button">Add Attachment</button>
+                              </div>
+                          </div>
+                      </div>
+                      </div>
+
+                      <div class="col-md-12">
+                            <div class="row mb-3 required">
+                              <label class="col-form-label col-md-4 fw-bold">Incident Description</label>
+                              <div class="col-md-12">
+                                <textarea type="text" id="txtDesc" name="txtDesc" class="form-control" ></textarea>
+                              </div>
+                          </div>
+                          <div class="row mb-3 required">
+                            <label class="col-form-label col-md-4 fw-bold">Action Taken</label>
+                            <div class="col-md-12">
+                              <textarea type="text" id="txtDesc" name="txtDesc" class="form-control" ></textarea>
+                            </div>
+                        </div>
+                        <div class="row mb-3 required">
+                          <label class="col-form-label col-md-4 fw-bold">Root Cause Evaluation</label>
+                          <div class="col-md-12">
+                            <textarea type="text" id="txtDesc" name="txtDesc" class="form-control" ></textarea>
+                          </div>
+                      </div>
+                      <div class="row mb-3 required">
+                        <label class="col-form-label col-md-4 fw-bold">Lesson Learnt / Preventive Action</label>
+                        <div class="col-md-12">
+                          <textarea type="text" id="txtDesc" name="txtDesc" class="form-control" ></textarea>
+                        </div>
+                    </div>
+                    <div class="row mb-3 required">
+                      <label class="col-form-label col-md-4 fw-bold">Mark This Incident For After Action Review Lesson?</label>
+                      <div class="col-md-12">
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="RevLession" id="rdoRevNo" value="No" checked>
+                          <label class="form-check-label" for="rdoRevNo">No</label>
+                        </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="RevLession" id="rdoRevYes" value="Yes">
+                            <label class="form-check-label" for="rdoRevYes">Yes</label>
+                          </div>
+                      </div>
+                  </div>
+                      </div>
+                         
+                      <div class="row my-3">
+                          <div class="col-md-12 text-center">
+                              <button type="button" class="btn btn-success raised" onclick="fnLoadAttendaceReport()" style="width: 12rem;">Submit</button>
+                              <button type="button" class="btn btn-light btn-bordered fnCancelNewTenant" onclick="fnCancelNewTenant()" style="width: 12rem;">Cancel</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+  </div>
+  
+  </div>
+</section>

@@ -1,0 +1,419 @@
+<section id="BodyContent">
+
+  <div class="container-fluid pt-4 pb-5">
+    <input type="hidden" id="hidAssetId" />
+    <div class="card moreradious mb-3">
+      <!--<div class="login-screen-title">Login</div>-->
+
+      <form id="formAsset" class="p-3 needs-validation" novalidate>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <h5>Asset Detail</h5>
+            </div>
+            <div class="col-md-6">
+              
+              <div class="row mb-3 required">
+                <label class="col-form-label col-md-4">Asset Title</label>
+                <div class="col-md-8">
+                  <input type="text" id="txtAssettitle" name="txtAssettitle" class="form-control" required />
+                  <div class="invalid-feedback">
+                    Please Enter Asset Title.
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-3 required">
+                <label class="col-form-label col-md-4">Asset Type</label>
+                <div class="col-md-8">
+                  <div class="input-group">
+                    <select class="form-select" id="selAssetType" data-size="5" data-live-search="true" required>
+                      <!-- <option value="desktop" selected>AIR CONDITIONING</option>
+                            <option value="mobile Phone">Oxygen Generator</option>
+                            <option value="laptop">FILTRATION  SYSTEM (UF SYSTEM)</option>
+                            <option value="fan">ALARAM SYSTEMS (PLC)</option> -->
+                    </select>
+                    <button type="button" class="btn btn-primary btnNewAssetType"><i class="fa fa-plus"></i>
+                      New</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-3 required">
+                <label class="col-form-label col-md-4">Asset Location</label>
+                <div class="col-md-8">
+                  <div class="input-group">
+                    <select class="form-select" id="selAssetLocation" data-size="5" data-live-search="true" required>
+                      <!-- <option value="desktop" selected>Apple</option>
+                            <option value="mobile Phone">Google</option>
+                            <option value="laptop">Samsung</option>
+                            <option value="fan">Microsoft</option> -->
+                    </select>
+                    <button type="button" class="btn btn-primary btnAssetNewLocation"><i class="fa fa-plus"></i>
+                      New</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-3 required">
+                <label class="col-form-label col-md-4">Asset Unit</label>
+                <div class="col-md-8">
+                  <div class="input-group">
+                    <select class="form-select" id="selAssetLocationUnit" data-size="5" data-live-search="true"
+                      required>
+                      <!-- <option value="desktop" selected>Apple</option>
+                          <option value="mobile Phone">Google</option>
+                          <option value="laptop">Samsung</option>
+                          <option value="fan">Microsoft</option> -->
+                    </select>
+                    <!-- <button type="button" class="btn btn-primary btnAssetNewLocation"><i class="fa fa-plus"></i> New</button> -->
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="row mb-3">
+                      <label class="col-form-label col-md-4">Asset Location Detail</label>
+                      <div class="col-md-8">
+                        <input type="text" id="txtTenantNameCompany" name="txtTenantNameCompany" class="form-control" />
+                      </div>
+                  </div> -->
+              <div class="row mb-3 required">
+                <label class="col-form-label col-md-4">Assign To</label>
+                <div class="col-md-8">
+                  <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input onchangeAssetAssigngroup" name="rdtaskgroup"
+                      checked="checked" id="rdtaskgroup" value="0">
+                    <label for="rdtaskgroup">
+                      Group
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input onchangeAssetAssigngroup" name="rdtaskgroup"
+                      id="rdtaskemployee" value="1">
+                    <label for="rdtaskemployee">
+                      Individual
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-3 required" id="divtaskgroup">
+                <label class="col-form-label col-md-4">Team</label>
+                <div class="col-md-8">
+                  <select id="selassettaskgroup" class="form-select" name="seltaskgroup" data-size="5"
+                    data-live-search="true" required>
+                    <!-- <option value="Ocean Suites" >Civil Engineering</option>
+                          <option value="Ocean Suites" >Plumbing and Sanitary</option>
+                          <option value="Ocean Suites" >Electrical</option>
+                          <option value="Ocean Suites" >Air-Conditioning and Mechanical Ventilation</option>
+                          <option value="Ocean Suites" >Fire Protection</option>
+                          <option value="Ocean Suites" >Vector and Pest Control</option>
+                          <option value="Ocean Suites" >Landscape Maintenance</option>
+                          <option value="Ocean Suites" >Cleaning Conservancy and General Waste Disposal </option>
+                          <option value="Ocean Suites" >Biohazardous and Lab Waste Disposal</option> -->
+                  </select>
+                </div>
+              </div>
+
+              <div class="row mb-3 required d-none" id="divIndidualEmp">
+                <label class="col-form-label col-md-4">Employee</label>
+                <div class="col-md-8">
+                  <select id="AssetIndidualEmp" class="form-select" name="IndidualEmp" data-size="5"
+                    data-live-search="true" required>
+                    <!-- <option value="Ocean Suites" >RAHMAN BIN TAIB</option>
+                          <option value="Ocean Suites" >RICHARD</option>
+                          <option value="Ocean Suites" >ANG GEH HUI</option>
+                          <option value="Ocean Suites" >ANIL SINGH RIARD</option> -->
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+
+              <div class="row mb-3 required">
+                <label class="col-form-label col-md-4">Asset Brand</label>
+                <div class="col-md-8">
+
+                  <div class="input-group">
+                    <select class="form-select" id="selAssetBrand" data-size="5" data-live-search="true" required>
+                      <!-- <option value="desktop" selected>Apple</option>
+                          <option value="mobile Phone">Google</option>
+                          <option value="laptop">Samsung</option>
+                          <option value="fan">Microsoft</option> -->
+                    </select>
+                    <button type="button" class="btn btn-primary btnNewAssetBrand"><i class="fa fa-plus"></i>
+                      New</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-3 required">
+                <label class="col-form-label col-md-4">Model Number</label>
+                <div class="col-md-8">
+                  <input type="text" id="txtAssetModalNo" name="txtAssetModalNo" class="form-control" required />
+                  <div class="invalid-feedback">
+                    Please Enter Model Number.
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-3">
+
+
+                <label class="col-form-label col-md-4 required">Serial Number</label>
+                <div class="col-md-8">
+                  <input type="text" id="txtAssetSerialNo" name="txtAssetSerialNo" class="form-control" required />
+                  <div class="invalid-feedback">
+                    Please Enter Serial Number.
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label class="col-form-label col-md-4">Remarks</label>
+                <div class="col-md-8">
+                  <textarea type="text" id="txtRemark" name="txtRemark" class="form-control"></textarea>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-md-12 mt-3">
+            <h5>Purchase and Warranty</h5>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+
+              <div class="row mb-3 required">
+                <label class="col-form-label col-md-4">Purchase Date</label>
+                <div class="col-md-8">
+                  <input type="text" id="txtPurchaseDate" name="txtPurchaseDate" class="form-control" required />
+                </div>
+              </div>
+
+              <div class="row mb-3 required">
+                <label class="col-form-label col-md-4">Purchase Price</label>
+                <div class="col-md-8">
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="fa-solid fa-circle-dollar"></i></span>
+                    <input type="text" id="txPurchasePrice" name="txPurchasePrice" class="form-control" required />
+                    <div class="invalid-feedback">
+                      Please Enter Purchase Price.
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-form-label col-md-4">Purchase Receipt</label>
+                <div class="col-md-8">
+                  <input class="form-control" type="file" id="filePurchaseReceipt">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="row mb-3 required">
+                <label class="col-form-label col-md-4">Warranty Expiry Date</label>
+                <div class="col-md-8">
+                  <input type="text" id="txtWarrantyExpDate" name="txtWarrantyExpDate" class="form-control" required />
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-form-label col-md-4">Warranty Receipt</label>
+                <div class="col-md-8">
+                  <input class="form-control" type="file" id="fileWarrantyReceipt">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 mt-3">
+            <h5>Inventory Mapping</h5>
+          </div>
+          <div class="row">
+
+            <div class="card mb-3">
+
+              <div class="ItemPanel" id="productquote">
+                <div class="ItemHead py-2">
+                  <div class="row">
+                   
+                    <div class="col-md-4 text-center">
+                      <b>Category Name</b>
+                    </div>
+                    <div class="col-md-5 text-center">
+                      <b>Item Name</b>
+                    </div>
+                    <div class="col-md-1 text-center">
+                      <b>Stock</b>
+                    </div>
+                    <div class="col-md-1 text-center">
+                      <b>Qty</b>
+                    </div>
+
+                    <div class="col-md-1">
+                      &nbsp;
+                    </div>
+                  </div>
+                </div>
+                <div class="quoteproductbody">
+                </div>
+              </div>
+
+              <div class="p-4">
+                <button type="button" id="ancaddnew" class="btn btn-outline-primary btn-sm fnAssetAddNewItem"><i
+                    class="fa fa-plus" aria-hidden="true"></i> Add Item</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 mt-3">
+            <h5>Attachments</h5>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="row mb-3">
+                <label class="col-md-4 col-form-label">Attachments</label>
+                <div class="col-md-8">
+                  <table id="EditAttachmentWrap" class="w-100 attachwrap d-none" cellpadding="7"></table>
+                  <table id="AttachmentWrap" class="w-100 attachwrap" cellpadding="7"></table>
+                  <div class="my-3">
+                    <button class="btn btn-outline-primary btn-sm fnaddattachment" type="button">Add Attachment</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row my-3">
+            <div class="col-md-12 text-center">
+              <button type="button" class="btn btn-success raised btnNewAssetSubmit"
+                style="width: 12rem;">Submit</button>
+                <button type="button" class="btn btn-success raised btnUpdateAssetSubmit d-none"
+                style="width: 12rem;">Update</button>
+              <button type="button" class="btn btn-light btn-bordered fnCancelNewAsset"
+                style="width: 12rem;">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+
+  </div>
+</section>
+
+<section id="ModalContent">
+
+  <div class="modal fade" id="ModalAssetNewLocationItem" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">New Location</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="row mb-3 required">
+                <label class="col-form-label col-md-4">Location</label>
+                <div class="col-md-8">
+                  <input class="form-control" type="text" name="txtassetlocation" id="txtassetlocation">
+                </div>
+              </div>
+
+              <div class="row mb-3" id="DivInvRemark">
+                <label class="col-form-label col-md-4">Description</label>
+                <div class="col-md-8">
+                  <textarea class="form-control" type="text" name="txtassetlocdesc" id="txtassetlocdesc"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-success raised SaveAssetLocation" style="width: 12rem;">Submit</button>
+          <button type="button" class="btn btn-light btn-bordered" data-bs-dismiss="modal"
+            style="width: 12rem;">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="ModalNewAssetTypeItem" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">New Asset Type</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="row mb-3 required">
+                <label class="col-form-label col-md-4">Asset Type</label>
+                <div class="col-md-8">
+                  <input class="form-control" type="text" name="txtassettype" id="txtassettype">
+                </div>
+              </div>
+
+              <div class="row mb-3" id="DivInvRemark">
+                <label class="col-form-label col-md-4">Description</label>
+                <div class="col-md-8">
+                  <textarea class="form-control" type="text" name="txtassettypedesc" id="txtassettypedesc"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-success raised SaveAssetType" style="width: 12rem;">Submit</button>
+          <button type="button" class="btn btn-light btn-bordered" data-bs-dismiss="modal"
+            style="width: 12rem;">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="ModalNewAssetBrandItem" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Asset Brand</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="row mb-3 required">
+                <label class="col-form-label col-md-4">Brand</label>
+                <div class="col-md-8">
+                  <input class="form-control" type="text" name="txtassetbrand" id="txtassetbrand">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-success raised SaveAssetBrand" style="width: 12rem;">Submit</button>
+          <button type="button" class="btn btn-light btn-bordered" data-bs-dismiss="modal"
+            style="width: 12rem;">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-none">
+    <select class="" id="hiddenselCategory" name="hiddenselCategory" onchange="return changeitemname()">
+    </select>
+    <select class="" id="hiddenselItemType" name="hiddenselItemType" onchange="return changeitemname()">
+    </select>
+    <select class="form-control d-none" id="hiddenselitem" name="hiddenselitem">
+    </select>
+  </div>
+</section>

@@ -1,0 +1,117 @@
+<section id="BodyContent">
+    <input type="hidden" id="hidUserPermissionId" />
+    <input type="hidden" id="hidUserEmpName" />
+    <div class="container-fluid pt-4 pb-5">
+        <div class="userPermissionListWrap d-none">
+      
+          <div class="row">
+            <div class="col-8">
+              <div class="input-group mb-2" id="DtUserSearchwrap" style="width:250px;">
+                <input type="text" class="form-control DTSearchBoxUser" placeholder="Search">
+                <button class="btn btn-light btn-bordered DTfrSearchClrUser" type="button" style="display:none;"><i class="fa fa-times"></i></button>
+                <button class="btn btn-light btn-bordered DTSearchBtnUser" type="button" ><i class="fa fa-search"></i></button>
+             </div>
+            </div>
+            <div class="col-4 text-end">
+                <button type="button" class="btn btn-success me-2 btnNewUserPermission">New User Permission</button>
+                <!-- <button type="button" class="btn btn-warning fnOpenEmployeeFilter me-2" >Filter</button> -->
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-body p-0">
+              <table id="TblUserPermission" class="table table-hover dt-responsive nowrap m-0" cellspacing="0" style="width:100%; margin-top: 0 !important;">
+                <thead>
+                    <tr>
+                        <th>Employee Name</th>
+                        <th>Designation</th>
+                        <th>Detail</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            </div>
+          </div>
+      </div>
+      
+      
+      <div class="userPermissionNewWrap d-none">
+        <div class="card">
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form id="formUserPermission" class="p-3 needs-validation" novalidate>
+                            <div class="row mb-3 required">
+                                <label for="selUserPermissionEmp" class="col-md-3 col-form-label">Employee Name</label>
+                                <div class="col-md-6">
+                                    <select class="form-select" name="selUserPermissionEmp" id="selUserPermissionEmp" required>
+                                            
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-3 required">
+                                <label for="selUserPermissionEmp" class="col-md-3 col-form-label">Menu</label>
+                                <div class="col-md-6">
+                                    <div class="zTreeDemoBackground">
+                                        <ul id="UserWebMenu" class="ztree"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                          
+                      </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-md-12 text-center">
+                        <button type="button" class="btn btn-success raised" id="btnsaveUserPermission" style="width:12rem">Submit</button>
+                        <button type="button" class="btn btn-light btn-bordered fnCancelUserPermission" style="width: 12rem;">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    
+      <div class="userPermissionDetailWrap d-none">
+        <div class="card">
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form id="formUserPermissionD" class="p-3 needs-validation" novalidate>
+                            <div class="row mb-3">
+                                <label for="selUserPermissionEmp" class="col-md-3 col-form-label">Employee Name</label>
+                                <div class="col-md-6">
+                                    <label class="col-form-label lblempname"></label>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="selUserPermissionEmp" class="col-md-3 col-form-label">Menu</label>
+                                <div class="col-md-6">
+                                    <div class="zTreeDemoBackground">
+                                        <ul id="EditUserWebMenu" class="ztree"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                          
+                      </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-md-12 text-center">
+                        <button type="button" class="btn btn-success raised" id="btnUpdateUserPermission" style="width:12rem">Submit</button>
+                        <button type="button" class="btn btn-light btn-bordered fnCancelUserPermissionD" style="width: 12rem;">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  
+  </section>
+  
+  <section id="ModalContent">
+    
+  
+  </section>
+  

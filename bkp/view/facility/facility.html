@@ -1,0 +1,110 @@
+<section id="BodyContent">
+
+  <div class="container-fluid pt-4 pb-5">
+    <div class="row mb-2">
+      <div class="col-xl-3 col-lg-6">
+        <div class="card card-stats mb-4 mb-xl-0 moreradious" style="background: #00000014;">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h5 class="card-title text-uppercase text-muted mb-0">All Amenities</h5>
+                <span class="h2 font-weight-bold mb-0">12</span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape bg-danger text-white rounded-circle">
+                  <i class="fa-solid fa-ballot-check"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-6">
+        <div class="card card-stats mb-4 mb-xl-0 moreradious" style="background: #00000014;">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h5 class="card-title text-uppercase text-muted mb-0">Available</h5>
+                <span class="h2 font-weight-bold mb-0">11</span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape bg-warning text-white rounded-circle">
+                    <i class="fa-solid fa-circle-check icon"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-6">
+        <div class="card card-stats mb-4 mb-xl-0 moreradious" style="background: #00000014;">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h5 class="card-title text-uppercase text-muted mb-0">Not Available</h5>
+                <span class="h2 font-weight-bold mb-0">1</span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape bg-primary text-white rounded-circle">
+                  <i class="fa-solid fa-circle-exclamation icon"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body p-0">
+          <div class="p-3">
+            <div class="row">
+                <div class="col-6">
+                    <div class="input-group d-inline-flex" style="width: 200px;">
+                        <input type="text" class="form-control" id="AmenirySearch" placeholder="Search" aria-label="Search" aria-describedby="AmenirySearchinputicon">
+                        <span class="input-group-text" id="AmenirySearchinputicon"><i class="fa-regular fa-magnifying-glass"></i></span>
+                    </div>
+                    <div class="d-inline-block" style="width: 250px;">
+                        <select class="form-control" name="selRoomServiceFilterHotel" id="selRoomServiceFilterHotel">
+                          <option value="Beach Villas" selected>Beach Villas</option>
+                          <option value="Crockfords Tower" >Crockfords Tower</option>
+                          <option value="Equarius Hotel" >Equarius Hotel</option>
+                          <option value="Festive Hotel" >Festive Hotel</option>
+                          <option value="Hard Rock" >Hard Rock</option>
+                          <option value="Hotel Michael" >Hotel Michael</option>
+                          <option value="Ocean Suites" >Ocean Suites</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-6 text-end">
+                    <button type="button" class="btn btn-success" id="btnNewAmenity" data-bs-toggle="modal" data-bs-target="#NewAmenityModal">New Amenity</button>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Export
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"><i class="fa-duotone fa-file-excel icon"></i>Excel</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fa-duotone fa-file-pdf icon"></i>PDF</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fa-duotone fa-download icon"></i>Print</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+          </div>
+        <table id="RoomServiceAmenity" class="table table-hover" cellspacing="0" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Thumbnails</th>
+                    <th>Name</th>
+                    <th>Daily Limit</th>
+                    <th>Status</th>
+                    <th>Detail</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+</section>

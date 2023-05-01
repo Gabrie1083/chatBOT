@@ -1,0 +1,89 @@
+<section id="BodyContent">
+    <div class="container-fluid pt-4 pb-5">
+        <div class="my-3">
+            <button type="button" class="btn btn-secondary" id="btnFaq"><i class="fa-solid fa-comments-question"></i> FAQ</button>
+            <button type="button" class="btn btn-secondary" id="btnChangeAppConfig"><i class="fa-solid fa-gear"></i> App Config</button>
+            <button type="button" class="btn btn-secondary" id="btnRefreshCompanyDetail"><i class="fa-solid fa-arrow-rotate-right"></i> Refresh Company Detail</button>
+        </div>
+        <div class="card my-3">
+            <div class="card-header">
+                <h6>Company Detail</h6>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-3">Company Name</dt>
+                    <dd class="col-sm-9" id="lblCompanyName">-</dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-3">Company Grade</dt>
+                    <dd class="col-sm-9" id="lblCompanyGrade">-</dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-3">Company Website</dt>
+                    <dd class="col-sm-9" id="lblCompanyWebsite">-</dd>
+                </dl>
+            </div>
+        </div>
+        <div class="card mb-3">
+            <div class="card-header">
+                <h6>Site Detail</h6>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-3">Site Name</dt>
+                    <dd class="col-sm-9" id="lblSiteName">-</dd>
+                </dl>
+            </div>
+        </div>
+        <div class="card mb-3">
+            <div class="card-header">
+                <h6>Device Config</h6>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-3">Device Type</dt>
+                    <dd class="col-sm-9" id="lblDeviceType">-</dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-3">Location Type</dt>
+                    <dd class="col-sm-9" id="lblLocationType">-</dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-3">VMS Type</dt>
+                    <dd class="col-sm-9" id="lblVMSType">-</dd>
+                </dl>
+            </div>
+        </div>
+        <div class="card mb-3">
+            <div class="card-header">
+                <h6>App Detail</h6>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-3">App Name</dt>
+                    <dd class="col-sm-9" id="lblAppName">-</dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-3">App Version</dt>
+                    <dd class="col-sm-9" id="lblAppVersion">-</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="ModalContent">
+
+    <div class="modal fade" id="ModalFaq" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+          <div class="modal-content h-100">
+            <div class="modal-header">
+              <h5 class="modal-title">FAQ</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+                <iframe id="faqIframe" class="iframe" src="https://help.splus.sg"></iframe>
+            </div>
+          </div>
+        </div>
+    </div>
+</section>

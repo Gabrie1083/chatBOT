@@ -1,0 +1,215 @@
+<section id="BodyContent">
+  <input type="hidden" id="hidUserEmpId" />
+  <input type="hidden" id="hidEmpListPageLoadFlg" />
+  <div class="container-fluid pt-4 pb-5">
+    <div class="employeeListWrap d-none">
+      <div class="row mb-2">
+        <div class="col-xl-3 col-lg-4">
+          <div class="card card-stats mb-4 mb-xl-0 moreradious" style="background: #00000014;">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">All Employees</h5>
+                  <span class="h2 font-weight-bold mb-0 lblemployeecount">--</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-danger text-white rounded-circle">
+                    <i class="fa-solid fa-ballot-check"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body p-0">
+          <div class="p-3 pb-1">
+            <div class="row">
+              <div class="col-8">
+                <div class="input-group mb-2" id="DtEmployeeSearchwrap" style="width:250px;">
+                  <input type="text" class="form-control DTSearchBox" placeholder="Search">
+                  <button class="btn btn-light btn-bordered DTfrSearchClr" type="button" style="display:none;"><i class="fa fa-times"></i></button>
+                  <button class="btn btn-light btn-bordered DTSearchBtn" type="button" ><i class="fa fa-search"></i></button>
+                </div>
+              </div>
+              <div class="col-4 text-end">
+                   <button type="button" class="btn btn-success me-2 btnNewEmployee">Create Employee</button> 
+                  
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      Action
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li class="fnExportExcelTenantList"><button type="button" class="dropdown-item"><i class="fa-duotone fa-envelope icon"></i>Send Welcome Mail</button></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="col-12">
+      
+                <div class="row mb-1 divEmployeeFilterPanel" style="display: none;">
+                      
+                  <div class="mb-2 col-3">
+                    <label class="col-form-label">Designation</label>
+                      <select class="form-select" name="selDesignationFilter" id="selDesignationFilter">
+                        
+                      </select>
+                  </div>
+                  <div class="mb-2 col-3">
+                    <label class="col-form-label">Status</label>
+                    <div>
+                      <div class="form-check form-check-inline">
+                        <input type="radico" class="form-check-input" name="rdEmpStatus" checked="checked" id="rdEmpStatusAll" value="0">
+                        <label for="rdEmpStatusAll">
+                            All
+                        </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="rdEmpStatus" id="rdEmpStatusActive" value="0">
+                        <label for="rdEmpStatusActive">
+                            Active
+                        </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                          <input type="radio" class="form-check-input" name="rdEmpStatus" id="rdEmpStatusInActive" value="1">
+                          <label for="rdEmpStatusInActive">
+                              InActive
+                          </label>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <div class="mb-2 mt-3 col-3">
+                    <button type="button" class="btn btn-primary btnFilterEmployee">Submit</button>
+                  </div>
+              </div>
+              </div>
+            </div>
+          </div>
+          <table id="TblUserManagement" class="table table-hover dt-responsive nowrap m-0" cellspacing="0" style="width:100%; margin-top: 0 !important;">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Employee Name</th>
+                    <th>Designation</th>
+                    <th>Contact</th>
+                    <th>MailId</th>
+                    <th>DOJ</th>
+                    <th>Status</th>
+                    <th class="all">Detail</th>
+                    <th class="all">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+    <div class="employeeDetailWrap d-none">
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-9">
+            <h5 id="lblEmployeeName"></h5>
+          </div>
+          <div class="col-md-3 text-end">
+            <button class="btn btn-light fnCancelEmployeeDetail" type="button">Close</button>
+          </div>
+          <div class="col-12">
+            <hr>
+          </div>
+          <div class="col-md-3">
+            <dl>
+              <dt>Designation </dt>
+              <dd id="lblEmployeeDesign"></dd>
+            </dl>
+          </div>
+          <div class="col-md-3">
+            <dl>
+              <dt>Mail Id </dt>
+              <dd id="lblEmployeeMail"></dd>
+            </dl>
+          </div>
+          <div class="col-md-3">
+            <dl>
+              <dt>Contact No</dt>
+              <dd id="lblEmployeeContact"></dd>
+            </dl>
+          </div>
+          <div class="col-md-3">
+            <dl>
+              <dt>DOB</dt>
+              <dd id="lblEmployeeDOB"></dd>
+            </dl>
+          </div>
+          <div class="col-md-3">
+            <dl>
+              <dt>DOJ</dt>
+              <dd id="lblEmployeeDOJ"></dd>
+            </dl>
+          </div>
+          <div class="col-md-3">
+            <dl>
+              <dt>Admin</dt>
+              <dd id="lblEmployeeAdminFlg"></dd>
+            </dl>
+          </div>
+          <div class="col-md-3">
+            <dl>
+              <dt>Status</dt>
+              <dd id="lblEmployeeStatus"></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer bottomline">
+          <ul class="nav nav-pills card-header-tabs" id="employeeTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="tabEmployeeDocLink" data-bs-toggle="tab" data-bs-target="#tabEmployeeDoc" type="button" role="tab" aria-controls="tabUserPermission" aria-selected="false">Documentaion </button>
+            </li>
+          </ul>
+      </div>
+    </div>
+      
+    <div class="card">
+      <div class="card-body tab-content" id="employeeTabContent">
+        <div class="tab-pane fade show active" id="tabEmployeeDoc" role="tabpanel" aria-labelledby="tabEmployeeDoc">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="input-group mb-2" id="DtEmpAttachWrap" style="width:250px;">
+                  <input type="text" class="form-control DTSearchBoxAttach" placeholder="Search">
+                  <button class="btn btn-light btn-bordered DTfrSearchClrAttach" type="button" style="display:none;"><i class="fa fa-times"></i></button>
+                  <button class="btn btn-light btn-bordered DTSearchBtnAttach" type="button" ><i class="fa fa-search"></i></button>
+              </div>
+            </div>
+            <div class="col-md-12">
+  
+              <table id="tblEmpAttachList" class="table table-hover dt-responsive nowrap" cellspacing="0" style="width:100%">
+                <thead>
+                    <tr>
+                      <th>File</th>
+                      <th>Preview</th>
+                      <th>Download</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="3" style="text-align: center;">No Attachment</td>
+                  </tr>
+                </tbody>
+            </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+</section>
+
+<section id="ModalContent">
+  
+
+</section>

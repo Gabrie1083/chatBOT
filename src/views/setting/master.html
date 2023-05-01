@@ -1,0 +1,84 @@
+<section id="BodyContent">
+    <input type="hidden" id="hidAssetTypeId" />
+    <input type="hidden" id="hidBrandTypeId" />
+    <div class="container-fluid pt-4 pb-5">
+      <div class="card mb-3">
+          <div class="card-footer bottomline">
+              <ul class="nav nav-pills card-header-tabs" id="SettingTabs" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="AssetBrand-tab" data-bs-toggle="tab" data-bs-target="#AssetBrand" type="button" role="tab" aria-controls="AssetBrand" aria-selected="false">Brand</button>
+                  </li>
+              </ul>
+          </div>
+          <div class="card-body tab-content" id="SettingTabContent">
+              <div class="tab-pane fade  show active" id="AssetBrand" role="tabpanel" aria-labelledby="AssetBrand-tab">
+                <div class="row">
+                    <div class="col-md-6">
+                      <div class="input-group mb-2" id="DtSAssetBrandsearchwrap" style="width:250px;">
+                          <input type="text" class="form-control DTSearchBoxAssetBrand" placeholder="Search">
+                          <button class="btn btn-light btn-bordered DTfrSearchClrAssetBrand" type="button" style="display:none;"><i class="fa fa-times"></i></button>
+                          <button class="btn btn-light btn-bordered DTSearchBtnAssetBrand" type="button" ><i class="fa fa-search"></i></button>
+                      </div>
+                    </div>  
+                    <div class="col-6 text-end">
+                        <button type="button" class="btn btn-success btnNewAssetBrand" data-bs-toggle="modal">New Brand</button>
+                    </div>
+                </div>
+                 
+                  <div class="row">
+                      <div class="col-md-12">                      
+                        <table id="TblAssetBrand" class="table table-hover" cellspacing="0" style="width:100%">
+                          <thead>
+                              <tr>
+                                  <th>Brand Name</th>
+                                  <th>Action</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                          </tbody>
+                      </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+          
+  </div>
+
+</section>
+
+<section id="ModalContent">
+      <div class="modal fade" id="ModalNewAssetBrandItem" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Brand</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+    
+                <form id="formSettingAssetBrand" class="p-3 needs-validation" novalidate>
+                    <div class="row">
+                        <div class="col-md-12">
+                          <div class="row mb-3 required">
+                            <label class="col-form-label col-md-4">Brand</label>
+                            <div class="col-md-8">
+                              <input class="form-control" type="text" name="txtassetbrand" id="txtassetbrand" required>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </form>
+              
+            </div>
+            <div class="modal-footer justify-content-center">
+              <button type="button" class="btn btn-success raised SaveAssetBrand" style="width: 12rem;">Submit</button>
+              <button type="button" class="btn btn-success raised d-none fnUpdateAssetBrand" style="width: 12rem;">Update</button>
+              <button type="button" class="btn btn-light btn-bordered" data-bs-dismiss="modal"
+                style="width: 12rem;">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+</section>

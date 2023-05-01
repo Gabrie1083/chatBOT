@@ -1,0 +1,213 @@
+<section id="BodyContent">
+    <input type="hidden" id="hidAssetTypeId" />
+    <input type="hidden" id="hidBrandTypeId" />
+    <div class="container-fluid pt-4 pb-5">
+      <div class="card mb-3">
+          <div class="card-footer bottomline">
+              <ul class="nav nav-pills card-header-tabs" id="SettingTabs" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="Asset-tab" data-bs-toggle="tab" data-bs-target="#Asset" type="button" role="tab" aria-controls="Asset" aria-selected="false">Asset</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="AssetType-tab" data-bs-toggle="tab" data-bs-target="#AssetType" type="button" role="tab" aria-controls="AssetType" aria-selected="false">Asset Type</button>
+                  </li>
+                  <!-- <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="AssetBrand-tab" data-bs-toggle="tab" data-bs-target="#AssetBrand" type="button" role="tab" aria-controls="AssetBrand" aria-selected="false">Asset Brand</button>
+                  </li> -->
+              </ul>
+          </div>
+          <div class="card-body tab-content" id="SettingTabContent">
+            <div class="tab-pane fade show active" id="Asset" role="tabpanel" aria-labelledby="Asset-tab">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card">
+                      <div class="card-header">
+                          Asset Number Format
+                      </div>
+                      <div class="card-body">
+                        <div class="row mb-3">
+                            <label class="col-form-label col-md-4">Asset Number</label>
+                            <div class="col-md-8 pt-2">
+                                <label class="row mb-3 lbl_assetnumber"></label>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label class="col-form-label col-md-4">Prefix</label>
+                            <div class="col-md-8">
+                                <input class="form-control" id="assetprefix" type="text" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-3 required">
+                            <label class="col-form-label col-md-4">Middle</label>
+                            <div class="col-md-8">
+                                <input class="form-control" id="assetmiddle" type="text" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label class="col-form-label col-md-4">Suffix</label>
+                            <div class="col-md-8">
+                                <input class="form-control" id="assetsuffix" type="text" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label class="col-form-label col-md-4">Seperator</label>
+                            <div class="col-md-2">
+                                <input class="form-control" id="assetseperator" type="text">
+                            </div>
+                        </div>
+                      </div>
+                      <div class="card-footer text-center">
+                          <button id="btnImpEmp" class="btn btn-success raised fnSaveAssetSetting" type="button" name="action">Save</button>
+                      </div>
+                  </div>
+              </div>
+              
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="AssetType" role="tabpanel" aria-labelledby="AssetType-tab">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group mb-2" id="DtSAssetTypesearchwrap" style="width:250px;">
+                            <input type="text" class="form-control DTSearchBoxAssetType" placeholder="Search">
+                            <button class="btn btn-light btn-bordered DTfrSearchClrAssetType" type="button" style="display:none;"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-light btn-bordered DTSearchBtnAssetType" type="button" ><i class="fa fa-search"></i></button>
+                        </div>
+                        </div>  
+                        <div class="col-6 text-end">
+                            <button type="button" class="btn btn-success me-2 btnNewAssetType" data-bs-toggle="modal">New Asset Type</button>
+                        </div>
+                    </div>
+                 
+                  <div class="row">
+                      <div class="col-md-12">                      
+                        <table id="TblAssetType" class="table table-hover" cellspacing="0" style="width:100%">
+                          <thead>
+                              <tr>
+                                  <th>Type Name</th>
+                                  <th>Description</th>
+                                  <th>Action</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                          </tbody>
+                      </table>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="tab-pane fade" id="AssetBrand" role="tabpanel" aria-labelledby="AssetBrand-tab">
+                <div class="row">
+                    <div class="col-md-6">
+                      <div class="input-group mb-2" id="DtSAssetBrandsearchwrap" style="width:250px;">
+                          <input type="text" class="form-control DTSearchBoxAssetBrand" placeholder="Search">
+                          <button class="btn btn-light btn-bordered DTfrSearchClrAssetBrand" type="button" style="display:none;"><i class="fa fa-times"></i></button>
+                          <button class="btn btn-light btn-bordered DTSearchBtnAssetBrand" type="button" ><i class="fa fa-search"></i></button>
+                      </div>
+                    </div>  
+                    <div class="col-6 text-end">
+                        <button type="button" class="btn btn-success btnNewAssetBrand" data-bs-toggle="modal">New Brand</button>
+                    </div>
+                </div>
+                 
+                  <div class="row">
+                      <div class="col-md-12">                      
+                        <table id="TblAssetBrand" class="table table-hover" cellspacing="0" style="width:100%">
+                          <thead>
+                              <tr>
+                                  <th>Brand Name</th>
+                                  <th>Action</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                          </tbody>
+                      </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+          
+  </div>
+
+</section>
+
+<section id="ModalContent">
+    <div class="modal fade" id="ModalNewAssetTypeItem" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">New Asset Type</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+    
+                <form id="formSettingAsset" class="p-3 needs-validation" novalidate>
+                    <div class="row">
+                        <div class="col-md-12">
+                          <div class="row mb-3 required">
+                            <label class="col-form-label col-md-4">Asset Type</label>
+                            <div class="col-md-8">
+                              <input class="form-control" type="text" name="txtassettype" id="txtassettype" required>
+                            </div>
+                          </div>
+            
+                          <div class="row mb-3" id="DivInvRemark">
+                            <label class="col-form-label col-md-4">Description</label>
+                            <div class="col-md-8">
+                              <textarea class="form-control" type="text" name="txtassettypedesc" id="txtassettypedesc"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </form>
+              
+            </div>
+            <div class="modal-footer justify-content-center">
+              <button type="button" class="btn btn-success raised SaveAssetType" style="width: 12rem;">Submit</button>
+              <button type="button" class="btn btn-success raised d-none fnUpdateAssetType" style="width: 12rem;">Update</button>
+              <button type="button" class="btn btn-light btn-bordered" data-bs-dismiss="modal"
+                style="width: 12rem;">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="modal fade" id="ModalNewAssetBrandItem" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Asset Brand</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+    
+                <form id="formSettingAssetBrand" class="p-3 needs-validation" novalidate>
+                    <div class="row">
+                        <div class="col-md-12">
+                          <div class="row mb-3 required">
+                            <label class="col-form-label col-md-4">Brand</label>
+                            <div class="col-md-8">
+                              <input class="form-control" type="text" name="txtassetbrand" id="txtassetbrand" required>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </form>
+              
+            </div>
+            <div class="modal-footer justify-content-center">
+              <button type="button" class="btn btn-success raised SaveAssetBrand" style="width: 12rem;">Submit</button>
+              <button type="button" class="btn btn-success raised d-none fnUpdateAssetBrand" style="width: 12rem;">Update</button>
+              <button type="button" class="btn btn-light btn-bordered" data-bs-dismiss="modal"
+                style="width: 12rem;">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+</section>

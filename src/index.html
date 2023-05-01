@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Security-Policy" content="
+        worker-src 'self' blob:; 
+        child-src https://*.spluz.app http://localhost:*  blob: gap:;
+        frame-src 'self' https://*.spluz.app https://secureplus.blob.core.windows.net http://localhost:* blob: gap:; 
+        img-src 'self' https://*.spluz.app https://secureplus.blob.core.windows.net http://localhost:* blob: data:;
+        default-src 'self' https://*.spluz.app http://localhost:* 'unsafe-inline' 'unsafe-eval' data: gap: content:">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Chatbot</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    </head>
+    <body class="nolayout">
+        <div class="headerWrap d-none">
+            <nav class="topnav desktopNav shadow">
+                <div class="logoWrap">
+                    <div class="logo">
+                        <img src="../img/ocbc_logo.png" alt="OCBC" >
+                    </div>
+                    <button type="button" class="link" href="#" id="toggleMainNav">
+                        <i class="fa fa-bars fa-lg"></i>
+                    </button>
+                </div>
+                <div class="page-name pageTitle">
+                </div>
+                <div class="empty-space">
+                </div>
+                <button type="button" class="link dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa-duotone fa-circle-info icon"></i>Help</button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item fnOpenSupportTicket" href="javascript:void(0)"><i class="fa-solid fa-clipboard-check"></i> Support Ticket</a></li>
+                </ul>
+                <button type="button" class="link" href="#NotifyOffcanvas" data-bs-toggle="offcanvas">
+                    <i class="fa-duotone fa-bell icon"></i><span class="lblNotificationCount"></span>
+                </button>
+                <button type="button" class="link username btnLoginUserData" href="#UserProfileOffcanvas" data-bs-toggle="offcanvas" >
+                    <i class="fa-duotone fa-circle-user icon me-1"></i>
+                    <span class="userNameText" style="overflow: hidden;">UserName</span>
+                </button>
+                <!-- <div class="username dropdown">
+                    <a id="userMenuDropdown" class=" dropdown-toggle link" data-bs-toggle="dropdown">
+                        <i class="fa-duotone fa-circle-user icon"></i>
+                        <span id="UserName" style="overflow: hidden;">UserName</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                    <li><button type="button">User Profile</button></li>
+                    <li><button type="button" class="dropdown-item btnLogout">Logout</button></li>
+                    </ul>
+                </div> -->
+            </nav>
+            <nav class="topnav mobileNav shadow">
+                <button type="button" class="link" href="#MobileMenuOffcanvas" data-bs-toggle="offcanvas">
+                    <i class="fa fa-bars fa-lg"></i>
+                </button>
+                <div class="page-name pageTitle">
+                </div>
+                <div class="empty-space">
+                </div>
+                <button type="button" class="link dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa-duotone fa-circle-info icon"></i></button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item fnOpenSupportTicket" href="javascript:void(0)"><i class="fa-solid fa-clipboard-check"></i> Support Ticket</a></li>
+                </ul>
+                <button type="button" class="link" href="#NotifyOffcanvas" data-bs-toggle="offcanvas">
+                    <i class="fa-duotone fa-bell icon"></i><span class="lblNotificationCount"></span>
+                </button>
+                <button type="button" class="link username btnLoginUserData" href="#UserProfileOffcanvas" data-bs-toggle="offcanvas" >
+                    <i class="fa-duotone fa-circle-user icon me-1"></i>
+                </button>
+            </nav>
+        </div>
+        <div class="pageWrap" id="pageWrap">
+            <div class="sidebarWrap d-none">
+                <div class="sidebarScrollWrap">
+                    <!-- <div class="logo p-2" href="#">
+                        <img id="imgCompanyLogo" />
+                    </div> -->
+                    <!-- <div class="sidebar-search">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="searchinputicon">
+                        <span class="input-group-text" id="searchinputicon"><i class="fa-regular fa-magnifying-glass"></i></span>
+                    </div>
+                    </div> -->
+                    <div class="accordion mainMenu" id="DesktopMainMenu">
+                    </div>
+                </div>
+            </div>
+            <div class="pageContent">
+                <div class="pageScrollWrap">
+                    <div id="BodyRender"></div>
+                </div>
+            </div>
+        </div>
+        <div id="ModalRender"></div>
+        
+        <div class="toast-container position-absolute p-3 top-0 start-50 translate-middle-x" style="z-index: 1060;">
+            <div class="toast align-items-center text-white border-0" id="alertToast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-animation="true" data-bs-delay="3000" data-bs-autohide="true">
+                <div class="toast-header">
+                    <strong class="me-auto ToastHeader"></strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body d-flex align-items-center">
+                    <div class="ToastIcon me-3"></div>
+                    <div class="ToastMsg"></div>
+                </div>
+            </div>
+            <div class="toast align-items-center text-white bg-secondary border-0" id="loadingToast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-animation="true" data-bs-delay="3000" data-bs-autohide="false">
+                <div class="toast-body d-flex align-items-center justify-content-center">
+                    <div class="ToastIcon me-3"></div>
+                    <div class="ToastMsg"></div>
+                </div>
+            </div>
+        </div>
+        <div class="toast-container position-absolute p-3 top-0 start-50 translate-middle-x" style="z-index: 1060;">
+            <div class="toast align-items-center text-white bg-danger border-0" id="XHRErrorToast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-animation="true" data-bs-delay="3000" data-bs-autohide="true">
+                <div class="toast-header">
+                    <strong class="me-auto ToastHeader"></strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body d-flex align-items-center justify-content-center flex-column">
+                    <div class="ToastIcon"></div>
+                    <div class="ToastMsg"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="MobileMenuOffcanvas" aria-labelledby="MobileMenuOffcanvas">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title">Menu</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="accordion mainMenu" id="MobileMainMenu">
+                </div>
+            </div>
+        </div>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="UserProfileOffcanvas" aria-labelledby="UserProfileOffcanvas">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title">User Profile</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="userprofile">
+                    <div class="text-center user-details-wrap">
+                        <div class="user-photo mb-4">
+                            <img id="homeimg" src="img/placeholder-man.png" />
+                        </div>
+                        <h4 id="homeempname" class="">Employee Name</h4>
+                        <p id="homedesignation">Designation</p>
+                    </div>
+                    <div class="list-group user">
+                        <a href="#setting/userProfile" data-bs-dismiss="offcanvas" class="list-group-item"><i class="fa fa-user"></i> User Profile</a>
+                        <a href="javascript:void(0)" data-bs-dismiss="offcanvas" class="list-group-item btnLogout"><i class="fa fa-sign-out"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="NotifyOffcanvas" aria-labelledby="NotifyOffcanvas">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title">Notifications</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="list-group" id="notificationlist"></div>
+            </div>
+        </div>
+    </body>
+</html>

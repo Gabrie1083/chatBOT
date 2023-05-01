@@ -1,0 +1,135 @@
+<section id="BodyContent">
+    <div class="container">
+  
+      <input type="hidden" id="hidLicenseId" />
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-9">
+              <h5 id="lblLicenseNumber"></h5>
+            </div>
+            <div class="col-md-3 text-end">
+              <button class="btn btn-light fnCancelLicenseDetail" type="button">Close</button>
+            </div>
+            <div class="col-12">
+              <hr>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <dl>
+                <dt>Document Name </dt>
+                <dd id="lblDocumentName"></dd>
+              </dl>
+            </div>
+            <div class="col-md-3">
+              <dl>
+                <dt>Document Type</dt>
+                <dd id="lblLiceDocumentType"></dd>
+              </dl>
+            </div>
+            <div class="col-md-3">
+              <dl>
+                <dt>Asset</dt>
+                <dd id="lblLicenseAsset"></dd>
+              </dl>
+            </div>
+            <div class="col-md-3">
+              <dl>
+                <dt>Renewal Date</dt>
+                <dd id="lblLicenseRenewal"></dd>
+              </dl>
+            </div>
+            <div class="col-md-3">
+              <dl>
+                <dt>Remark</dt>
+                <dd id="lblLicenseRemark"></dd>
+              </dl>
+            </div>
+            <div class="col-md-3">
+              <dl>
+                <dt>Status</dt>
+                <dd id="lblLicenseStatus"></dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer bottomline">
+            <ul class="nav nav-pills card-header-tabs" id="tenantTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="escalationtimeline-tab" data-bs-toggle="tab" data-bs-target="#escalationtimeline" type="button" role="tab" aria-controls="escalationtimeline" aria-selected="false">Attachment</button>
+                </li>
+            </ul>
+        </div>
+      </div>
+        
+      <div class="card">
+        <div class="card-body tab-content" id="tenantTabContent">
+          <div class="tab-pane fade show active" id="escalationtimeline" role="tabpanel" aria-labelledby="escalationtimeline-tab">
+            <div class="row">
+              <div class="col-md-12">
+                <table id="tblLicenseDocument" class="table table-hover" cellspacing="0" style="width:100%">
+                  <thead>
+                      <tr>
+                        <th>File</th>
+                        <th>Preview</th>
+                        <th>Download</th>
+                        <!-- <th>Action</th> -->
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <!-- <tr>
+                      <td><img src="./img/documents.png"></td>
+                      <td><div class="d-grid"><button type="button" class="btn btn-info">Preview</button></div></td>
+                      <td><div class="d-grid"><button type="button" class="btn btn-info">Download</button></div></td>
+                      <td><div class="d-grid"><button type="button" class="btn btn-outline-danger">Delete</button></div></td>
+                    </tr> -->
+                  </tbody>
+              </table>
+              </div>
+              
+            </div>
+          </div>
+          <div class="tab-pane fade" id="workorder" role="tabpanel" aria-labelledby="workorder-tab">
+            <div class="card mb-3">
+                <div class="card-body p-0">
+  
+                    <table id="divOpenticketlist" class="table table-hover" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th><span>Created Date</span></th>
+                                <th><span>Id</span></th>
+                                <th><span>Subject</span></th>
+                                <th><span>Assigned To</span></th>
+                                <th><span>Priority</span></th>
+                                <th><span>Status</span></th>
+                                <th><span>View</span></th>
+                                <th><span>Action</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+  </section>
+  
+  <section id="ModalContent">
+    <div class="modal fade" id="DocPreviewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <iframe class="iframe" id="DocPreviewIframe" src=""></iframe>
+              <input type="hidden" id="hidDocPreviewFilename" />
+            </div>
+          </div>
+      </div>
+    </div>
+  </section>
+  

@@ -1,0 +1,220 @@
+<section id="BodyContent">
+
+  <div class="container-fluid pt-4 pb-5">
+    <!-- <div class="row my-3">
+      <div class="col-12">
+          <input type="text" class="form-control d-inline-block dashinput" id="txtOrderFilterDateRange" placeholder="Date Range" style="width: 300px;">
+      </div>
+    </div> -->
+      
+      <div class="row mb-2">
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-2 moreradious">
+            <div class="card-body">
+              <div class="row">
+                <div class="col text-center">
+                  <div class="icon icon-shape bg-warning text-white rounded-circle">
+                    <i class="fa-solid fa-calendar-check"></i>
+                  </div>
+                  <div class="h2 font-weight-bold mb-0" id="OpenWorkOrderCount">--</div>
+                  <h5 class="card-title text-uppercase text-muted mb-0">Open Work Orders</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card card-stats mb-2 moreradious">
+            <div class="card-body">
+              <div class="row">
+                <div class="col text-center">
+                  <div class="icon icon-shape red lighten-2 text-white rounded-circle">
+                    <i class="fa-solid fa-ballot-check"></i>
+                  </div>
+                  <div class="h2 font-weight-bold mb-0" id="ScheduleMaintenanceMonhtly">--</div>
+                  <h5 class="card-title text-uppercase text-muted mb-0">Schedule Maintenance Last Monht</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="col-xl-3 col-lg-6">
+            <div class="card card-stats mb-4 mb-xl-0 moreradious" style="height: 260px;">
+              <div class="card-body">
+                <div class="row pb-2">
+                  <div class="col-auto">
+                    <div class="icon icon-shape teal lighten-2 text-white rounded-circle">
+                      <i class="fa-solid fa-circle-exclamation"></i>
+                  </div>
+                  </div>
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0">Pending Request Order</h5>
+                    <span class="h2 font-weight-bold mb-0" id="PendingRequestOrder">--</span>
+                  </div>
+                </div>
+                <div class="row pb-2 pt-2" style="border-bottom: 1px solid #eee;border-top: 1px solid #eee;">
+                  <div class="col-auto">
+                    <div class="icon icon-shape cyan lighten-2 text-white rounded-circle">
+                      <i class="fa-solid fa-brake-warning"></i>
+                  </div>
+                  </div>
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0">Critical Request Order</h5>
+                    <span class="h2 font-weight-bold mb-0" id="CriticalRequestOrder">--</span>
+                  </div>
+                </div>
+                <div class="row pb-2 pt-2">
+                  <div class="col-auto">
+                    <div class="icon icon-shape indigo lighten-2 text-white rounded-circle">
+                      <i class="fa-solid fa-square-exclamation"></i>
+                  </div>
+                  </div>
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0">High Request Order</h5>
+                    <span class="h2 font-weight-bold mb-0" id="HighRequestOrder">--</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-xl-3 col-lg-6">
+            <div class="card card-stats mb-4 moreradious" style="background: #00000014;">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0">Total Assets</h5>
+                    <span class="h2 font-weight-bold mb-0" id="TotalAssets">--</span>
+                  </div>
+                  <div class="col-auto">
+                    <div class="icon icon-shape green text-white rounded-circle">
+                      <i class="fa-solid fa-ballot-check"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card card-stats mb-4 moreradious" style="background: #00000014;">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0">Total Inventory</h5>
+                    <span class="h2 font-weight-bold mb-0" id="TotalInventory">--</span>
+                  </div>
+                  <div class="col-auto">
+                    <div class="icon icon-shape orange text-white rounded-circle">
+                      <i class="fa-solid fa-ballot-check"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="card card-stats mb-4 moreradious" style="background: #00000014;">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0">Total Work Order</h5>
+                    <span class="h2 font-weight-bold mb-0" id="total_work_order_count">--</span>
+                  </div>
+                  <div class="col-auto">
+                    <div class="icon icon-shape blue text-white rounded-circle">
+                      <i class="fa-solid fa-ballot-check"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+          <div class="col-xl-3 col-lg-6">
+            <!-- <div class="card card-stats mb-4 moreradious" style="background: #00000014;">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0">Total Request</h5>
+                    <span class="h2 font-weight-bold mb-0" id="work_request_count">--</span>
+                  </div>
+                  <div class="col-auto">
+                    <div class="icon icon-shape cyan text-white rounded-circle">
+                      <i class="fa-solid fa-ballot-check"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            <div class="card card-stats mb-4 moreradious" style="background: #00000014;">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0">Total License</h5>
+                    <span class="h2 font-weight-bold mb-0" id="TotalLicense">--</span>
+                  </div>
+                  <div class="col-auto">
+                    <div class="icon icon-shape orange text-white rounded-circle">
+                      <i class="fa-solid fa-ballot-check"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card card-stats mb-4 moreradious" style="background: #00000014;">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0">Total Tenant</h5>
+                    <span class="h2 font-weight-bold mb-0" id="TotalTenant">--</span>
+                  </div>
+                  <div class="col-auto">
+                    <div class="icon icon-shape orange text-white rounded-circle">
+                      <i class="fa-solid fa-ballot-check"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="row mb-3">
+          <div class="col-md-6">
+              <div class="card moreradious">
+                  <div class="card-header">
+                      <h4 class="">Last 10 Days Request Order</h4>
+                  </div>
+                  <div class="card-body">
+                      <div id="linechartcontainer"></div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="card moreradious">
+                  <div class="card-header">
+                      <h4 class="">Work Order By Group</h4>
+                      <!-- <h6>(Total Request : 1200)</h6> -->
+                  </div>
+                  <div class="card-body">
+                      <div id="piechartcontainer"></div>
+                  </div>
+              </div>
+          </div>
+          <!-- <div class="col-md-6">
+              <div class="card moreradious">
+                  <div class="card-header">
+                      <h4 class="">Request based on Hotels </h4>
+                  </div>
+                  <div class="card-body">
+                      <div id="columnchartcontainer1"></div>
+                  </div>
+              </div>
+          </div> -->
+      </div>    
+      <!-- <div class="row">
+        <div class="col-md-6">
+            <div class="card moreradious">
+                <div class="card-header">
+                    <h4 class="">Top 10 Incident Count</h4>
+                </div>
+                <div class="card-body">
+                    <div id="columnchartcontainer"></div>
+                </div>
+            </div>
+        </div>
+      </div> -->
+  </div>
+</section>

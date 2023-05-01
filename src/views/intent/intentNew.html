@@ -1,0 +1,87 @@
+<section id="BodyContent">
+  <div class="container-fluid pt-4 pb-5">
+        <input type="hidden" id="hidUserEmpId" />
+        <div class="card">
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form id="formNewEmployee" class="p-3 needs-validation" novalidate>
+                          <div class="row">
+                            <div class="col-md-12">
+                                <div class="row mb-3 required">
+                                    <label for="txtintent" class="col-md-4 col-form-label">Intent Title</label>
+                                    <div class="col-md-8">
+                                       <input type="text" id="txtintent" name="txtintent" class="form-control" placeholder="Intent Title" required>
+
+                                            <div class="invalid-feedback">
+                                              Please Enter Intent.
+                                            </div>
+                                      
+                                          
+                                        </div>
+                                    
+                                    
+                                </div>
+    
+                                
+    
+                                <div class="row mb-3 required">
+                                  <label class="col-md-4 col-form-label" for="seluserdesignation">Intent Type</label>
+                                  <div class="col-md-8">
+
+                                    <div class="input-group col-md-12">
+                                      <div class="row">
+                                      <div class="col-md-8">
+                                        <select class="form-select" name="seluserdesignation" id="seluserdesignation" data-width="100%">
+                                              <option>Onboard Notification</option>
+                                              <option>Project Requirement</option>
+                                              <option>Maintenance</option>
+                                        </select>
+                                      </div>
+                                      <div class="col-md-4">
+                                        <button type="button" class="btn btn-primary" id="btnAddType" >Add</button>
+                                      </div>  
+                                    </div>
+                                    </div>
+                                    
+                                  </div>
+                                  
+                                  </div>
+
+                                  <div class="row mb-3 required">
+                                    <label for="txtintentdesc" class="col-md-4 col-form-label">Intent Description</label>
+                                    <div class="col-md-8">
+                                      
+                                            <textarea type="text" id="txtintentdesc" name="txtintentdesc" class="form-control" placeholder="Intent Description" required></textarea>
+                                      
+                                      </div>
+                                    </div>
+                                
+                                <div class="row mb-3 required">
+                                  <label for="txtintentkeyword" class="col-md-4 col-form-label">Intent Keywords</label>
+                                  <div class="col-md-8">
+                                    
+                                          <textarea type="text" id="txtintentkeyword" name="txtintentkeyword" class="form-control" placeholder="Intent Keywords" required></textarea>
+                                        
+                                        
+                                  
+                                  </div>
+                              </div>
+    
+                            </div>
+                          </div>
+                        </form>
+                          
+                      </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-md-12 text-center">
+                        <button type="button" class="btn btn-success raised" id="btnsaveUser" style="width:12rem">Submit</button>
+                        <button type="button" class="btn btn-success raised d-none" id="btnupdateUser" style="width:12rem">Update</button>
+                        <button type="button" class="btn btn-light btn-bordered fnCancelNewIntent" style="width: 12rem;">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

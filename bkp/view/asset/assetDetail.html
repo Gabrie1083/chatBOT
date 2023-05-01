@@ -1,0 +1,217 @@
+<section id="BodyContent">
+  <div class="container-fluid pt-4 pb-5">
+
+    <input type="hidden" id="hidAssetId" />
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-9">
+            <h5 id="lblAseetType">Air Conditioner</h5>
+          </div>
+          <div class="col-md-3 text-end">
+            <!-- <div class="dropdown d-inline-block">
+              <button class="btn btn-primary dropdown-toggle me-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Active</button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Edit</a></li>
+                <li><a class="dropdown-item" href="#">Renew</a></li>
+                <li><a class="dropdown-item red-text" href="#">Terminate</a></li>
+              </ul>
+            </div> -->
+            <button class="btn btn-light fnCancelAssetDetail" type="button">Close</button>
+          </div>
+          <div class="col-12">
+            <hr>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <dl>
+              <dt>Brand </dt>
+              <dd id="lblAssetbrand">Toshiba</dd>
+            </dl>
+          </div>
+          <div class="col-md-3">
+            <dl>
+              <dt>Model</dt>
+              <dd id="lblAssetModelNo">MCY-MAP0504HT - SG-12123</dd>
+            </dl>
+          </div>
+          <div class="col-md-3">
+            <dl>
+              <dt>Serial No</dt>
+              <dd id="lblAssetSerialNo">MCY-MAP0504HT - SG-12123</dd>
+            </dl>
+          </div>
+          <div class="col-md-3">
+            <dl>
+              <dt>Asset Location</dt>
+              <dd id="lblAssetLecation">Main Building - B1</dd>
+            </dl>
+          </div>
+          <div class="col-md-3">
+            <dl>
+              <dt>Assigned To</dt>
+              <dd id="lblAssertAssign">Wang</dd>
+            </dl>
+          </div>
+          <div class="col-md-3">
+            <dl>
+              <dt>Price</dt>
+              <dd id="lblassetprice">$1,200.00</dd>
+            </dl>
+          </div>
+          <div class="col-md-3">
+            <dl>
+              <dt>Status</dt>
+              <dd id="lblAssetStatus"></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer bottomline">
+          <ul class="nav nav-pills card-header-tabs" id="tenantTabs" role="tablist">
+           
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="tenantContract-tab" data-bs-toggle="tab" data-bs-target="#tenantContract" type="button" role="tab" aria-controls="tenantContract" aria-selected="false">Purchase and Warranty </button>
+            </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="escalationtimeline-tab" data-bs-toggle="tab" data-bs-target="#escalationtimeline" type="button" role="tab" aria-controls="escalationtimeline" aria-selected="false">Attachment</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link " id="inventoryMapping-tab" data-bs-toggle="tab" data-bs-target="#inventoryMapping" type="button" role="tab" aria-controls="inventoryMapping" aria-selected="false">Inventory Mapping </button>
+              </li>
+              <!-- <li class="nav-item" role="presentation">
+                <button class="nav-link" id="workorder-tab" data-bs-toggle="tab" data-bs-target="#workorder" type="button" role="tab" aria-controls="workorder" aria-selected="false">Work Order</button>
+              </li> -->
+          </ul>
+      </div>
+    </div>
+      
+    <div class="card">
+      <div class="card-body tab-content" id="tenantTabContent">
+        <div class="tab-pane fade show active" id="tenantContract" role="tabpanel" aria-labelledby="tenantContract-tab">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="input-group mb-2" id="DtSTenantContract" style="width:250px;">
+                  <input type="text" class="form-control DTSearchBox" placeholder="Search">
+                  <button class="btn btn-light btn-bordered DTfrSearchClr" type="button" style="display:none;"><i class="fa fa-times"></i></button>
+                  <button class="btn btn-light btn-bordered DTSearchBtn" type="button" ><i class="fa fa-search"></i></button>
+              </div>
+            </div>
+            <div class="col-md-12">
+
+              <table id="tblAssetContractList" class="table table-hover" cellspacing="0" style="width:100%">
+                <thead>
+                    <tr>
+                      <th>Purchase Date</th>
+                      <th>Warranty Expiry Date</th>
+                      <th>Purchase Receipt</th>
+                      <th>Warranty Receipt</th>
+                      <!-- <th>Action</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                      <th>22/2/2023</th>
+                      <th>21/2/2024</th>
+                      <td><div class="d-grid"><button type="button" class="btn btn-info">Preview</button></div></td>
+                      <td><div class="d-grid"><button type="button" class="btn btn-info">Preview</button></div></td>
+                      <td><div class="d-grid"><button type="button" class="btn btn-outline-danger">Delete</button></div></td> 
+                    </tr> -->
+                </tbody>
+            </table>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="tab-pane fade" id="ordertimeline" role="tabpanel" aria-labelledby="ordertimeline-tab">
+          <div class="row">
+          </div>
+        </div> -->
+        <div class="tab-pane fade" id="escalationtimeline" role="tabpanel" aria-labelledby="escalationtimeline-tab">
+          <div class="row">
+            <div class="col-md-12">
+              <table id="tblAssetDocument" class="table table-hover" cellspacing="0" style="width:100%">
+                <thead>
+                    <tr>
+                      <th>File</th>
+                      <th>Preview</th>
+                      <th>Download</th>
+                      <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <!-- <tr>
+                    <td><img src="./img/documents.png"></td>
+                    <td><div class="d-grid"><button type="button" class="btn btn-info">Preview</button></div></td>
+                    <td><div class="d-grid"><button type="button" class="btn btn-info">Download</button></div></td>
+                    <td><div class="d-grid"><button type="button" class="btn btn-outline-danger">Delete</button></div></td>
+                  </tr> -->
+                </tbody>
+            </table>
+            </div>
+            
+          </div>
+        </div>
+        <div class="tab-pane fade" id="inventoryMapping" role="tabpanel" aria-labelledby="inventoryMapping-tab">
+          <div class="row">
+            <div class="col-md-12">
+              <table id="tblInventoryMapping" class="table table-hover" cellspacing="0" style="width:100%">
+                <thead>
+                    <tr>
+                      <th>Category</th>
+                      <th>Item Name</th>
+                      <th>Set Name</th>
+                      <th>Quantity</th>
+                      <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                </tbody>
+            </table>
+            </div>
+            
+          </div>
+        </div>
+        <div class="tab-pane fade" id="workorder" role="tabpanel" aria-labelledby="workorder-tab">
+          <div class="card mb-3">
+              <div class="card-body p-0">
+
+                  <table id="divOpenticketlist" class="table table-hover" cellspacing="0" width="100%">
+                      <thead>
+                          <tr>
+                              <th><span>Created Date</span></th>
+                              <th><span>Id</span></th>
+                              <th><span>Subject</span></th>
+                              <th><span>Assigned To</span></th>
+                              <th><span>Priority</span></th>
+                              <th><span>Status</span></th>
+                              <th><span>View</span></th>
+                              <th><span>Action</span></th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+</section>
+
+<section id="ModalContent">
+  <div class="modal fade" id="DocPreviewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <iframe class="iframe" id="DocPreviewIframe" src=""></iframe>
+            <input type="hidden" id="hidDocPreviewFilename" />
+          </div>
+        </div>
+    </div>
+  </div>
+</section>

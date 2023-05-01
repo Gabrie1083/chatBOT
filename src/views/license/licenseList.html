@@ -1,0 +1,418 @@
+<section id="BodyContent">
+
+  <div class="container-fluid pt-4 pb-5">
+    <input type="hidden" id="hidLicenseId" />
+    <input type="hidden" id="hidLCListPageLoadFlg" >
+    <div id="divLicenseList">
+      <div class="card">
+        <div class="card-body p-0">
+          <div class="row mt-3 p-2">
+            <div class="col-6">
+              <div class="input-group mb-2" id="DtSLicensesearchwrap" style="width:250px;">
+                <input type="text" class="form-control DTSearchBoxLicense" placeholder="Search">
+                <button class="btn btn-light btn-bordered DTfrSearchClrLicense" type="button" style="display:none;"><i class="fa fa-times"></i></button>
+                <button class="btn btn-light btn-bordered DTSearchBtnLicense" type="button" ><i class="fa fa-search"></i></button>
+             </div>
+            </div>
+            <div class="col-6 text-end">
+                <!-- <button type="button" class="btn btn-success me-2" id="btnNewLicense">Create License</button> -->
+                <button type="button" class="btn btn-warning fnOpenLicenseFilter me-2" >Filter</button>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Export
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="fnExportExcelLicenseList"><button type="button" class="dropdown-item"><i class="fa-duotone fa-file-excel icon"></i>Excel</button></li>
+                        <li class="fnPrintLicenseList"><button type="button" class="dropdown-item"><i class="fa-duotone fa-file-pdf icon"></i>Print</button></li>
+                        <li class="fnDownloadLicenseList"><button type="button" class="dropdown-item"><i class="fa-duotone fa-download icon"></i>Download</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4 mb-1 divLicenseFilterPanel" style="display: none;">
+          <div class="mb-2 col-4">
+            <label class="col-form-label">Status</label>
+            <div>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="rdLicenseStatus" checked="checked" id="rdLicenseStsAll" value="0">
+                <label for="rdLicenseStsAll">
+                    All
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="rdLicenseStatus" id="rdLicenseStsActive" value="0">
+                <label for="rdLicenseStsActive">
+                    Active
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                  <input type="radio" class="form-check-input" name="rdLicenseStatus" id="rdLicenseStsInActive" value="1">
+                  <label for="rdLicenseStsInActive">
+                      InActive
+                  </label>
+              </div>
+            </div>
+            
+          </div>
+          <div class="mb-2 col-4">
+            <label class="col-form-label">Document Type</label>
+              <select id="selDocumentTypeFilter" class="form-select" name="selDocumentTypeFilter" data-size="5" data-live-search="true" required>
+                
+              </select>
+          </div>
+          
+          <div class="mb-2 col-2" style="padding-top: 37px;">
+            <button type="button" class="btn btn-primary btnFilterLicense">Submit</button>
+          </div>
+      </div>
+          <table id="TblLicense" class="table table-hover dt-responsive nowrap" cellspacing="0" style="width:100%">
+              <thead>
+                  <tr>
+                      <th>Licenses ID</th>
+                      <th>Licenses No</th>
+                      <th>Document Type</th>
+                      <th>Document Name</th>
+                      <!-- <th>Asset Brand</th> -->
+                      <th>Renewal Date</th>
+                      <th>Status</th>
+                      <th class="all">Detail</th>
+                      <th class="all">Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+              </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <div class="d-none" id="divLicenseDetail">
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-9">
+              <h5 id="lblLicenseNumber"></h5>
+            </div>
+            <div class="col-md-3 text-end">
+              <button class="btn btn-light fnCancelLicenseDetail" type="button">Close</button>
+            </div>
+            <div class="col-12">
+              <hr>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <dl>
+                <dt>Document Name </dt>
+                <dd id="lblDocumentName"></dd>
+              </dl>
+            </div>
+            <div class="col-md-3">
+              <dl>
+                <dt>Document Type</dt>
+                <dd id="lblLiceDocumentType"></dd>
+              </dl>
+            </div>
+            <div class="col-md-3">
+              <dl>
+                <dt>Asset</dt>
+                <dd id="lblLicenseAsset"></dd>
+              </dl>
+            </div>
+            <div class="col-md-3">
+              <dl>
+                <dt>Renewal Date</dt>
+                <dd id="lblLicenseRenewal"></dd>
+              </dl>
+            </div>
+            <div class="col-md-3">
+              <dl>
+                <dt>Remark</dt>
+                <dd id="lblLicenseRemark"></dd>
+              </dl>
+            </div>
+            <div class="col-md-3">
+              <dl>
+                <dt>Status</dt>
+                <dd id="lblLicenseStatus"></dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer bottomline">
+            <ul class="nav nav-pills card-header-tabs" id="tenantTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="escalationtimeline-tab" data-bs-toggle="tab" data-bs-target="#escalationtimeline" type="button" role="tab" aria-controls="escalationtimeline" aria-selected="false">Attachment</button>
+                </li>
+            </ul>
+        </div>
+      </div>
+        
+      <div class="card">
+        <div class="card-body tab-content" id="tenantTabContent">
+          <div class="tab-pane fade show active" id="escalationtimeline" role="tabpanel" aria-labelledby="escalationtimeline-tab">
+            <div class="row">
+              <div class="col-md-12">
+                <table id="tblLicenseDocument" class="table table-hover dt-responsive nowrap" cellspacing="0" style="width:100%">
+                  <thead>
+                      <tr>
+                        <th>File</th>
+                        <th>Preview</th>
+                        <th>Download</th>
+                        <!-- <th>Action</th> -->
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <!-- <tr>
+                      <td><img src="./img/documents.png"></td>
+                      <td><div class="d-grid"><button type="button" class="btn btn-info">Preview</button></div></td>
+                      <td><div class="d-grid"><button type="button" class="btn btn-info">Download</button></div></td>
+                      <td><div class="d-grid"><button type="button" class="btn btn-outline-danger">Delete</button></div></td>
+                    </tr> -->
+                  </tbody>
+              </table>
+              </div>
+              
+            </div>
+          </div>
+          <div class="tab-pane fade" id="workorder" role="tabpanel" aria-labelledby="workorder-tab">
+            <div class="card mb-3">
+                <div class="card-body p-0">
+  
+                    <table id="divOpenticketlist" class="table table-hover dt-responsive nowrap" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th><span>Created Date</span></th>
+                                <th><span>Id</span></th>
+                                <th><span>Subject</span></th>
+                                <th><span>Assigned To</span></th>
+                                <th><span>Priority</span></th>
+                                <th><span>Status</span></th>
+                                <th class="all"><span>View</span></th>
+                                <th class="all"><span>Action</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</section>
+
+<section id="ModalContent">
+  <div class="modal fade" id="DocPreviewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <iframe class="iframe" id="DocPreviewIframe" src=""></iframe>
+            <input type="hidden" id="hidDocPreviewFilename" />
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="NewLicenseModal" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title lblNewLicenseTitle">New License</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+
+                    <div class="col-md-12">
+                      <form id="formNewLicense" class="p-3 needs-validation" novalidate>
+                        <div class="row">
+                          <div class="col-md-6">
+
+                              <div class="row mb-3 required">
+                                  <label for="selIssuetype" class="col-md-4 col-form-label">Licenses No</label>
+                                  <div class="col-md-8">
+                                    <input type="text" id="txtlicenseno" name="txtlicenseno" class="form-control" required>
+                                    <div class="invalid-feedback">
+                                      Please Enter License Number.
+                                    </div>
+                                  </div>
+                              </div>
+
+                              <div class="row mb-3 required">
+                                  <label class="col-md-4 col-form-label" for="selLicenseAsset">Assets</label>
+                                  <div class="col-md-8">
+                                      <select id="selLicenseAsset" class="form-select" name="selLicenseAsset" data-size="5" data-live-search="true" required>
+                                          <!-- <option value="1">AIR CONDITIONING</option>
+                                          <option value="2">Oxygen Generator</option> -->
+                                      </select>
+                                  </div>
+                              </div>
+
+                              <div class="row mb-3 required">
+                                <label class="col-form-label col-md-4">Document Type</label>
+                                <div class="col-md-8">
+                                  <div class="input-group">
+                                    <select id="selDocumentType" class="form-select" name="selDocumentType" data-size="5" data-live-search="true" required>
+                                      <!-- <option value="1">Acra</option> -->
+                                    </select>
+                                    <button type="button" class="btn btn-primary btnNewDocumentType"><i class="fa fa-plus"></i> New</button>
+                                  </div>
+                                </div>
+                            </div>
+
+                              <div class="row mb-3 required">
+                                <label for="selIssuetype" class="col-md-4 col-form-label">Document Name</label>
+                                <div class="col-md-8">
+                                  <input type="text" id="txtdocname" name="txtdocname" class="form-control" required>
+                                  <div class="invalid-feedback">
+                                    Please Enter Document Name.
+                                  </div>
+                                </div>
+                            </div>
+
+                              
+                          </div>
+                          <div class="col-md-6">
+
+                              <div class="row mb-3 required">
+                                  <label class="col-md-4 col-form-label">Renewal Date</label>
+                                  <div class="col-md-8">
+                                      <div class="input-group">
+                                          <span class="input-group-text"><i class="fa-solid fa-calendar-day"></i></span>
+                                          <input type="text" id="lblRenewDate" name="lblRenewDate" placeholder="dd/mm/yyyy" class="form-control" required>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label class="col-md-4 col-form-label">Remarks</label>
+                                <div class="col-md-8">
+                                  <textarea type="text" id="txtremark" name="txtremark" class="form-control"></textarea>
+
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-md-4 col-form-label">Attachments</label>
+                                <div class="col-md-8">
+                                    <table id="EditAttachmentWrap" class="w-100 attachwrap d-none" cellpadding="7"></table>
+                                    <table id="AttachmentWrap" class="w-100 attachwrap" cellpadding="7"></table>
+                                    <div class="my-3">
+                                        <button class="btn btn-outline-primary btn-sm fnaddattachment" type="button">Add Attachment</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                          </div>
+
+                      </div>
+                      </form>
+                        
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-success raised" id="btnsaveLicense" style="width:12rem">Submit</button>
+                <button type="button" class="btn btn-success raised d-none" id="btnupdateLicense" style="width:12rem">Update</button>
+                <button class="btn btn-light btn-bordered raised" type="button" name="action" data-bs-dismiss="modal" style="width:12rem">Close</button>
+            </div>
+        </div>
+    </div>
+
+  </div>
+
+  <div class="modal fade" id="NewLicenseDocumentTypeModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Document Type</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                          <div class="row mb-3 required">
+                            <label for="selIssuetype" class="col-md-4 col-form-label">Document name</label>
+                            <div class="col-md-8">
+                              <input type="text" id="txtDocumentType" name="txtDocumentType" class="form-control">
+                            </div>
+                        </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-success raised" id="btnsaveLicenseDoc" style="width:12rem">Submit</button>
+                <button class="btn btn-light btn-bordered raised" type="button" name="action" data-bs-dismiss="modal" style="width:12rem">Close</button>
+            </div>
+        </div>
+    </div>
+
+  </div>
+
+  <!-- <div class="modal fade" id="ModelDetailLicense" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+              <div class="row w-100">
+                  <div class="col-md-7">
+                      <h5 class="modal-title">License Detail</h5>
+                  </div>
+                  <div class="col-md-5 text-end">
+                  </div>
+              </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+  
+                <div class="row mb-3">
+                    <label class="col-form-label col-md-4 fw-bold">License Number</label>
+                    <div class="col-sm-8">
+                      <p id="lblLicenseNumber"></p>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-form-label col-md-4 fw-bold">Document Name</label>
+                    <div class="col-sm-8">
+                      <p id="lblDocumentName"></p>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-form-label col-md-4 fw-bold">Renewal Date</label>
+                    <div class="col-sm-8">
+                      <p id="lblLicenseRenewal"></p>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-form-label col-md-4 fw-bold">Document Type</label>
+                    <div class="col-sm-8">
+                      <p id="lblLiceDocumentType"></p>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                  <label class="col-form-label col-md-4 fw-bold">Asset</label>
+                  <div class="col-sm-8">
+                    <p id="lblLicenseAsset"></p>
+                  </div>
+              </div>
+                <div class="row mb-3">
+                    <label class="col-form-label col-md-4 fw-bold">Remark</label>
+                    <div class="col-sm-8">
+                      <p id="lblLicenseRemark"></p>
+                    </div>
+                </div>
+  
+            </div>
+        </div>
+    </div>
+  </div> -->
+
+</section>

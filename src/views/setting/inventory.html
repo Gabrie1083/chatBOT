@@ -1,0 +1,70 @@
+<section id="BodyContent">
+    <div class="container-fluid pt-4 pb-5">
+      <div class="card mb-3">
+          <div class="card-footer bottomline">
+              <ul class="nav nav-pills card-header-tabs" id="SettingTabs" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="Inventory-tab" data-bs-toggle="tab" data-bs-target="#Inventory" type="button" role="tab" aria-controls="Inventory" aria-selected="false">Inventory Product</button>
+                  </li>
+              </ul>
+          </div>
+          <div class="card-body tab-content" id="SettingTabContent">
+            <div class="tab-pane fade show active" id="Inventory" role="tabpanel" aria-labelledby="Inventory-tab">
+              
+              <div class="row">
+                  
+                <div class="col-md-6">
+                  <div class="card">
+                      <div class="card-header">
+                        Inventory Product Number Format
+                      </div>
+                      <div class="card-body">
+                        <div class="row mb-3">
+                            <label class="col-form-label col-md-4">Product Number</label>
+                            <div class="col-md-8 pt-2">
+                                <label class="row mb-3 lbl_inventorynumber"></label>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label class="col-form-label col-md-4">Prefix</label>
+                            <div class="col-md-8">
+                                <input class="form-control" id="inventoryprefix" type="text" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-3 required">
+                            <label class="col-form-label col-md-4">Middle</label>
+                            <div class="col-md-8">
+                                <input class="form-control" id="inventorymiddle" type="text" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label class="col-form-label col-md-4">Suffix</label>
+                            <div class="col-md-8">
+                                <input class="form-control" id="inventorysuffix" type="text" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label class="col-form-label col-md-4">Seperator</label>
+                            <div class="col-md-2">
+                                <input class="form-control" id="inventoryseperator" type="text">
+                            </div>
+                        </div>
+                      </div>
+                      <div class="card-footer text-center">
+                          <button id="btnImpEmp" class="btn btn-success raised fnSaveInventorySetting" type="button" name="action">Save</button>
+                      </div>
+                  </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>  
+  </div>
+</section>
+
+<section id="ModalContent">
+</section>

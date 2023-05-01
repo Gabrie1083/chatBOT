@@ -1,0 +1,342 @@
+<section id="BodyContent">
+
+  <div class="container-fluid pt-4 pb-5">
+    <input type="hidden" id="hidAssetId" />
+    <input type="hidden" id="hidASListPageLoadFlg" >
+    <div id="divAssetList">
+      <div class="row mb-2">
+        <div class="col-xl-2 col-lg-3">
+          <div class="card card-stats mb-xl-0 moreradious" style="background: #00000014;">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">All Assets</h5>
+                  <span class="h2 font-weight-bold mb-0 lblassetcount">--</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-danger text-white rounded-circle">
+                    <i class="fa-solid fa-ballot-check"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body p-0">
+            <div class="p-3 pb-0">
+              <div class="row">
+                  <div class="col-6">
+                    <div class="input-group mb-2" id="DtSAssetsearchwrap" style="width:250px;">
+                      <input type="text" class="form-control DTSearchBoxAsset" placeholder="Search">
+                      <button class="btn btn-light btn-bordered DTfrSearchClrAsset" type="button" style="display:none;"><i class="fa fa-times"></i></button>
+                      <button class="btn btn-light btn-bordered DTSearchBtnAsset" type="button" ><i class="fa fa-search"></i></button>
+                  </div>
+                  </div>
+                  <div class="col-6 text-end">
+                    <!-- <button type="button" class="btn btn-warning fnOpenAssetFilter me-2" >Filter</button> -->
+                      <!-- <button type="button" class="btn btn-success fnRedirectNewAsset me-2">Create Asset</button> -->
+                      <button type="button" class="btn btn-warning fnOpenAssetFilter me-2" >Filter</button>
+                      <div class="btn-group">
+                          <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> Export </button>
+                          <ul class="dropdown-menu">
+                              <li class="fnExportExcelAssetList"><button type="button" class="dropdown-item"><i class="fa-duotone fa-file-excel icon"></i>Excel</button></li>
+                              <li class="fnPrintAssetList"><button type="button" class="dropdown-item"><i class="fa-duotone fa-file-pdf icon"></i>Print</button></li>
+                              <li class="fnDownloadAssetList"><button type="button" class="dropdown-item"><i class="fa-duotone fa-download icon"></i>Download</button></li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+              <div class="row mt-4 mb-1 divAssetFilterPanel" style="display: none;">
+                
+                <div class="mb-2 col-4">
+                  <label class="col-form-label">Asset Type</label>
+                    <select class="form-select" name="selAssetTypeFilter" id="selAssetTypeFilter">
+                      
+                    </select>
+                </div>
+                <div class="mb-2 col-4">
+                  <label class="col-form-label">Asset Brand</label>
+                    <select class="form-select" name="selAssetBrandFilter" id="selAssetBrandFilter">
+                    
+                    </select>
+                </div>
+                <div class="mb-2 col-4">
+                  
+                </div>
+                <div class="mb-2 col-4">
+                  <label class="col-form-label">Assign To</label>
+                  <div>
+                    <div class="form-check form-check-inline">
+                      <input type="radio" class="form-check-input onchangeAssetAssignGroupFilter" name="rdtaskgroupF" checked="checked" id="rdtaskAllF" value="0">
+                      <label for="rdtaskAllF">
+                          All
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input type="radio" class="form-check-input onchangeAssetAssignGroupFilter" name="rdtaskgroupF" id="rdtaskgroupF" value="0">
+                      <label for="rdtaskgroupF">
+                          Group
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input onchangeAssetAssignGroupFilter" name="rdtaskgroupF" id="rdtaskemployeeF" value="1">
+                        <label for="rdtaskemployeeF">
+                            Individual
+                        </label>
+                    </div>
+                  </div>
+                  
+                </div>
+                <div class="mb-2 col-4 d-none" id="divFilterAssetGroup">
+                  <label class="col-form-label">Team</label>
+                    <select id="selAssetGroupFilter" class="form-select" name="selAssetGroupFilter" data-size="5" data-live-search="true" required>
+                      
+                    </select>
+                </div>
+                <div class="mb-2 col-4 d-none" id="divFilterAssetEmp">
+                  <label class="col-form-label">Employee</label>
+                    <select id="selAssetIndidualEmpFilter" class="form-select" name="selAssetIndidualEmpFilter" data-size="5" data-live-search="true" required>
+                      
+                    </select>
+                </div>
+                <div class="mb-2 col-2" style="padding-top: 37px;">
+                  <button type="button" class="btn btn-primary btnFilterAsset">Submit</button>
+                </div>
+            </div>
+            </div>
+          <table id="tblAssetList" class="table table-hover dt-responsive nowrap" cellspacing="0" style="width:100%">
+              <thead>
+                  <tr>
+                      <th>Asset Id</th>
+                      <th>Asset Title</th>
+                      <th>Asset Type</th>
+                      <th>Modal &amp; Serial No</th>
+                      <th>Assigned To</th>
+                      <th>Status</th>
+                      <th class="all">Detail</th>
+                      <th class="all">Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+              </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <div class="d-none" id="divAssetDetail">
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-9">
+              <h5 id="lblAseetType">Air Conditioner</h5>
+            </div>
+            <div class="col-md-3 text-end">
+              <!-- <div class="dropdown d-inline-block">
+                <button class="btn btn-primary dropdown-toggle me-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Active</button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="#">Edit</a></li>
+                  <li><a class="dropdown-item" href="#">Renew</a></li>
+                  <li><a class="dropdown-item red-text" href="#">Terminate</a></li>
+                </ul>
+              </div> -->
+              <button class="btn btn-light fnCancelAssetDetail" type="button">Close</button>
+            </div>
+            <div class="col-12">
+              <hr>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <dl>
+                <dt>Brand </dt>
+                <dd id="lblAssetbrand">Toshiba</dd>
+              </dl>
+            </div>
+            <div class="col-md-3">
+              <dl>
+                <dt>Model</dt>
+                <dd id="lblAssetModelNo">MCY-MAP0504HT - SG-12123</dd>
+              </dl>
+            </div>
+            <div class="col-md-3">
+              <dl>
+                <dt>Serial No</dt>
+                <dd id="lblAssetSerialNo">MCY-MAP0504HT - SG-12123</dd>
+              </dl>
+            </div>
+            <div class="col-md-3">
+              <dl>
+                <dt>Asset Location</dt>
+                <dd id="lblAssetLecation">Main Building - B1</dd>
+              </dl>
+            </div>
+            <div class="col-md-3">
+              <dl>
+                <dt>Assigned To</dt>
+                <dd id="lblAssertAssign">Wang</dd>
+              </dl>
+            </div>
+            <div class="col-md-3">
+              <dl>
+                <dt>Price</dt>
+                <dd id="lblassetprice">$1,200.00</dd>
+              </dl>
+            </div>
+            <div class="col-md-3">
+              <dl>
+                <dt>Status</dt>
+                <dd id="lblAssetStatus"></dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer bottomline">
+            <ul class="nav nav-pills card-header-tabs" id="tenantTabs" role="tablist">
+             
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="tenantContract-tab" data-bs-toggle="tab" data-bs-target="#tenantContract" type="button" role="tab" aria-controls="tenantContract" aria-selected="false">Purchase and Warranty </button>
+              </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="escalationtimeline-tab" data-bs-toggle="tab" data-bs-target="#escalationtimeline" type="button" role="tab" aria-controls="escalationtimeline" aria-selected="false">Attachment</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link " id="inventoryMapping-tab" data-bs-toggle="tab" data-bs-target="#inventoryMapping" type="button" role="tab" aria-controls="inventoryMapping" aria-selected="false">Inventory Mapping </button>
+                </li>
+                <!-- <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="workorder-tab" data-bs-toggle="tab" data-bs-target="#workorder" type="button" role="tab" aria-controls="workorder" aria-selected="false">Work Order</button>
+                </li> -->
+            </ul>
+        </div>
+      </div>
+        
+      <div class="card">
+        <div class="card-body tab-content" id="tenantTabContent">
+          <div class="tab-pane fade show active" id="tenantContract" role="tabpanel" aria-labelledby="tenantContract-tab">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="input-group mb-2" id="DtSTenantContract" style="width:250px;">
+                    <input type="text" class="form-control DTSearchBox" placeholder="Search">
+                    <button class="btn btn-light btn-bordered DTfrSearchClr" type="button" style="display:none;"><i class="fa fa-times"></i></button>
+                    <button class="btn btn-light btn-bordered DTSearchBtn" type="button" ><i class="fa fa-search"></i></button>
+                </div>
+              </div>
+              <div class="col-md-12">
+  
+                <table id="tblAssetContractList" class="table table-hover dt-responsive nowrap" cellspacing="0" style="width:100%">
+                  <thead>
+                      <tr>
+                        <th>Purchase Date</th>
+                        <th>Warranty Expiry Date</th>
+                        <th>Purchase Receipt</th>
+                        <th>Warranty Receipt</th>
+                        <!-- <th>Action</th> -->
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <!-- <tr>
+                        <th>22/2/2023</th>
+                        <th>21/2/2024</th>
+                        <td><div class="d-grid"><button type="button" class="btn btn-info">Preview</button></div></td>
+                        <td><div class="d-grid"><button type="button" class="btn btn-info">Preview</button></div></td>
+                        <td><div class="d-grid"><button type="button" class="btn btn-outline-danger">Delete</button></div></td> 
+                      </tr> -->
+                  </tbody>
+              </table>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="tab-pane fade" id="ordertimeline" role="tabpanel" aria-labelledby="ordertimeline-tab">
+            <div class="row">
+            </div>
+          </div> -->
+          <div class="tab-pane fade" id="escalationtimeline" role="tabpanel" aria-labelledby="escalationtimeline-tab">
+            <div class="row">
+              <div class="col-md-12">
+                <table id="tblAssetDocument" class="table table-hover dt-responsive nowrap" cellspacing="0" style="width:100%">
+                  <thead>
+                      <tr>
+                        <th>File</th>
+                        <th>Preview</th>
+                        <th>Download</th>
+                        <th class="all">Action</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <!-- <tr>
+                      <td><img src="./img/documents.png"></td>
+                      <td><div class="d-grid"><button type="button" class="btn btn-info">Preview</button></div></td>
+                      <td><div class="d-grid"><button type="button" class="btn btn-info">Download</button></div></td>
+                      <td><div class="d-grid"><button type="button" class="btn btn-outline-danger">Delete</button></div></td>
+                    </tr> -->
+                  </tbody>
+              </table>
+              </div>
+              
+            </div>
+          </div>
+          <div class="tab-pane fade" id="inventoryMapping" role="tabpanel" aria-labelledby="inventoryMapping-tab">
+            <div class="row">
+              <div class="col-md-12">
+                <table id="tblInventoryMapping" class="table table-hover dt-responsive nowrap" cellspacing="0" style="width:100%">
+                  <thead>
+                      <tr>
+                        <th>Category</th>
+                        <th>Item Name</th>
+                        <th>Set Name</th>
+                        <th>Quantity</th>
+                        <th class="all">Action</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                  
+                  </tbody>
+              </table>
+              </div>
+              
+            </div>
+          </div>
+          <div class="tab-pane fade" id="workorder" role="tabpanel" aria-labelledby="workorder-tab">
+            <div class="card mb-3">
+                <div class="card-body p-0">
+  
+                    <table id="divOpenticketlist" class="table table-hover dt-responsive nowrap" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th><span>Created Date</span></th>
+                                <th><span>Id</span></th>
+                                <th><span>Subject</span></th>
+                                <th><span>Assigned To</span></th>
+                                <th><span>Priority</span></th>
+                                <th><span>Status</span></th>
+                                <th class="all"><span>View</span></th>
+                                <th class="all"><span>Action</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</section>
+
+<section id="ModalContent">
+  <div class="modal fade" id="DocPreviewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <iframe class="iframe" id="DocPreviewIframe" src=""></iframe>
+            <input type="hidden" id="hidDocPreviewFilename" />
+          </div>
+        </div>
+    </div>
+  </div>
+</section>

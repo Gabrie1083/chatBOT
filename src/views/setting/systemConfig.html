@@ -1,0 +1,265 @@
+<section id="BodyContent">
+  <input type="hidden" id="hidDesignationId" />
+  <input type="hidden" id="hidUserGroupId" />
+  <input type="hidden" id="hidUserLevelId" />
+  <div class="container-fluid pt-4 pb-5">
+    <div class="card mb-3">
+        <div class="card-footer bottomline">
+            <ul class="nav nav-pills card-header-tabs" id="SettingTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="Designation-tab" data-bs-toggle="tab" data-bs-target="#Designation" type="button" role="tab" aria-controls="Designation" aria-selected="false">Designation</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="UserGroup-tab" data-bs-toggle="tab" data-bs-target="#UserGroup" type="button" role="tab" aria-controls="UserGroup" aria-selected="false">User Group</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="UserLevel-tab" data-bs-toggle="tab" data-bs-target="#UserLevel" type="button" role="tab" aria-controls="UserLevel" aria-selected="false">User Level</button>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body tab-content">
+          
+          <div class="tab-pane fade show active" id="Designation" role="tabpanel" aria-labelledby="Designation-tab">
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="input-group mb-2" id="DtSDesignationsearchwrap" style="width:250px;">
+                          <input type="text" class="form-control DTSearchBoxDesignation" placeholder="Search">
+                          <button class="btn btn-light btn-bordered DTfrSearchClrDesignation" type="button" style="display:none;"><i class="fa fa-times"></i></button>
+                          <button class="btn btn-light btn-bordered DTSearchBtnDesignation" type="button" ><i class="fa fa-search"></i></button>
+                      </div>
+                      </div>  
+                      <div class="col-6 text-end">
+                          <button type="button" class="btn btn-success me-2 btnNewDesignation" data-bs-toggle="modal">New Designation</button>
+                      </div>
+                  </div>
+               
+                <div class="row">
+                    <div class="col-md-12">                      
+                      <table id="TblDesignation" class="table table-hover" cellspacing="0" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Designation Name</th>
+                                <th>Short Name</th>
+                                <th>User Group</th>
+                                <th>User Level</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="UserGroup" role="tabpanel" aria-labelledby="UserGroup-tab">
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="input-group mb-2" id="DtSUserGroupsearchwrap" style="width:250px;">
+                        <input type="text" class="form-control DTSearchBoxUserGroup" placeholder="Search">
+                        <button class="btn btn-light btn-bordered DTfrSearchClrUserGroup" type="button" style="display:none;"><i class="fa fa-times"></i></button>
+                        <button class="btn btn-light btn-bordered DTSearchBtnUserGroup" type="button" ><i class="fa fa-search"></i></button>
+                    </div>
+                  </div>  
+                  <div class="col-6 text-end">
+                      <button type="button" class="btn btn-success btnNewUserGroup" data-bs-toggle="modal">New User Group</button>
+                  </div>
+              </div>
+               
+                <div class="row">
+                    <div class="col-md-12">                      
+                      <table id="TblUserGroup" class="table table-hover" cellspacing="0" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Group Name</th>
+                                <th>MailId</th>
+                                <th>Contact No</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="UserLevel" role="tabpanel" aria-labelledby="UserLevel-tab">
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="input-group mb-2" id="DtSUserLevelsearchwrap" style="width:250px;">
+                        <input type="text" class="form-control DTSearchBoxUserLevel" placeholder="Search">
+                        <button class="btn btn-light btn-bordered DTfrSearchClrUserLevel" type="button" style="display:none;"><i class="fa fa-times"></i></button>
+                        <button class="btn btn-light btn-bordered DTSearchBtnUserLevel" type="button" ><i class="fa fa-search"></i></button>
+                    </div>
+                  </div>  
+                  <div class="col-6 text-end">
+                      <button type="button" class="btn btn-success btnNewUserLevel" data-bs-toggle="modal">New User Level</button>
+                  </div>
+              </div>
+               
+                <div class="row">
+                    <div class="col-md-12">                      
+                      <table id="TblUserLevel" class="table table-hover" cellspacing="0" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Role Name</th>
+                                <th>Level</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+        
+</div>
+
+</section>
+
+<section id="ModalContent">
+  <div class="modal fade" id="ModalNewDesignationItem" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">New Designation</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+  
+              <form id="formSettingDesignation" class="p-3 needs-validation" novalidate>
+                  <div class="row">
+                      <div class="col-md-12">
+                        <div class="row mb-3 required">
+                          <label class="col-form-label col-md-4">Designation Name</label>
+                          <div class="col-md-8">
+                            <input class="form-control" type="text" name="txtdesignationname" id="txtdesignationname" required>
+                          </div>
+                        </div>
+                        <div class="row mb-3 required">
+                          <label class="col-form-label col-md-4">Short Name</label>
+                          <div class="col-md-8">
+                            <input class="form-control" type="text" name="txtdesignshortname" id="txtdesignshortname" required>
+                          </div>
+                        </div>
+                        <div class="row mb-3 required">
+                          <label class="col-form-label col-md-4">User Group</label>
+                          <div class="col-md-8">
+                            <select class="form-select" name="selDesignUserGroup" id="selDesignUserGroup" required>
+                                        
+                            </select>
+                          </div>
+                        </div>
+                        <div class="row mb-3 required">
+                          <label class="col-form-label col-md-4">User Level</label>
+                          <div class="col-md-8">
+                            <select class="form-select" name="selDesignUserRole" id="selDesignUserRole" required>
+                                        
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+              </form>
+            
+          </div>
+          <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-success raised fnSaveDesignation" style="width: 12rem;">Submit</button>
+            <button type="button" class="btn btn-success raised d-none fnUpdateDesignation" style="width: 12rem;">Update</button>
+            <button type="button" class="btn btn-light btn-bordered" data-bs-dismiss="modal"
+              style="width: 12rem;">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="modal fade" id="ModalNewUserGroupItem" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">New User Group</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+  
+              <form id="formSettingUserGroup" class="p-3 needs-validation" novalidate>
+                  <div class="row">
+                      <div class="col-md-12">
+                        <div class="row mb-3 required">
+                          <label class="col-form-label col-md-4">Group Name</label>
+                          <div class="col-md-8">
+                            <input class="form-control" type="text" name="txtgroupname" id="txtgroupname" required>
+                          </div>
+                        </div>
+                        <div class="row mb-3 required">
+                          <label class="col-form-label col-md-4">Email</label>
+                          <div class="col-md-8">
+                            <input class="form-control" type="text" name="txgroupmail" id="txgroupmail" required>
+                          </div>
+                        </div>
+                        <div class="row mb-3 required">
+                          <label class="col-form-label col-md-4">Contact No</label>
+                          <div class="col-md-8">
+                            <input class="form-control" type="text" name="txtgrpcontactno" id="txtgrpcontactno" required>
+                          </div>
+                        </div>
+                        <div class="row mb-3" id="DivInvRemark">
+                          <label class="col-form-label col-md-4">Description</label>
+                          <div class="col-md-8">
+                            <textarea class="form-control" type="text" name="txtgroupdesc" id="txtgroupdesc"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+              </form>
+          </div>
+          <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-success raised fnSaveUserGroup" style="width: 12rem;">Submit</button>
+            <button type="button" class="btn btn-success raised d-none fnUpdateUserGroup" style="width: 12rem;">Update</button>
+            <button type="button" class="btn btn-light btn-bordered" data-bs-dismiss="modal"
+              style="width: 12rem;">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="NewUserRoleLevelModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-keyboard="false">
+      <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title">Add New User Role</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+  
+              <div class="modal-body">
+                <form id="formSettingUserLevel" class="p-3 needs-validation" novalidate>
+                  <div class="row mb-3 required">
+                    <label class="col-form-label col-md-4">Role Name</label>
+                    <div class="col-md-6">
+                        <input class="form-control" type="text" name="txtRoleName" id="txtRoleName" placeholder="Enter Role Name" required />
+
+                    </div>
+                </div>
+                <div class="row mb-3 required">
+                    <label class="col-form-label col-md-4">Role Level</label>
+                    <div class="col-md-6">
+                        <input class="form-control" type="text" name="txtRoleLevel" id="txtRoleLevel" readonly required />
+                    </div>
+                </div>
+                </form>
+                  
+              </div>
+  
+              <div class="modal-footer justify-content-center">
+                  <button class="btn btn-success raised fnSaveUserRoleLevel" name="action">Submit</button>
+                  <button class="btn btn-light btn-bordered raised" type="button" name="action" data-bs-dismiss="modal"> Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+</section>

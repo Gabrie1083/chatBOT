@@ -1,0 +1,114 @@
+<section id="BodyContent">
+    <div class="container">
+        <input type="hidden" id="hidUserEmpId" />
+        <div class="card">
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form id="formNewEmployee" class="p-3 needs-validation" novalidate>
+                          <div class="row">
+                            <div class="col-md-6">
+                                <div class="row mb-3 required">
+                                    <label for="selIssuetype" class="col-md-4 col-form-label">Name</label>
+                                    <div class="col-md-8">
+                                      <div class="input-group">
+                                        <div class="row">
+                                          <div class="col-md-6">
+                                            <input type="text" id="txtfirstname" name="txtfirstname" class="form-control" placeholder="FirstName" required>
+                                            <div class="invalid-feedback">
+                                              Please Enter First Name.
+                                            </div>
+                                          </div>
+                                          <div class="col-md-6">
+                                            <input type="text" id="txtlastname" name="txtlastname" class="form-control" placeholder="LastName">
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+    
+                                <div class="row mb-3 required">
+                                  <label for="selIssuetype" class="col-md-4 col-form-label">MailId</label>
+                                  <div class="col-md-8">
+                                    <input type="text" id="txtusermail" name="txtusermail" class="form-control" required>
+                                    <div class="invalid-feedback">
+                                      Please Enter Email Id.
+                                    </div>
+                                  </div>
+                                </div>
+    
+                                <div class="row mb-3 required">
+                                    <label class="col-md-4 col-form-label" for="selusecontactcode">Contact No</label>
+                                    <div class="col-md-8">
+                                      <div class="input-group customWidth">
+                                        <select class="form-select" name="selusecontactcode" id="selusecontactcode" required>
+                                            
+                                        </select>
+                                        <input class="form-control onchangeNumericValidation" type="tel" id="txtusercontact" placeholder="Contact No" maxlength="10" required>
+                                        <div class="invalid-feedback">
+                                          Please Enter Contact Number.
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+    
+                                <div class="row mb-3 required">
+                                  <label class="col-md-4 col-form-label" for="seluserdesignation">Designation</label>
+                                  <div class="col-md-8">
+                                    <select class="form-select" name="seluserdesignation" id="seluserdesignation">
+                                          
+                                    </select>
+                                  </div>
+                              </div>
+    
+                            </div>
+                            <div class="col-md-6">
+    
+                              <div class="row mb-3 required">
+                                <label for="selIssuetype" class="col-md-4 col-form-label">DOB</label>
+                                <div class="col-md-8">
+                                  <div class="input-group">
+                                    <span class="input-group-text"><i class="fa-solid fa-calendar-day"></i></span>
+                                    <input type="text" id="txtuserdatabirth" name="txtuserdatabirth" placeholder="dd/mm/yyyy" class="form-control">
+                                  </div>
+                               </div>
+                              </div>
+    
+                              <div class="row mb-3 required">
+                                <label for="selIssuetype" class="col-md-4 col-form-label">DOJ</label>
+                                <div class="col-md-8">
+                                  <div class="input-group">
+                                    <span class="input-group-text"><i class="fa-solid fa-calendar-day"></i></span>
+                                    <input type="text" id="txtuserdatajoin" name="txtuserdatajoin" placeholder="dd/mm/yyyy" class="form-control">
+                                  </div>
+                                </div>
+                              </div>
+    
+                                <div class="row mb-3">
+                                    <label class="col-md-4 col-form-label">Admin User</label>
+                                    <div class="col-md-8 pt-2">
+                                      <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchUserAdmin">
+                                      </div>
+                                        
+                                    </div>
+                                </div>
+                                
+                            </div>
+  
+                        </div>
+                        </form>
+                          
+                      </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-md-12 text-center">
+                        <button type="button" class="btn btn-success raised" id="btnsaveUser" style="width:12rem">Submit</button>
+                        <button type="button" class="btn btn-success raised d-none" id="btnupdateUser" style="width:12rem">Update</button>
+                        <button type="button" class="btn btn-light btn-bordered fnCancelNewEmployee" style="width: 12rem;">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

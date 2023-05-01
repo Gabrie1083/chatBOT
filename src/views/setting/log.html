@@ -1,0 +1,98 @@
+<section id="BodyContent">
+  <div class="container-fluid pt-4 pb-5">
+    <div class="card mb-3">
+      <div class="card-headder bottomline">
+        <ul class="nav nav-pills card-header-tabs" id="SettingTabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="LogDetail-tab" data-bs-toggle="tab" data-bs-target="#LogDetail"
+              type="button" role="tab" aria-controls="LogDetail" aria-selected="false">System Log</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="OtpLogDetail-tab" data-bs-toggle="tab" data-bs-target="#OtpLogDetail"
+              type="button" role="tab" aria-controls="OtpLogDetail" aria-selected="false">OTP</button>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body tab-content p-0">
+        <div class="tab-pane fade show active" id="LogDetail" role="tabpanel"
+          aria-labelledby="LogDetail-tab">
+          <div class="col-md-12 p-3">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="input-group mb-2" id="DtSLogSearchWrap" style="width:250px;">
+                    <input type="text" class="form-control DTSearchBoxLog" placeholder="Search">
+                    <button class="btn btn-light btn-bordered DTfrSearchClrLog" type="button" style="display:none;"><i class="fa fa-times"></i></button>
+                    <button class="btn btn-light btn-bordered DTSearchBtnLog" type="button" ><i class="fa fa-search"></i></button>
+                </div>
+              </div>  
+              <div class="col-6 text-end">
+                <button type="button" class="btn btn-warning fnOpenSettingLogFilter me-2" >Filter</button>
+              </div>
+            </div>
+
+            <div class="row mt-4 mb-1 divLogFilterPanel" style="display: none;">
+              <div class="col-5">
+                <input type="text" class="form-control d-inline-block" id="txtLogFilterDateRange" placeholder="Date Range" style="width: 300px;">
+              </div>
+              
+              <div class="col-2">
+                <button type="button" class="btn btn-success fnLoadLogDetailTable">Filter</button>
+              </div>
+            </div>
+            <table id="TblLogDetail" class="table table-hover" cellspacing="0" style="width:100%">
+              <thead>
+                  <tr>
+                      <th>Created Date</th>
+                      <th>Category</th>
+                      <th>Modified By</th>
+                      <th>Device</th>
+                      <th>Message</th>
+                  </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+
+        <div class="tab-pane" id="OtpLogDetail" role="tabpanel" aria-labelledby="OtpLogDetail-tab">
+          <div class="p-3">
+            <div class="row mb-2">
+              <dv class="col-md-6">
+                  <div class="input-group" id="tblOTPlistSearch" style="width:250px;">
+                      <input type="text" class="form-control SearchInput" placeholder="Search">
+                      <button class="btn btn-light btn-bordered SearchClrBtn" type="button" style="display:none;"><i class="fa fa-times"></i></button>
+                      <button class="btn btn-light btn-bordered SearchGoBtn" type="button"><i class="fa fa-search"></i></button>
+                  </div>
+              </dv>
+              <div class="col-md-6 text-end">
+                  <button type="button" id="AddCreditRowBtn" class="btn btn-light btn-bordered" onclick="fnRefresh()">Refresh </button>
+              </div>
+          </div>
+          </div>
+          <table id="tblOTPlist" class="table table-bordered table-hover" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th><span> Date Time </span></th>
+                    <th><span>Mobile Number</span></th>
+                    <th><span>Mail ID</span></th>
+                    <th><span>OTP</span></th>
+                    <th><span>Status</span></th>
+
+                </tr>
+            </thead>
+        </table>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="ModalContent">
+
+</section>

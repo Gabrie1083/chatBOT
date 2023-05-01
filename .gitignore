@@ -1,0 +1,13 @@
+node_modules
+/.vscode/settings.json
+/workspace.code-workspace
+/dist
+/package-lock.json
+/.vs/cmmsspa/v17/.suo
+/src/.vs/cmmsspa/FileContentIndex/194bd8a2-25d3-40d2-8b31-d56a3c66d35d.vsidx
+/src/.vs/cmmsspa/FileContentIndex/280b4245-d0c2-4d81-af9f-2376f2e42abd.vsidx
+/src/.vs/cmmsspa/FileContentIndex/510392c2-5401-404e-b18e-e3072a4caf85.vsidx
+/src/.vs/cmmsspa/FileContentIndex/read.lock
+/src/obj/Debug/cmmsspa.csproj.FileListAbsolute.txt
+/.gitignore.orig
+/src/.vs/cmmsspa/v17/fileList.bin

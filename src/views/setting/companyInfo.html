@@ -1,0 +1,607 @@
+<section id="BodyContent">
+    <div class="container-fluid pt-4 pb-5">
+    <input id="txtCompanyid" type="hidden">
+    <input id="txtSignatureid" type="hidden">
+    <input type="hidden" id="hidPicFlg" />
+      <div class="card mb-3">
+          <div class="card-footer bottomline">
+              <ul class="nav nav-pills card-header-tabs" id="CompanyInfoTabs" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#Basicinfo" type="button" role="tab" aria-controls="Basicinfo" aria-selected="true">Basic Info</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="TabSignature" data-bs-toggle="tab" data-bs-target="#Signature" type="button" role="tab" aria-controls="Signature" aria-selected="true">Signature</button>
+                  </li>
+              </ul>
+          </div>
+          <div class="card-body tab-content" id="CompanyInfoTabContent">
+            <div class="tab-pane fade show active" id="Basicinfo" role="tabpanel" aria-labelledby="Basicinfo-tab">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card actual">
+                      <div class="card-header">
+                          <div class="row">
+                              <div class="col-md-7">
+                                  Basic Info
+                              </div>
+                              <div class="col-md-5 text-end">
+                                  <a data-bs-toggle="modal" class="btnEditCompanyBasicInfo"><i class="fa-solid fa-pen-to-square"></i>Edit</a>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="card-body" id="div_basicinfo">
+
+                          <dl class="dl-horizontal row">
+                              <dt class="col-md-4">Site Name</dt>
+                              <dd class="col-md-8"> <label class="lbl_CompanyName"></label></dd>
+                          </dl>
+                          <dl class="dl-horizontal row">
+                              <dt class="col-md-4">Phone No</dt>
+                              <dd class="col-md-8"> <label class="lbl_ContactNo"></label></dd>
+                          </dl>
+                          <dl class="dl-horizontal row">
+                              <dt class="col-md-4">Email ID</dt>
+                              <dd class="col-md-8"> <label class="lbl_Emailid"></label></dd>
+                          </dl>
+                          <dl class="dl-horizontal row">
+                              <dt class="col-md-4">WebSite</dt>
+                              <dd class="col-md-8"> <label class="lbl_Website"></label></dd>
+                          </dl>
+                          <dl class="dl-horizontal row">
+                              <dt class="col-md-4">Block-Street-Area</dt>
+                              <dd class="col-md-8"> <label class="lbl_Address_block_area"></label></dd>
+                          </dl>
+                          <dl class="dl-horizontal row">
+                            <dt class="col-md-4">Floor-Unit</dt>
+                            <dd class="col-md-8"> <label class="lbl_Address_floorunit"></label></dd>
+                          </dl>
+                          <dl class="dl-horizontal row">
+                            <dt class="col-md-4">Postal Code</dt>
+                            <dd class="col-md-8"> <label class="lbl_Address_postalcode"></label></dd>
+                          </dl>
+                          <dl class="dl-horizontal row">
+                              <dt class="col-md-4">Short Name</dt>
+                              <dd class="col-md-8"> <label class="lbl_Shortname"></label></dd>
+                          </dl>
+                      </div>
+                  </div>
+
+              </div>
+              <div class="col-md-6">
+                  <div class="card actual">
+                      <div class="card-header">
+                          <div class="row">
+                              <div class="col-md-7">
+                                  Logo and Seal
+                              </div>
+
+                              <div class="col-md-5 text-end">
+                                  <a data-bs-toggle="modal" class="btnEditCompanyLogo"><i class="fa-solid fa-pen-to-square"></i>Edit</a>
+                              </div>
+                          </div>
+
+
+                      </div>
+                      <div class="card-body">
+                          <table id="logoSealtable" class="table table-hover table-bordered m-0" cellspacing="0" width="100%">
+                              <tbody>
+                                  <tr>
+                                      <td>
+                                          <label>Logo Type</label>
+                                      </td>
+                                      <td>
+                                          <p><label class="lbl_Logodisplayflg"></label></p>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <label>Logo</label>
+                                      </td>
+                                      <td>
+                                          <img src="" alt="" id="img_logo" style="max-width:100%;max-height:75px">
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <label>Icon</label>
+                                      </td>
+                                      <td>
+                                          <img src="" id="img_icon" alt="" style="max-width:100%;max-height:75px">
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <label>Seal</label>
+                                      </td>
+                                      <td>
+                                          <img src="" id="img_companyseal" style="max-width:100%;max-height:75px" />
+                                      </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="Signature" role="tabpanel" aria-labelledby="Signature-tab">
+              <div class="row mb-2">
+                <div class="col-md-7">
+                    <div class="input-group" id="DtSignSearchBoxWrap" style="width:250px;">
+                        <input type="text" class="form-control DTSearchBoxSign" id="" placeholder="Search">
+                        <button class="btn btn-light btn-bordered DTSearchClrSign" type="button" id="" style="display:none;"><i class="fa fa-times"></i></button>
+                        <button class="btn btn-light btn-bordered DTSearchBtnSign" type="button" id=""><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+                <div class="col-md-5 text-end">
+                    <button type="button" data-bs-toggle="modal" class="btn btn-success fnAddNewSignature">Add Signature</button>
+                </div>
+            </div>
+            <div class="card">
+
+                <div class="card-body p-0">
+                    <table id="singtable" class="table table-hover table-bordered m-0" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Name</th>
+                                <th class="text-center">Signature</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+          
+  </div>
+
+</section>
+
+<section id="ModalContent">
+
+  <div class="modal fade" id="ModalCompanyInfo" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Basic Company Info</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="formCompanyInfo" class="p-3 needs-validation" novalidate>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="row mb-3 required">
+                      <label class="col-form-label col-md-4 fw-bold">Company Name</label>
+                      <div class="col-md-8">
+                        <input class="form-control" id="txtCompanyName" name="txtCompanyName" type="text" required>
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <label class="col-form-label col-md-4 fw-bold">Short Name</label>
+                      <div class="col-md-8">
+                        <input class="form-control" id="txtshortname" name="txtshortname" type="text">
+                      </div>
+                    </div>
+                    <div class="row mb-3 required">
+                      <label class="col-form-label col-md-4 fw-bold">Postal Code</label>
+                      <div class="col-md-8">
+                        <div class="input-group">
+                          <input class="form-control" id="txtpincode" name="txtpincode" placeholder="Postal Code" maxlength="6" required>
+                          <button class="btn btn-light btn-bordered btnAddressLoadOne" type="button">Go</button>
+                          <div class="invalid-feedback">
+                            Please Enter Postal Code.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mb-3 required">
+                      <label class="col-form-label col-md-4 fw-bold">Block Area Street</label>
+                      <div class="col-md-8">
+                          <input class="form-control" id="txtblockareastreet" name="txtblockareastreet" type="text" maxlength="150" required>
+                          <div class="invalid-feedback">
+                            Please Enter Block Area Street.
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row mb-3">
+                      <label class="col-form-label col-md-4 fw-bold">Floor / Unit</label>
+                      <div class="col-md-8">
+                          <input class="form-control" id="txtfloorunit" name="txtfloorunit" type="text" maxlength="30">
+                          <div class="invalid-feedback">
+                            Please Enter Floor / Unit.
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="row mb-3 required">
+                    <label class="col-form-label col-md-4 fw-bold">Phone No</label>
+                    <div class="col-md-8">
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                        <input class="form-control" id="txtPhone" name="txtPhone" type="text" required>
+                        <div class="invalid-feedback">
+                          Please Enter Phone No.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3 required">
+                    <label class="col-form-label col-md-4 fw-bold">Email ID</label>
+                    <div class="col-md-8">
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                        <input class="form-control" id="txtEmail" name="txtEmail" type="text" required>
+                        <div class="invalid-feedback">
+                          Please Enter Email ID.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label class="col-form-label col-md-4 fw-bold">Website</label>
+                    <div class="col-md-8">
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="fa fa-globe"></i></span>
+                        <input class="form-control" id="txtwebsite" type="text">
+                    </div>
+                    </div>
+                  </div>
+
+                </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button id="btncompanyinfosave" class="btn btn-success raised" type="button" style="width:12rem"> Update</button>
+                <button id="btnCancel3" class="btn btn-light btn-bordered raised" type="button" style="width:12rem" data-bs-dismiss="modal"> Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ModalLogoSeal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content" id="Formvalidatecompany">
+          <div class="modal-header">
+              <h5 class="modal-title">Logo and Seal</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <table id="contracttable" class="" cellspacing="0" width="100%">
+                  <tbody>
+                      <tr class="row mb-3">
+                          <td colspan="2">
+                              <div class="required">
+                                  <label class="col-form-label">Logo Type </label>
+
+                                  <div class="form-check form-check-inline" style="padding-left: 35px;">
+                                      <input type="radio" class="form-check-input" id="LogoRectangle" name="mylogo" value="0">
+                                      <label for="LogoRectangle"> Rectangle </label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                      <input type="radio" class="form-check-input" id="LogoSquare" name="mylogo" value="1">
+                                      <label for="LogoSquare"> Square (or) Round </label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="LogoNone" name="mylogo" value="2" checked>
+                                    <label for="LogoNone"> None </label>
+                                </div>
+                              </div>
+                          </td>
+                      </tr>
+                      <tr class="row mb-3">
+                          <td class="col-md-7">
+                              <label>Company Logo</label>
+
+                              <div class="input-group" id="divcompanylogonull">
+                                  <input type="file" class="form-control" readonly placeholder="Upload Image" name="txtlogo" id="txtlogo" accept="image/*" />
+                              </div>
+                              <div class="input-group d-none" id="divcompanylogovalue">
+                                  <span class="input-group-text"><i class="fa-solid fa-image"></i></span>
+                                  <input type="text" class="form-control" readonly placeholder="Upload Image">
+                                  <button class="browse btn btn-primary" type="button"><i class="fa-solid fa-magnifying-glass"></i> Browse</button>
+                              </div>
+                              <input type="hidden" name="txthidcompanylogo" id="txthidcompanylogo" @*value="@c.CompanyLogo"*@ />
+                          </td>
+                          <td class="col-md-5">
+                              <img src="" width="200" id="imglogologin" />
+                          </td>
+                      </tr>
+                      <tr class="row mb-3">
+                          <td class="col-md-7">
+                              <label>Company Round Seal</label>
+                              <div class="input-group">
+                                  <input type="file" class="form-control" readonly placeholder="Upload Image" name="companysheal" id="companysheal" accept="image/*" />
+                                  <input type="hidden" name="txthidcompanysheel" id="txthidcompanysheel" />
+                              </div>
+                          </td>
+                          <td class="col-md-5">
+                              <img src="" height="100" id="imgcompanysheal" />
+                          </td>
+                      </tr>
+                      <tr class="row mb-3">
+                          <td class="col-md-7">
+                              <label>Company Icon</label>
+                              <div class="input-group">
+                                  <input type="file" class="form-control" readonly placeholder="Upload Image" name="companyicon" id="companyicon" accept="image/*" />
+                                  <input type="hidden" name="txthidcompanyicon" id="txthidcompanyicon" />
+                              </div>
+                          </td>
+                          <td class="col-md-5">
+                              <img src="img/empty.png" height="100" width="200" id="imgcompanyicon" />
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+          <div class="modal-footer justify-content-center">
+              <button id="btnlogosave" class="btn btn-success raised fnsettingcompanychange" style="width:12rem" type="button" name="action"> Update</button>
+              <button id="btnCancel4" class="btn btn-light btn-bordered raised " style="width:12rem" type="button" name="action" onclick="cancelpage()" data-bs-dismiss="modal"> Cancel</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ModalSignature" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content" id="Formvalidatesignaturecompany">
+          <div class="modal-header">
+              <h5 class="modal-title">Signature</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body ">
+            <form id="formSignature" class="p-3 needs-validation" novalidate>
+                <div class="row">
+                    <div class="col-md-12">
+                      <div class="row mb-3 required">
+                        <label class="col-form-label col-md-4 fw-bold">Employee Name</label>
+                        <div class="col-md-8">
+                          <select id="selEmployee" name="selEmployee" class="form-control" required>
+  
+                          </select>
+                        </div>
+                      </div>
+  
+                      <div class="row mb-3 required">
+                        <label class="col-form-label col-md-4 fw-bold">Signature</label>
+                        <div class="col-md-4">
+                          <input type="file" class="form-control empsignature" readonly placeholder="Upload Image" name="empsignature" id="empsignature" accept="image/*"  required/>
+                        </div>
+                        <div class="col-md-4">
+                          <img src="img/empty.png" id="empsig" height="100" width="100" name="empsig" />
+                          <input type="hidden" id="hidSignPhoto" />
+                        </div>
+                      </div>
+  
+                      <div class="row mb-3">
+                        <label class="col-form-label col-md-4 fw-bold">Personal Seal Enable</label>
+                        <div class="col-md-8">
+                          <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="SwitchEnableSeal">
+                          </div>
+                        </div>
+                      </div>
+  
+                      <div class="row mb-3 d-none" id="divEnableEmpSeal">
+                        <label class="col-form-label col-md-4 fw-bold">Personal Seal</label>
+                        <div class="col-md-4">
+                          <input type="file" class="form-control empsheel" readonly placeholder="Upload Image" name="empsheel" id="empsheel" accept="image/*" />
+                        </div>
+                        <div class="col-md-4">
+                          <img src="img/empty.png" height="100" width="100" id="empshe" />
+                          <input type="hidden" id="hidSheelPhoto" />
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </form>
+              
+          </div>
+          <div class="modal-footer justify-content-center">
+              <button id="btnsignaturesave" class="btn btn-success raised " style="width:12rem" type="button" name="action"> Submit</button>
+              <button id="btnsignatureUpdate" class="btn btn-success raised d-none" style="width:12rem" type="button" name="action"> Update</button>
+              <button id="btnCancel5" class="btn btn-light btn-bordered raised " style="width:12rem" type="button" name="action" data-bs-dismiss="modal"> Cancel</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="croppermodal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" data-keyboard="false">
+  <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content" id="EmpPhotoEdit">
+          <div class="modal-header">
+              <h5 class="modal-title"> Editor </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="divimgpre">
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="img-container">
+                          <img id="imageempcrop" style="height: 510px; width:400px;" />
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+          <div class="modal-footer justify-content-center docs-buttons">
+
+              <div class="btn-group">
+                  <button type="button" class="btn btn-light btn-bordered" data-method="zoom" data-option="0.1" title="Zoom In">
+                      <span class="docs-tooltip" data-bs-toggle="tooltip" title="cropper.zoom(0.1)">
+                          <i class="fa fa-search-plus"></i>
+                      </span>
+                  </button>
+                  <button type="button" class="btn btn-light btn-bordered" data-method="zoom" data-option="-0.1" title="Zoom Out">
+                      <span class="docs-tooltip" data-bs-toggle="tooltip" title="cropper.zoom(-0.1)">
+                          <i class="fa fa-search-minus"></i>
+                      </span>
+                  </button>
+                  <button type="button" class="btn btn-light btn-bordered" data-method="rotate" data-option="-45" title="Rotate">
+                      <span class="docs-tooltip" data-bs-toggle="tooltip" title="cropper.rotate(-45)">
+                          <i class="fa fa-undo"></i>
+                      </span>
+                  </button>
+                  <button type="button" class="btn btn-light btn-bordered" data-method="rotate" data-option="45" title="Rotate Right">
+                      <span class="docs-tooltip" data-bs-toggle="tooltip" title="cropper.rotate(45)">
+                          <i class="fa fa-repeat"></i>
+                      </span>
+                  </button>
+              </div>
+              <button type="button" class="btn btn-success fnCheckValidFace">Save</button>
+              <button type="button" class="btn btn-light btn-bordered" data-bs-dismiss="modal">Cancel</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="croppericonmodal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" data-keyboard="false">
+  <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content" id="IconPhotoEdit">
+          <div class="modal-header">
+              <h5 class="modal-title"> Editor </h5>
+              <button type="button" class="btn-close fnCropValidCancel2" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="divimgicon">
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="img-container">
+                          <img id="imageiconcrop" style="height: 510px; width:400px;" />
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+          <div class="modal-footer justify-content-center img-buttons">
+
+              <div class="btn-group">
+                  <button type="button" class="btn btn-light btn-bordered" data-method="zoom" data-option="0.1" title="Zoom In">
+                      <span class="docs-tooltip" data-bs-toggle="tooltip" title="cropper.zoom(0.1)">
+                          <i class="fa fa-search-plus"></i>
+                      </span>
+                  </button>
+                  <button type="button" class="btn btn-light btn-bordered" data-method="zoom" data-option="-0.1" title="Zoom Out">
+                      <span class="docs-tooltip" data-bs-toggle="tooltip" title="cropper.zoom(-0.1)">
+                          <i class="fa fa-search-minus"></i>
+                      </span>
+                  </button>
+                  <button type="button" class="btn btn-light btn-bordered" data-method="rotate" data-option="-45" title="Rotate">
+                      <span class="docs-tooltip" data-bs-toggle="tooltip" title="cropper.rotate(-45)">
+                          <i class="fa fa-undo"></i>
+                      </span>
+                  </button>
+                  <button type="button" class="btn btn-light btn-bordered" data-method="rotate" data-option="45" title="Rotate Right">
+                      <span class="docs-tooltip" data-bs-toggle="tooltip" title="cropper.rotate(45)">
+                          <i class="fa fa-repeat"></i>
+                      </span>
+                  </button>
+              </div>
+              <button type="button" class="btn btn-success fnCheckValidFace">Save</button>
+              <button type="button" class="btn btn-light btn-bordered fnCropValidCancel2">Cancel</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="cropperreclogomodal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" data-keyboard="false">
+  <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content" id="LogoRecPhotoEdit">
+          <div class="modal-header">
+              <h5 class="modal-title"> Editor </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="divreclogo">
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="img-container">
+                          <img id="imagereclogocrop" style="height: 510px; width:400px;" />
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+          <div class="modal-footer justify-content-center reclogo-buttons">
+
+              <div class="btn-group">
+                  <button type="button" class="btn btn-light btn-bordered" data-method="zoom" data-option="0.1" title="Zoom In">
+                      <span class="docs-tooltip" data-bs-toggle="tooltip" title="cropper.zoom(0.1)">
+                          <i class="fa fa-search-plus"></i>
+                      </span>
+                  </button>
+                  <button type="button" class="btn btn-light btn-bordered" data-method="zoom" data-option="-0.1" title="Zoom Out">
+                      <span class="docs-tooltip" data-bs-toggle="tooltip" title="cropper.zoom(-0.1)">
+                          <i class="fa fa-search-minus"></i>
+                      </span>
+                  </button>
+                  <button type="button" class="btn btn-light btn-bordered" data-method="rotate" data-option="-45" title="Rotate">
+                      <span class="docs-tooltip" data-bs-toggle="tooltip" title="cropper.rotate(-45)">
+                          <i class="fa fa-undo"></i>
+                      </span>
+                  </button>
+                  <button type="button" class="btn btn-light btn-bordered" data-method="rotate" data-option="45" title="Rotate Right">
+                      <span class="docs-tooltip" data-bs-toggle="tooltip" title="cropper.rotate(45)">
+                          <i class="fa fa-repeat"></i>
+                      </span>
+                  </button>
+              </div>
+              <button type="button" class="btn btn-success fnCheckValidFace">Save</button>
+              <button type="button" class="btn btn-light btn-bordered" data-bs-dismiss="modal">Cancel</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="cropperhorlogomodal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" data-keyboard="false">
+  <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content" id="LogoHorPhotoEdit">
+          <div class="modal-header">
+              <h5 class="modal-title"> Editor </h5>
+              <button type="button" class="btn-close fnCropValidCancel1" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="divhorlogo">
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="img-container">
+                          <img id="imagehorlogocrop" style="height: 510px; width:400px;" />
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+          <div class="modal-footer justify-content-center horlogo-buttons">
+
+              <div class="btn-group">
+                  <button type="button" class="btn btn-light btn-bordered" data-method="zoom" data-option="0.1" title="Zoom In">
+                      <span class="docs-tooltip" data-bs-toggle="tooltip" title="cropper.zoom(0.1)">
+                          <i class="fa fa-search-plus"></i>
+                      </span>
+                  </button>
+                  <button type="button" class="btn btn-light btn-bordered" data-method="zoom" data-option="-0.1" title="Zoom Out">
+                      <span class="docs-tooltip" data-bs-toggle="tooltip" title="cropper.zoom(-0.1)">
+                          <i class="fa fa-search-minus"></i>
+                      </span>
+                  </button>
+                  <button type="button" class="btn btn-light btn-bordered" data-method="rotate" data-option="-45" title="Rotate">
+                      <span class="docs-tooltip" data-bs-toggle="tooltip" title="cropper.rotate(-45)">
+                          <i class="fa fa-undo"></i>
+                      </span>
+                  </button>
+                  <button type="button" class="btn btn-light btn-bordered" data-method="rotate" data-option="45" title="Rotate Right">
+                      <span class="docs-tooltip" data-bs-toggle="tooltip" title="cropper.rotate(45)">
+                          <i class="fa fa-repeat"></i>
+                      </span>
+                  </button>
+              </div>
+              <button type="button" class="btn btn-success fnCheckValidFace">Save</button>
+              <button type="button" class="btn btn-light btn-bordered fnCropValidCancel1">Cancel</button>
+          </div>
+      </div>
+  </div>
+</div>
+</section>

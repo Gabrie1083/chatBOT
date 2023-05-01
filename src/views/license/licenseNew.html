@@ -1,0 +1,156 @@
+<section id="BodyContent">
+  <div class="container-fluid pt-4 pb-5">
+        <input type="hidden" id="hidLicenseId" />
+        <div class="card">
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form id="formNewLicense" class="p-3 needs-validation" novalidate>
+                          <div class="row">
+                            <div class="col-md-12 mb-3">
+                              <h5>License Detail</h5>
+                            </div>
+                            <div class="col-md-6">
+  
+                                <div class="row mb-3 required">
+                                    <label for="selIssuetype" class="col-md-4 col-form-label">Licenses No</label>
+                                    <div class="col-md-8">
+                                      <input type="text" id="txtlicenseno" name="txtlicenseno" class="form-control" required>
+                                      <div class="invalid-feedback">
+                                        Please Enter License Number.
+                                      </div>
+                                    </div>
+                                </div>
+  
+                                <div class="row mb-3 required">
+                                  <label class="col-form-label col-md-4">Document Type</label>
+                                  <div class="col-md-8">
+                                    <div class="input-group">
+                                      <select id="selDocumentType" class="form-select" name="selDocumentType" data-size="5" data-live-search="true" required>
+                                        <!-- <option value="1">Acra</option> -->
+                                      </select>
+                                      <button type="button" class="btn btn-primary btnNewDocumentType"><i class="fa fa-plus"></i> New</button>
+                                    </div>
+                                  </div>
+                              </div>
+  
+                                <div class="row mb-3 required">
+                                  <label for="selIssuetype" class="col-md-4 col-form-label">Document Name</label>
+                                  <div class="col-md-8">
+                                    <input type="text" id="txtdocname" name="txtdocname" class="form-control" required>
+                                    <div class="invalid-feedback">
+                                      Please Enter Document Name.
+                                    </div>
+                                  </div>
+                              </div>
+  
+                                
+                            </div>
+                            <div class="col-md-6">
+  
+                                <div class="row mb-3 required">
+                                    <label class="col-md-4 col-form-label">Renewal Date</label>
+                                    <div class="col-md-8">
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fa-solid fa-calendar-day"></i></span>
+                                            <input type="text" id="lblRenewDate" name="lblRenewDate" placeholder="dd/mm/yyyy" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                  <label class="col-md-4 col-form-label">Remarks</label>
+                                  <div class="col-md-8">
+                                    <textarea type="text" id="txtremark" name="txtremark" class="form-control"></textarea>
+  
+                                  </div>
+                              </div>
+  
+                            </div>
+  
+                          </div>
+
+                          <div class="row">
+                            <div class="col-md-12 mb-3">
+                              <h5>License Asset mapping</h5>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="row mb-3 required">
+                                <label class="col-md-4 col-form-label" for="selLicenseAsset">Assets</label>
+                                <div class="col-md-8">
+                                    <select id="selLicenseAsset" class="form-select" name="selLicenseAsset" data-size="5" data-live-search="true" required>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-md-12 mb-3">
+                              <h5>License Attachment</h5>
+                            </div>
+                            <div class="col-md-12">
+                              <div class="row mb-3">
+                                <label class="col-md-4 col-form-label">Attachments</label>
+                                <div class="col-md-8">
+                                    <table id="EditAttachmentWrap" class="w-100 attachwrap d-none" cellpadding="7"></table>
+                                    <table id="AttachmentWrap" class="w-100 attachwrap" cellpadding="7"></table>
+                                    <div class="my-3">
+                                        <button class="btn btn-outline-primary btn-sm fnaddattachment" type="button">Add Attachment</button>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                          
+                      </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-md-12 text-center">
+                        <button type="button" class="btn btn-success raised" id="btnsaveLicense" style="width:12rem">Submit</button>
+                        <button type="button" class="btn btn-success raised d-none" id="btnupdateLicense" style="width:12rem">Update</button>
+                        <button type="button" class="btn btn-light btn-bordered fnCancelNewLicense" style="width: 12rem;">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="ModalContent">
+    
+    <div class="modal fade" id="NewLicenseDocumentTypeModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title">Document Type</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="row">
+                            <div class="row mb-3 required">
+                              <label for="selIssuetype" class="col-md-4 col-form-label">Document name</label>
+                              <div class="col-md-8">
+                                <input type="text" id="txtDocumentType" name="txtDocumentType" class="form-control">
+                              </div>
+                          </div>
+  
+                          </div>
+  
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="modal-footer justify-content-center">
+                  <button type="button" class="btn btn-success raised" id="btnsaveLicenseDoc" style="width:12rem">Submit</button>
+                  <button class="btn btn-light btn-bordered raised" type="button" name="action" data-bs-dismiss="modal" style="width:12rem">Close</button>
+              </div>
+          </div>
+      </div>
+  
+    </div>
+  
+  </section>

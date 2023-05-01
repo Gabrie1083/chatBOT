@@ -1,0 +1,109 @@
+<section id="BodyContent">
+    <div class="container-fluid pt-4 pb-5">
+      <div class="card moreradious mb-3">
+              
+                  <div class="card-body">
+                      <div class="row">
+                          <div class="col-md-8">
+                              <div class="row mb-3">
+                                  <label class="col-form-label col-md-4 ">Report Type:</label>
+                                  <div class="col-md-5">
+                                      <select class="form-select" id="Selreporttype" name="Selreporttype">
+                                          <option value="1">Management Report</option>
+                                          <option value="2">Key Performance Indicator(KPI) Report</option>
+                                          <option value="3">Work Order Status Report</option>
+                                          <option value="4">Work Order Aging</option>
+                                          <option value="5">Time & Cost </option>
+                                      </select>
+                                  </div>
+                              </div>
+                              <div class="row mb-3 exportManagementbtn">
+                                <label class="col-form-label col-md-4 ">Period:</label>
+                                <div class="col-md-5">
+                                    <select class="form-select" id="Selreportmonth" name="Selreportmonth">
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                             
+                              <div class="row mb-3">
+                                  <div class="col-md-8 offset-md-4">
+                                      <button type="button" class="btn btn-success fnreportsubmit">Submit</button>
+                                      <button type="button" class="btn btn-light btn-bordered fnreportcancel">Cancel</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              
+      </div>
+   
+           
+        
+  
+        <div class="card moreradious">
+          <div class="card-body">
+            <div class="row mb-2">
+                <div class="col-6">
+
+                </div>
+                <div class="col-6 text-end">
+                    <!-- <button type="button" class="btn btn-light btn-bordered fnEditTemplateContent">Edit Report Content</button> -->
+                    <div class="btn-group exportManagementbtn">
+                        <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> Export </button>
+                        <ul class="dropdown-menu">
+                            <li class="fnPrintManagementForm"><button type="button" class="dropdown-item"><i class="fa-duotone fa-file-pdf icon"></i>Print</button></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group d-none" id="exportbtn">
+                        <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> Export </button>
+                        <ul class="dropdown-menu">
+                            <li class="fnPrintKPIForm"><button type="button" class="dropdown-item"><i class="fa-duotone fa-file-pdf icon"></i>Print</button></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <iframe class="iframe d-none" id="managementreport">
+            </iframe>
+            
+            <iframe class="iframe d-none" id="kpireport">
+            </iframe>
+          </div>
+        </div>
+       
+  </div>
+</section>
+
+<section id="ModalContent">
+    <div class="modal fade" id="ReportTemplateEditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div id="divModalLetterDialog" class="modal-dialog modal-xl modal-dialog-scrollable" role="document" style="max-width:80%">
+            <div class="modal-content h-100">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="h4LetterModalLabel">Create Letter</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+
+                    <form id="FormValidateNewLetter" class="h-100">
+                        <div class="row m-0 h-100">
+                            <div class="col-md-12">
+                                <div class="row ">
+                                    <div class="col-md-12 ">
+                                        <div id="divHidTemplateContent" class="d-none"></div>
+                                        <textarea id="divCkReportEditor" name="divCkReportEditor"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer text-center-i">
+                    <button class="btn btn-success raised d-none" style="width:12rem" type="button" name="action" id="btnUpdateLetter" onclick="fnUpdateLetterWithContent(0)">Update</button>
+                    <button class="btn btn-success raised d-none" type="button" name="action" id="btnLetterUpdatePreview" onclick="fnUpdateWithPreview()">Update & Preview</button>
+                    <button id="btnCloseLetterModal" class="btn btn-light btn-bordered raised " data-bs-dismiss="modal" style="width:12rem" type="button" name="action">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

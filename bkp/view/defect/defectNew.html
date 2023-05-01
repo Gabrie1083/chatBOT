@@ -1,0 +1,141 @@
+<section id="BodyContent">
+  <div class="container-fluid pt-4 pb-5">
+    <div class="card moreradious mb-3">
+      <!--<div class="login-screen-title">Login</div>-->
+      
+          
+              <div class="card-body">
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="row mb-3">
+                              <label class="col-form-label col-md-4 fw-bold">Employee Name</label>
+                              <div class="col-md-8">
+                                <select class="form-select">
+                                  <option value="180" selected>Select Employee</option>
+                                </select>
+                              </div>
+                          </div>
+                         
+                          <div class="row mb-3">
+                              <label class="col-form-label col-md-4 fw-bold">Site Name</label>
+                              <div class="col-md-8">
+                                <select class="form-select">
+                                  <option value="180" selected>Select Site</option>
+                                </select>
+                              </div>
+                          </div>
+                         
+                          <div class="row mb-3">
+                              <label class="col-form-label col-md-4 fw-bold">Defect Spotted Date</label>
+                              <div class="col-md-8">
+                                <input type="text" id="txtdefectspotDate" name="txtdefectspotDate" class="form-control" />
+                              </div>
+                          </div>
+                         
+                          <div class="row mb-3">
+                            <label class="col-form-label col-md-4 fw-bold">Defect Spotted Time</label>
+                            <div class="col-md-8">
+                              <input type="text" id="txtdefectspotTime" name="txtdefectspotTime" class="form-control" />
+                            </div>
+                          </div>
+                         
+                          <div class="row mb-3">
+                              <label class="col-form-label col-md-4 fw-bold">Defect Type</label>
+                              <div class="col-md-8">
+                                <select class="form-select">
+                                  <option value="180" selected>Select  Type</option>
+                                </select>
+                              </div>
+                          </div>
+                         
+                          <div class="row mb-3">
+                              <label class="col-form-label col-md-4 fw-bold">Defect Category</label>
+                              <div class="col-md-8">
+                                <select class="form-select">
+                                  <option value="0" selected>Select Category</option>
+                                  <option value="1" selected>Maintenance</option>
+                                  <option value="2" selected>Security</option>
+                                </select>
+                              </div>
+                          </div>
+                         
+                          <div class="row mb-3">
+                              <label class="col-form-label col-md-4 fw-bold">Location</label>
+                              <div class="col-md-8">
+                                <input type="text" id="txtdefectLocation" name="txtdefectLocation" class="form-control" />
+                              </div>
+                          </div>
+                         
+                          <div class="row mb-3">
+                              <label class="col-form-label col-md-4 fw-bold">Building Spot</label>
+                              <div class="col-md-8">
+                                <input type="text" id="txtdefectBuildingSpot" name="txtdefectBuildingSpot" class="form-control" />
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="row mb-3 required">
+                            <label class="col-form-label col-md-4 fw-bold">Danger to Life or property?</label>
+                            <div class="col-md-8 pt-2">
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ReminderInAdvance" id="rdo30days" value="30" checked>
+                                <label class="form-check-label" for="rdo30days">No</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="ReminderInAdvance" id="rdo60days" value="60">
+                                <label class="form-check-label" for="rdo60days">Yes</label>
+                              </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3 required">
+                            <label class="col-form-label col-md-4 fw-bold">Status</label>
+                            <div class="col-md-8 pt-2">
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="rdstatus" id="Closed" value="30" checked>
+                                <label class="form-check-label" for="rdo30days">Closed</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="rdstatus" id="Open" value="60">
+                                <label class="form-check-label" for="rdo60days">Open</label>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3 required">
+                            <label class="col-form-label fw-bold">Defect Description / Observation</label>
+                            <div class="col-md-12">
+                              <input class="form-control" id="txtdescription" name="txtdescription" type="text" maxlength="150">
+                          </div>
+                        </div>
+                        <div class="row mb-3 required">
+                          <label class="col-form-label fw-bold">Corrective Action</label>
+                          <div class="col-md-12">
+                            <input class="form-control" id="txtCorraction" name="txtCorraction" type="text" maxlength="150">
+                        </div>
+                      </div>
+                     
+                      <div class="row mb-3">
+                          <label class="col-form-label fw-bold">Attachments</label>
+                          <div class="col-md-12">
+                              <table id="EditAttachmentWrap" class="w-100 attachwrap d-none" cellpadding="7"></table>
+                              <table id="AttachmentWrap" class="w-100 attachwrap" cellpadding="7"></table>
+                              <div class="my-3">
+                                  <button class="btn btn-outline-primary btn-sm fnaddattachment" type="button">Add Attachment</button>
+                              </div>
+                          </div>
+                      </div>
+                      </div>
+                         
+                      <div class="row my-3">
+                          <div class="col-md-12 text-center">
+                              <button type="button" class="btn btn-success raised" onclick="fnLoadAttendaceReport()" style="width: 12rem;">Submit</button>
+                              <button type="button" class="btn btn-light btn-bordered fnCancelNewDefect" onclick="fnCancelNewDefect()" style="width: 12rem;">Cancel</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+  </div>
+  
+  </div>
+</section>

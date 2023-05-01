@@ -1,0 +1,97 @@
+<section id="BodyContent">
+    <div class="container-fluid pt-4 pb-5">
+        <div class="row" id="divUserUpdate">
+            <div class="col-md-12 p-4">
+                <div class="card card-default">
+                    <div class="card-body">
+    
+                        <div class="media">
+                            <div style="text-align: center;">
+                                <img src="img/placeholder-man.png" class="photo" id="UserProfilePhoto" width="25%" height="25%" />
+                            </div>
+                            <div class="media-body">
+    
+                                <hr>
+                                <p><span></span></p>
+                                <!-- <dl class="m-0" style="text-align: right;">
+                                    <a class="btnedituserprofile"><i class="fa-solid fa-pen-to-square"></i></a>
+                                </dl> -->
+                                
+                                <dl class="dl-horizontal dt-left m-0 p-2">
+    
+                                    <dt>Employee Name</dt>
+                                    <dd><span id="lblempname">.....</span></dd>
+                                    
+                                    <dt>Employee Designation</dt>
+                                    <dd><span id="lbldesignation">.....</span></dd>
+    
+                                    <dt>Employee Mobile no</dt>
+                                    <dd><span id="lblmobileno">.....</span><span> </span><a class="btnedituserprofileContact"><i class="fa-solid fa-pen-to-square"></i></a></dd>
+    
+                                    <dt>Employee Email id</dt>
+                                    <dd><span id="lblmailid">.....</span><span> </span><a class="btnedituserprofileMail"><i class="fa-solid fa-pen-to-square"></i></a></dd>
+    
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="hidUserContactFlg"/>
+</section>
+<section id="ModalContent">
+    <div class="modal fade" id="editbasicdetailmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Employee Detail</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="Formvalidateitemstockinward">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row mb-3">
+                                    <label class="col-form-label col-md-4">Employee Name</label>
+                                    <div class="col-md-8">
+                                        <p class="form-control-plaintext" id="lblemployeename"></p>
+                                    </div>
+                                </div>
+                                <div class="row mb-3 mb-0 required" id="divUserContact">
+                                    <label class="col-form-label col-md-4">Contact No</label>
+                                    <div class="col-md-8">
+                                        <div class="input-group customWidth">
+                                            <select class="form-select" name="selUserCountryCode" id="selUserCountryCode">
+                                            </select>
+                                            <input class="form-control onchangeNumericValidation" type="tel" id="txtUserContactNo" placeholder="Contact No" maxlength="10">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3 required d-none" id="divUserMailId">
+                                    <label class="col-form-label col-md-4">Email Id</label>
+                                    <div class="col-md-8">
+                                        <input id="txtUserEmailId" name="txtUserEmailId" class="form-control" placeholder="Email Id" />
+                                    </div>
+                                </div>
+                                <div class="row mb-3 required">
+                                    <label class="col-form-label col-md-4">OTP</label>
+                                    <div class="col-md-8">
+                                        <input id="txtUserProfileOtp" name="txtUserProfileOtp" class="form-control" placeholder="OTP" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer text-center-i">
+                    <button class="btn btn-success raised fnUserRequestOTPSubmit" style="width:12rem" type="button" name="action">Send Otp</button>
+                    <button class="btn btn-success raised fnVerifyUserOTPSubmit" style="width:12rem" type="button" name="action">Submit</button>
+                    <button class="btn btn-light btn-bordered raised" style="width:12rem" type="button" name="action" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

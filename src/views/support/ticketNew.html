@@ -1,0 +1,190 @@
+<section id="BodyContent">
+
+    <div class="container-fluid pt-4 pb-5">
+      <input type="hidden" id="hidTicketId" />
+      <input type="hidden" id="hidTicketLastStatusId"/>
+      <div class="card moreradious mb-3">
+        <div class="card-body">
+            <form id="formHelpTicket" class="p-3 needs-validation" novalidate>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h5>Ticket Detail</h5>
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="row mb-3 required">
+                            <label class="col-form-label col-md-4" for="Title">Ticket Subject</label>
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <select id="selIssuetype" class="form-select" name="selIssuetype" data-size="5" data-width="auto" data-live-search="true">
+                                        <option value="">--Select--</option>
+                                    </select>
+                                    <button type="button" class="btn btn-primary fnNewTicketSubject"><i class="fa fa-plus"></i> New</button>
+                                    <div class="invalid-feedback">
+                                        Please Enter Ticket Subject.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3 required">
+                            <label class="col-md-4 col-form-label" for="spprioritype">Priority Type</label>
+                            <div class="col-md-8">
+                                <select id="selPriorityType" class="form-select" name="selPriorityType" required>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        
+                        <div class="row mb-3">
+                            <label class="col-md-4 col-form-label">Completion Date</label>
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fa-solid fa-calendar-day"></i></span>
+                                    <input type="text" id="issuedate" name="issuedate" placeholder="dd/mm/yyyy" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3 required">
+                            <label class="col-form-label col-md-4" for="TicketDescription">Description</label>
+                            <div class="col-md-8">
+                                <textarea type="text" id="TicketDescription" name="TicketDescription" class="form-control" row="2"
+                                    required></textarea>
+                                <div class="invalid-feedback">
+                                    Please Enter Ticket Description.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12 mt-3">
+                    <h5>Assignment Detail</h5>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row mb-3">
+                            <label class="col-form-label col-md-4">Assign To</label>
+                            <div class="col-md-8">
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input onchangefntasktypegroup"
+                                        name="rdtaskgroup" checked="checked" id="rdtaskgroup" value="0">
+                                    <label for="rdtaskgroup">
+                                        Group
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input onchangefntasktypegroup"
+                                        name="rdtaskgroup" id="rdtaskemployee" value="1">
+                                    <label for="rdtaskemployee">
+                                        Individual
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3 required" id="divtaskgroup">
+                            <label class="col-form-label col-md-4">Team</label>
+                            <div class="col-md-8">
+                                <select id="seltaskgroup" class="form-select" name="seltaskgroup" data-size="5"
+                                    data-width="100%" data-live-search="true" required>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3 d-none required" id="divUserGroupEmp">
+                            <label class="col-form-label col-md-4">Employee</label>
+                            <div class="col-md-8">
+                                <select id="UserGroupEmp" class="form-select" name="UserGroupEmp" data-size="5"
+                                    data-width="100%" data-live-search="true" multiple="multiple" required>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3 d-none required" id="divIndidualEmp">
+                            <label class="col-form-label col-md-4">Employee</label>
+                            <div class="col-md-8">
+                                <select id="IndidualEmp" class="form-select" name="IndidualEmp" data-size="5"
+                                    data-width="100%" data-live-search="true" multiple="multiple" required>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 mt-3">
+                    <h5>Attachments</h5>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row mb-3">
+                            <label class="col-md-4 col-form-label">Attachments</label>
+                            <div class="col-md-8">
+                                <table id="EditTicketAttachmentWrap" class="w-100 attachwrap d-none" cellpadding="7">
+                                </table>
+                                <table id="TicketAttachmentWrap" class="w-100 attachwrap" cellpadding="7"></table>
+                                <div class="my-3">
+                                    <button class="btn btn-outline-primary btn-sm fnaddticketattachment" type="button">Add
+                                        Attachment</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row my-3">
+                    <div class="col-md-12 text-center">
+                        <button type="button" id="btnSaveHelpTicket" class="btn btn-success raised"
+                            style="width: 12rem;">Submit</button>
+                        <button type="button" class="btn btn-success raised d-none" id="btnUpdateHelpTicket"
+                            style="width:12rem">Update</button>
+                        <button type="button" class="btn btn-light btn-bordered fnCancelTicketNew"
+                            style="width: 12rem;">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+  </section>
+  
+  <section id="ModalContent">
+    
+    <div class="modal fade" id="NewTicketSubjectModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title">New Subject</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form id="formTicketSubject" class="p-3 needs-validation" novalidate>
+                  <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                          <div class="row mb-3 required">
+                            <label for="selIssuetype" class="col-md-4 col-form-label">Subject</label>
+                            <div class="col-md-8">
+                              <input type="text" id="txtTicketSubject" name="txtTicketSubject" class="form-control">
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                </form>
+                
+              </div>
+              
+              <div class="modal-footer justify-content-center">
+                  <button type="button" class="btn btn-success raised" id="btnSaveTicketSubject" style="width:12rem">Submit</button>
+                  <button class="btn btn-light btn-bordered raised" type="button" name="action" data-bs-dismiss="modal" style="width:12rem">Close</button>
+              </div>
+          </div>
+      </div>
+    </div>
+  
+  </section>

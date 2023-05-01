@@ -1,0 +1,377 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" integrity="sha512-8ou7fcyycqNuFpv9eBUT7lvFnZ/tHM7Of3qOCjxPYKBUYYuQdrbJnWH61dAez1M2p3C42GKN1m6xc/UQgfdo0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+<section id="BodyContent">
+  <div class="container">
+
+<input type="hidden" id="hidStatusUpdateId"/>
+<input type="hidden" id="hidLastStatusId"/>
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-9">
+            <h5 id="h5WorkCode">WO001</h5>
+          </div>
+          <div class="col-md-3 text-end">
+            <!-- <div class="dropdown d-inline-block">
+              <button class="btn btn-primary dropdown-toggle me-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Active</button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Edit</a></li>
+                <li><a class="dropdown-item red-text" href="#">Delete</a></li>
+              </ul>
+            </div> -->
+            <button class="btn btn-light fnCancelTenantDetail" type="button">Close</button>
+          </div>
+          <div class="col-12">
+            <hr>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <dl>
+              <dt>Created Date</dt>
+              <dd id="lblCreatedDate">--</dd>
+            </dl>
+          </div>
+          <div class="col-md-3">
+            <dl>
+              <dt>Location</dt>
+              <dd id="lblSiteName">--</dd>
+            </dl>
+          </div>
+          <div class="col-md-3">
+            <dl>
+              <dt>Created By</dt>
+              <dd id="lblCreatedBy">--</dd>
+            </dl>
+          </div>
+          <div class="col-md-3">
+            <dl>
+              <dt>Assigned To</dt>
+              <dd id="lblAssignTo">--</dd>
+            </dl>
+          </div>
+          <div class="col-md-3">
+            <dl>
+              <dt>Due Date</dt>
+              <dd id="lblDueDate">--</dd>
+            </dl>
+          </div>
+          <div class="col-md-3">
+            <dl>
+              <dt>Reporting To</dt>
+              <dd id="lblReportingTo">--</dd>
+            </dl>
+          </div>
+          <div class="col-md-3">
+            <dl>
+              <dt>Request Type</dt>
+              <dd id="lblRequestType">--</dd>
+            </dl>
+          </div>
+          <div class="col-md-3">
+            <dl>
+              <dt>Priority</dt>
+              <dd id="lblDivPriority"><span id="lblPriority" class="badge bg-danger">critical</span></dd>
+            </dl>
+          </div>
+          <div class="col-md-3">
+            <dl>
+              <dt>Status</dt>
+              <dd id="lblDivStatus"><span id="lblStatus" class="badge bg-info">Resolved</span></dd>
+            </dl>
+          </div>
+          <div class="col-md-6">
+            <dl>
+              <dt>Assigned Employees</dt>
+              <dd id="lblDivAssignedEmployee">--</dd>
+            </dl>
+          </div>
+          <!-- <div class="col-md-6">
+            <dl>
+              <dt>Assets Detail</dt>
+              <dd id="lblDivAssets">--</dd>
+            </dl>
+          </div> -->
+        </div>
+      </div>
+      <div class="card-footer bottomline">
+          <ul class="nav nav-pills card-header-tabs" id="tenantTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="tenantContract-tab" data-bs-toggle="tab" data-bs-target="#tenantContract" type="button" role="tab" aria-controls="tenantContract" aria-selected="false">Status Update</button>
+            </li>
+              <!-- <li class="nav-item" role="presentation">
+                <button class="nav-link" id="ordertimeline-tab" data-bs-toggle="tab" data-bs-target="#ordertimeline" type="button" role="tab" aria-controls="ordertimeline" aria-selected="true">Order Timeline</button>
+              </li> -->
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="escalationtimeline-tab" data-bs-toggle="tab" data-bs-target="#escalationtimeline" type="button" role="tab" aria-controls="escalationtimeline" aria-selected="false">Attachment</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="WorkOrderAsset-tab" data-bs-toggle="tab" data-bs-target="#WorkOrderAsset" type="button" role="tab" aria-controls="WorkOrderAsset" aria-selected="false">Asset</button>
+              </li>
+          </ul>
+      </div>
+    </div>
+      
+    <div class="card">
+      <div class="card-body tab-content" id="tenantTabContent">
+        <div class="tab-pane fade show active" id="tenantContract" role="tabpanel" aria-labelledby="tenantContract-tab">
+          <div class="row">
+            <div class="col-md-8">
+
+              <div class="card actual mb-3">
+                  <div class="card-header">
+                      Status Update
+                  </div>
+                  <div class="card-body">
+                      <div class="mb-4">
+                          <div id="divtblcomment">
+                            <div class="chatbody">
+                              <div class="row msg_container base_sent right clearfix ">
+                                <div class="col-md-12"><span class="chat-img float-right">
+                                <span class="rounded-circle label-warning">R</span>
+                                   </span >
+                                <div class="messages msg_receive float-right">
+                                <div class="small text-muted"><span>Dec 06, Tue 08:13 PM</span> <span style="float: right;"></span></div>
+                                  <div class="fw-bold">Richard</div>
+                                <div class="float-right"><p>Plumbing and Sanitary Done</div>
+                                <div>
+                                  <span class="comment-span-img"></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          </div>
+                          </div>
+                          <div class="text-center d-none" id="Sitecommentdefault">No Comments Yet</div>
+                      </div>
+
+                      <div class="mb-3">
+                        <label class="col-form-label col-md-3" for="status">Comment</label>
+                        <div class="col-md-12">
+                          <textarea class="form-control" id="CommentMsg" row="5"></textarea>
+                        </div>
+                        
+                          
+                      </div>
+
+                      <div class="row mb-3" id="divcmdstatus">
+                          <label class="col-form-label col-md-3" for="status">Status</label>
+                          <div class="col-md-12">
+                              <div class="form-check form-check-inline" id="divOpen">
+                                  <input type="radio" class="form-check-input" name="stsopen" id="stsopen" value="12" checked="checked" >
+                                  <label class="form-check-label" for="stsopen">
+                                      <span class="badge bg-warning">Open</span>
+                                  </label>
+                              </div>
+
+                              <div class="form-check form-check-inline">
+                                  <input type="radio" class="form-check-input" name="stsopen" id="stsinprogress" value="37" >
+                                  <label class="form-check-label" for="stsinprogress">
+                                      <span class="badge bg-primary">InProgress</span>
+                                  </label>
+                              </div>
+
+                              <div class="form-check form-check-inline">
+                                  <input type="radio" class="form-check-input" name="stsopen" id="stsonhold" value="41" >
+                                  <label class="form-check-label" for="stsonhold">
+                                      <span class="badge bg-secondary">On Hold</span>
+                                  </label>
+                              </div>
+
+                              <div class="form-check form-check-inline">
+                                  <input type="radio" class="form-check-input" name="stsopen" id="stsresolve" value="13" >
+                                  <label class="form-check-label" for="stsresolve">
+                                      <span class="badge bg-info">Resolved</span>
+                                  </label>
+                              </div>
+
+                              <div class="form-check form-check-inline">
+                                  <input type="radio" class="form-check-input" name="stsopen" id="stsclosed" value="14" >
+                                  <label class="form-check-label" for="stsclosed">
+                                      <span class="badge bg-success">Closed</span>
+                                  </label>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="col-md-12 pt-2">
+                        <table id="EditAttachmentWrap" class="w-100 attachwrap d-none" cellpadding="7"></table>
+                            <table id="AttachmentWrap" class="w-100 attachwrap" cellpadding="7"></table>
+                            <div class="my-3">
+                                <button class="btn btn-outline-primary btn-sm fnaddattachmentT" type="button">Add Attachment</button>
+                            </div>
+                      </div>
+                      <div class="row mb-3">
+                          <div class="col-md-9 offset-3">
+                              <button type="button" class="btn btn-success" id="btncomment">Update Status</button>
+                          </div>
+                      </div>
+                      <input type="hidden" id="txtactivelogid" />
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-md-4">
+              <div class="card actual mb-3">
+                  <div class="card-header">
+                      Activities
+                  </div>
+                  <div class="card-body">
+                      <div id="divactivelogList">
+                        <ul class="timelineact">
+                          <li >
+                            <span class="rounded-circleact label-warning">R</span> 
+                             <div>
+                             <strong >Richard</strong> Added Message
+                            <p> on 
+                              Dec 06, Tue 08:13 PM
+                            </p>
+                            </div>
+                              </li>
+                        </ul>
+                        <ul class="timelineact">
+                          <li >
+                            <span class="rounded-circleact label-warning">R</span> 
+                             <div>
+                             <strong >Richard</strong> WorkOrder Status Update <b>Resolved</b>
+                            <p> on 
+                              Dec 05, Tue 11:30 AM
+                            </p>
+                            </div>
+                              </li>
+                        </ul>
+                        <ul class="timelineact">
+                          <li >
+                            <span class="rounded-circleact label-warning">R</span> 
+                             <div>
+                             <strong >RAHMAN BIN TAIB</strong> WorkOrder Status Update <b>Open</b>
+                            <p> on 
+                              Dec 05, Tue 09:30 AM
+                            </p>
+                            </div>
+                              </li>
+                        </ul>
+                      </div>
+                      <div class="text-center d-none" id="siteactivedefault">No Activities Found</div>
+                  </div>
+              </div>
+          </div>
+          </div>
+        </div>
+        <!-- <div class="tab-pane fade" id="ordertimeline" role="tabpanel" aria-labelledby="ordertimeline-tab">
+          <div class="row">
+          </div>
+        </div> -->
+        <div class="tab-pane fade" id="escalationtimeline" role="tabpanel" aria-labelledby="escalationtimeline-tab">
+          <div class="row">
+            <table id="tblDocument" class="table table-hover" cellspacing="0" style="width:100%">
+              <thead>
+                  <tr>
+                    <th>File</th>
+                    <th>Preview</th>
+                    <th>Download</th>
+                    <th>Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+              </tbody>
+          </table>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="WorkOrderAsset" role="tabpanel" aria-labelledby="WorkOrderAsset-tab">
+          <div class="row">
+            <table id="tblWorkOrderAsset" class="table table-hover" cellspacing="0" style="width:100%">
+              <thead>
+                  <tr>
+                    <th>Asset Code</th>
+                    <th>Asset Title</th>
+                    <th>Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+              </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+<input type="hidden" id="hidworkorderid" />
+
+</section>
+<section id="ModalContent">
+  <div class="modal fade" id="DocPreviewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <iframe class="iframe" id="DocPreviewIframe" src=""></iframe>
+            <input type="hidden" id="hidDocPreviewFilename" />
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="EditStatusUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="col-form-label col-md-3" for="status">Comment</label>
+              <div class="col-md-12">
+                <textarea class="form-control" id="CommentMsgEdit" row="5"></textarea>
+              </div>
+            </div>
+            <div class="row mb-3" id="divcmdstatus">
+              <label class="col-form-label col-md-3" for="status">Status</label>
+              <div class="col-md-12">
+                  <div class="form-check form-check-inline" id="divOpen">
+                      <input type="radio" class="form-check-input" name="stsopenEdit" id="stsopenEdit" value="12" checked="checked" >
+                      <label class="form-check-label" for="stsopenEdit">
+                          <span class="badge bg-warning">Open</span>
+                      </label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                      <input type="radio" class="form-check-input" name="stsopenEdit" id="stsinprogressEdit" value="37" >
+                      <label class="form-check-label" for="stsinprogressEdit">
+                          <span class="badge bg-primary">InProgress</span>
+                      </label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                      <input type="radio" class="form-check-input" name="stsopenEdit" id="stsonholdEdit" value="41" >
+                      <label class="form-check-label" for="stsonholdEdit">
+                          <span class="badge bg-secondary">On Hold</span>
+                      </label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                      <input type="radio" class="form-check-input" name="stsopenEdit" id="stsresolveEdit" value="13" >
+                      <label class="form-check-label" for="stsresolveEdit">
+                          <span class="badge bg-info">Resolved</span>
+                      </label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                      <input type="radio" class="form-check-input" name="stsopenEdit" id="stsclosedEdit" value="14" >
+                      <label class="form-check-label" for="stsclosedEdit">
+                          <span class="badge bg-success">Closed</span>
+                      </label>
+                  </div>
+              </div>
+          </div>
+
+          </div>
+          <div class="modal-footer justify-content-center">
+            <button class='btn btn-success raised fnUpdateStatusUpdate' type="button" style="width:12rem">Update</button>
+            <button class="btn btn-light btn-bordered raised" type="button" name="action" style="width:12rem" data-bs-dismiss="modal"> Close</button>
+        </div>
+        </div>
+    </div>
+  </div>
+</section>

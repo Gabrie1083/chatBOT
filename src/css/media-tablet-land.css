@@ -1,0 +1,50 @@
+
+@media only screen and (min-width: 1024px) and (max-width: 1200px) {
+  .topnav.desktopNav{
+    display: flex;
+  }
+  .topnav.mobileNav{
+    display: none;
+  }
+  /* .mainMenu {
+      z-index: 100;
+      width: 4rem;
+      height: calc(100% - 50px);
+      transition: left 0.2s;
+      flex:0 !important;
+  }
+  .sidebar-inner {
+    width: 4rem !important;
+  }
+  .mainMenu, .sidebar {
+      flex: 0 0 5rem !important;
+  }
+  .mainMenu .accordion {
+      width: 4rem;
+  } */
+
+  .sidebar-inner:hover {
+    width: calc(16rem - 10px) !important;
+    position: absolute;
+    z-index: 100;
+    height: calc(100% - 20px) !important;
+  }
+  .sidebar-inner:hover .mainMenu {
+    width: calc(16rem - 10px) !important;
+  }
+  .sidebar-inner:hover .mainMenu, .sidebar {
+      flex: 0 0 16rem !important;
+  }
+
+  .sidebar-inner:hover + .page-content{
+    margin-left: 5rem;
+  }
+
+  .sidebar-inner:hover .accordion {
+      width: inherit;
+  }
+
+  .sidebar-inner:hover:hover .toggleSidebar, .sidebar-inner:hover .accordion-button .text, .sidebar-inner:hover .accordion-button::after, .sidebar-inner:hover .accordion-inner-body {
+      display: block;
+  }
+}

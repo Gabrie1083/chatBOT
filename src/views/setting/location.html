@@ -1,0 +1,736 @@
+<section id="BodyContent">
+  <div class="container-fluid pt-4 pb-5">
+    <input type="hidden" id="hidLocationId" />
+    <input type="hidden" id="hidUnitId" />
+
+    <input type="hidden" id="hidLocSiteId" />
+    <input type="hidden" id="hidLocClientId" />
+
+    <input type="hidden" id="hidsitename" />
+    <input type="hidden" id="hidlocationname" />
+
+
+    <input type="hidden" id="txtReportid">
+
+      <div class="card mb-3">
+          <div class="card-footer bottomline">
+              <ul class="nav nav-pills card-header-tabs" id="SettingTabs" role="tablist">
+                  <!-- <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="usermanagement-tab" data-bs-toggle="tab" data-bs-target="#usermanagement" type="button" role="tab" aria-controls="usermanagement" aria-selected="true">Users</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="reminderconfig-tab" data-bs-toggle="tab" data-bs-target="#reminderconfig" type="button" role="tab" aria-controls="reminderconfig" aria-selected="true">Reminder Config</button>
+                  </li> -->
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="location-tab" data-bs-toggle="tab" data-bs-target="#location" type="button" role="tab" aria-controls="location" aria-selected="false">Location</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link " id="Unit-tab" data-bs-toggle="tab" data-bs-target="#Unit" type="button" role="tab" aria-controls="Unit" aria-selected="false">Unit</button>
+                  </li>
+                  <!-- <li class="nav-item" role="presentation">
+                    <button class="nav-link " id="Asset-tab" data-bs-toggle="tab" data-bs-target="#Asset" type="button" role="tab" aria-controls="Asset" aria-selected="false">Asset</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link " id="Inventory-tab" data-bs-toggle="tab" data-bs-target="#Inventory" type="button" role="tab" aria-controls="Inventory" aria-selected="false">Inventory Product</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link " id="LogDetail-tab" data-bs-toggle="tab" data-bs-target="#LogDetail" type="button" role="tab" aria-controls="LogDetail" aria-selected="false">System Log</button>
+                  </li> -->
+              </ul>
+          </div>
+          <div class="card-body tab-content" id="SettingTabContent">
+            <div class="tab-pane fade show active" id="location" role="tabpanel" aria-labelledby="location-tab">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="input-group mb-2" id="DtSLocationsearchwrap" style="width:250px;">
+                      <input type="text" class="form-control DTSearchBoxLocation" placeholder="Search">
+                      <button class="btn btn-light btn-bordered DTfrSearchClrLocation" type="button" style="display:none;"><i class="fa fa-times"></i></button>
+                      <button class="btn btn-light btn-bordered DTSearchBtnLocation" type="button" ><i class="fa fa-search"></i></button>
+                  </div>
+                </div>  
+                        <div class="col-6 text-end">
+                            <button type="button" class="btn btn-success me-2" id="btnNewLocation" data-bs-toggle="modal">New Location</button>
+                        </div>
+                      </div>
+             
+              <div class="row">
+                  <div class="col-md-12">                      
+                    <table id="TblLocation" class="table table-hover" cellspacing="0" style="width:100%">
+                      <thead>
+                          <tr>
+                              <th>Location Code</th>
+                              <th>Location</th>
+                              <th>Description</th>
+                              <th>Site</th>
+                              <th>View</th>
+                              <th>Action</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                  </table>
+                  </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="Unit" role="tabpanel" aria-labelledby="Unit-tab">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="input-group mb-2" id="DtSUnitSearchWrap" style="width:250px;">
+                      <input type="text" class="form-control DTSearchBoxUnit" placeholder="Search">
+                      <button class="btn btn-light btn-bordered DTfrSearchClrUnit" type="button" style="display:none;"><i class="fa fa-times"></i></button>
+                      <button class="btn btn-light btn-bordered DTSearchBtnUnit" type="button" ><i class="fa fa-search"></i></button>
+                  </div>
+                </div>  
+                <div class="col-6 text-end">
+                    <button type="button" class="btn btn-success me-2" id="btnNewUnit" data-bs-toggle="modal">New Unit</button>
+                </div>
+              </div>
+             
+              <div class="row">
+                  <div class="col-md-12">                      
+                    <table id="TblUnit" class="table table-hover" cellspacing="0" style="width:100%">
+                      <thead>
+                          <tr>
+                              <th>Unit Code</th>
+                              <th>Unit</th>
+                              <th>Description</th>
+                              <th>Location</th>
+                              <th>Action</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                  </table>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          
+  </div>
+
+</section>
+
+<section id="ModalContent">
+  <div class="modal fade" id="DetailModal" tabindex="-1" role="dialog" aria-labelledby="DetailModal" data-keyboard="false">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header py-1">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h5 class="modal-title pb-1">Menu Details <span id="modaltitleDesig"></span></h5>
+                    </div>
+                    <div class="col-md-12">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item active li_ztree"><button type="button" class="nav-link active" data-bs-toggle="tab" href="#tabWebPermission">Web</button></li>
+                            <li class="nav-item"><button type="button" class="nav-link" onclick="loadMobileAppMenu()" data-bs-toggle="tab" href="#tabAppPermission">Mobile App</button></li>
+                        </ul>
+                    </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div id="divPreviewDetails">
+
+                    <div class="tab-content">
+
+                        <div role="tabpanel" class="tab-pane fade show active" id="tabWebPermission">
+                          <div class="row">
+                            <div class="col-md-8">
+                              <div class="p-4">
+                                <dd class="row">
+                                  <label class="col-md-4 form-check-label" for="flexSwitchDashM">DashBoard</label>
+                                  <div class="col-md-4 form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchDashM" checked>
+                                  </div>
+                                </dd>
+                                <dd class="row">
+                                  <label class="col-md-4 form-check-label" for="flexSwitchAssetM">Assets</label>
+                                  <div class="col-md-4 form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchAssetM" checked>
+                                  </div>
+                                </dd>
+                                <dd class="row">
+                                  <label class="col-md-4 form-check-label" for="flexSwitchInvM">Inventory</label>
+                                  <div class="col-md-4 form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchInvM" checked>
+                                  </div>
+                                </dd>
+                                <dd class="row">
+                                  <label class="col-md-4 form-check-label" for="flexSwitchLicM">License</label>
+                                  <div class="col-md-4 form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchLicM" checked>
+                                  </div>
+                                </dd>
+                                <dd class="row">
+                                  <label class="col-md-4 form-check-label" for="flexSwitchTenM">Tenants</label>
+                                  <div class="col-md-4 form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchTenM" checked>
+                                  </div>
+                                </dd>
+                                <dd class="row">
+                                  <label class="col-md-4 form-check-label" for="flexSwitchWorkM">Work Order</label>
+                                  <div class="col-md-4 form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchWorkM" checked>
+                                  </div>
+                                </dd>
+                                <dd class="row">
+                                  <label class="col-md-4 form-check-label" for="flexSwitchReqOM">Request Order</label>
+                                  <div class="col-md-4 form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchReqOM" checked>
+                                  </div>
+                                </dd>
+                                <dd class="row">
+                                  <label class="col-md-4 form-check-label" for="flexSwitchSchMainM">Scheduled Maintenance</label>
+                                  <div class="col-md-4 form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchSchMainM" checked>
+                                  </div>
+                                </dd>
+                                <dd class="row">
+                                  <label class="col-md-4 form-check-label" for="flexSwitchFMM">File Manager</label>
+                                  <div class="col-md-4 form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchFMM" checked>
+                                  </div>
+                                </dd>
+                                <dd class="row">
+                                  <label class="col-md-4 form-check-label" for="flexSwitchSetM">Settings</label>
+                                  <div class="col-md-4 form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchSetM" checked>
+                                  </div>
+                                </dd>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div role="tabpanel" class="tab-pane fade" id="tabAppPermission">
+                          <div class="row">
+                            <div class="col-md-8">
+                              <div class="p-4">
+                                <dd class="row">
+                                  <label class="col-md-4 form-check-label" for="flexSwitchDashM1">DashBoard</label>
+                                  <div class="col-md-4 form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchDashM1">
+                                  </div>
+                                </dd>
+                                <dd class="row">
+                                  <label class="col-md-4 form-check-label" for="flexSwitchAssetM1">Assets</label>
+                                  <div class="col-md-4 form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchAssetM1">
+                                  </div>
+                                </dd>
+                                <dd class="row">
+                                  <label class="col-md-4 form-check-label" for="flexSwitchInvM1">Inventory</label>
+                                  <div class="col-md-4 form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchInvM1">
+                                  </div>
+                                </dd>
+                                <dd class="row">
+                                  <label class="col-md-4 form-check-label" for="flexSwitchLicM1">License</label>
+                                  <div class="col-md-4 form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchLicM1">
+                                  </div>
+                                </dd>
+                                <dd class="row">
+                                  <label class="col-md-4 form-check-label" for="flexSwitchTenM1">Tenants</label>
+                                  <div class="col-md-4 form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchTenM1">
+                                  </div>
+                                </dd>
+                                <dd class="row">
+                                  <label class="col-md-4 form-check-label" for="flexSwitchWorkM1">Work Order</label>
+                                  <div class="col-md-4 form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchWorkM1">
+                                  </div>
+                                </dd>
+                                <dd class="row">
+                                  <label class="col-md-4 form-check-label" for="flexSwitchReqOM1">Request Order</label>
+                                  <div class="col-md-4 form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchReqOM1">
+                                  </div>
+                                </dd>
+                                <dd class="row">
+                                  <label class="col-md-4 form-check-label" for="flexSwitchSchMainM1">Scheduled Maintenance</label>
+                                  <div class="col-md-4 form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchSchMainM1">
+                                  </div>
+                                </dd>
+                                <dd class="row">
+                                  <label class="col-md-4 form-check-label" for="flexSwitchFMM1">File Manager</label>
+                                  <div class="col-md-4 form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchFMM1">
+                                  </div>
+                                </dd>
+                                <dd class="row">
+                                  <label class="col-md-4 form-check-label" for="flexSwitchSetM1">Settings</label>
+                                  <div class="col-md-4 form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchSetM1">
+                                  </div>
+                                </dd>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer text-center-i">
+                <button class="btn btn-success raised d-none" style="width:12rem" name="action" id="btnSaveUserAuthn" onclick="fnSaveDesignationAuthentication()">Save</button>
+                <button class="btn btn-success raised d-none " style="width:12rem" name="action" id="btnSaveMobileAppPerm" onclick="fnSaveDesigAuthenticationMobile()">Save</button>
+                <button class="btn btn-success raised d-none " style="width:12rem" name="action" id="btnSaveEOmenu" onclick="fnSaveEODesigmenu()">Save</button>
+                <button class="btn btn-success raised d-none" style="width:12rem" name="action" id="btnSaveDashmenu" onclick="fnSaveDashMDesig()">Save</button>
+                <button class="btn btn-success raised d-none" style="width:12rem" name="action" id="btnUpdateDetail" onclick="fnUpdateDesignation()">Update</button>
+                <button class="btn btn-success raised d-none" style="width:12rem" onclick="fnSaveDesigEmpAuthen()" id="btnSaveDesigEmpAuthen">Save</button>
+                <button class="btn btn-light btn-bordered raised" style="width:12rem" type="button" name="action" id="btnCloseMobileAppPerm" data-bs-dismiss="modal"> Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ModalNewLocationItem" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title lbllocationmodaltitle">New Location</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formLicenseSetting" class="p-3 needs-validation" novalidate>
+          <div class="row">
+            <div class="col-md-12">
+                <div class="row mb-3 required">
+                    <label class="col-form-label col-md-4">Location</label>
+                    <div class="col-md-8">
+                      <input class="form-control" type="text" name="txtlocation" id="txtlocation" required>
+                      <div class="invalid-feedback">
+                        Please Enter Location.
+                      </div>
+                    </div>
+                </div>
+  
+                <div class="row mb-3" id="DivInvRemark">
+                    <label class="col-form-label col-md-4">Description</label>
+                    <div class="col-md-8">
+                        <textarea class="form-control" type="text" name="txtdesc" id="txtdesc"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+        
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-success raised savelocation" style="width: 12rem;">Submit</button>
+        <button type="button" class="btn btn-success raised Updatelocation d-none" style="width: 12rem;">Update</button>
+        <button type="button" class="btn btn-light btn-bordered" data-bs-dismiss="modal" style="width: 12rem;">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ModalNewUnitItem" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title lbleditunittitle">New Unit</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <div class="row">
+          <div class="col-md-12">
+            <form id="formUnitSetting" class="p-3 needs-validation" novalidate>
+              <div class="row mb-3 required">
+                <label class="col-form-label col-md-4">Location</label>
+                <div class="col-md-8">
+                  <select class="form-select" id="SelUnitLocation" name="SelUnitLocation" data-size="5" data-live-search="true">
+  
+                  </select>
+                </div>
+            </div>
+                <div class="row mb-3 required">
+                    <label class="col-form-label col-md-4">Unit</label>
+                    <div class="col-md-8">
+                      <input class="form-control" type="text" name="txtunit" id="txtunit" required>
+                      <div class="invalid-feedback">
+                        Please Enter Unit Name.
+                      </div>
+                    </div>
+                </div>
+  
+                <div class="row mb-3" id="DivInvRemark">
+                    <label class="col-form-label col-md-4">Description</label>
+                    <div class="col-md-8">
+                        <textarea class="form-control" type="text" name="txtunitdesc" id="txtunitdesc"></textarea>
+                    </div>
+                </div>
+            </form>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-success raised btnSaveUnit" style="width: 12rem;">Submit</button>
+        <button type="button" class="btn btn-success raised btnUnitUpdate" style="width: 12rem;">Update</button>
+        <button type="button" class="btn btn-light btn-bordered" data-bs-dismiss="modal" style="width: 12rem;">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 
+<div class="modal fade" id="ModalLocationQRCode" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title lbllocationmodaltitle">Location QR Code</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="poster-wrap">
+            <div class="top-wrap">
+                <div style="width: 100%; text-align: center; padding: 20px 0; ">
+                  <h4 style="font-size: 48px; margin: 0;  color: #ff0000; text-align: center; font-weight: 900;">We want to hear from you!</h4>
+                </div>
+                <div style="position: relative;height: 200px;display: flex;flex-direction: column;align-items: center;justify-content: center;">
+                  <img src="img/sfa-logo.png" style="max-height:110px;max-width:350px;" />
+                  <h3 style="font-size: 40px; margin: 0; text-align: center;padding-top: 15px;">Facilities Issue Reporting</h3>
+                </div>
+            </div>
+
+            <div class="middle-wrap">
+                <h3 style="margin: 0; text-align: center;color: darkgrey;"><b>Any feedback on building facilities </br>matters? Let us know!</b></h3>
+                <div style="width:100%;text-align: center;">
+                    <div style='width: 330px; padding: 20px 20px 20px 35px; background: #f00; margin-top: 50px;'><img src="data:image/jpg;base64, @Convert.ToBase64String(q.GenerateQRCode(url,16))" style='width: 300px;border:15px solid #fff' /></div>
+                </div>
+            </div>
+            <div class="bottom-wrap">
+              <h4 style="font-size: 48px; margin: 0; text-align: center; font-weight: 900;">Scan to submit</h4>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="modal fade" id="QRPreviewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title lbleditunittitle">QR Code Preview</h5>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+          <iframe class="iframe" id="DocPreviewIframe" src=""></iframe>
+          <input type="hidden" id="hidDocPreviewFilename" />
+        </div>
+      </div>
+  </div>
+</div>
+<!-- 
+<div class="modal fade" id="NewUserModal" tabindex="-1">
+  <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title lblNewUserTitle">New User</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <div class="row">
+                  <div class="col-md-12">
+                    <form id="formNewEmployee" class="p-3 needs-validation" novalidate>
+                      <div class="row">
+                        <div class="col-md-6">
+                            <div class="row mb-3 required">
+                                <label for="selIssuetype" class="col-md-4 col-form-label">Name</label>
+                                <div class="col-md-8">
+                                  <div class="input-group">
+                                    <div class="row">
+                                      <div class="col-md-6">
+                                        <input type="text" id="txtfirstname" name="txtfirstname" class="form-control" placeholder="FirstName" required>
+                                        <div class="invalid-feedback">
+                                          Please Enter First Name.
+                                        </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <input type="text" id="txtlastname" name="txtlastname" class="form-control" placeholder="LastName">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3 required">
+                              <label for="selIssuetype" class="col-md-4 col-form-label">MailId</label>
+                              <div class="col-md-8">
+                                <input type="text" id="txtusermail" name="txtusermail" class="form-control" required>
+                                <div class="invalid-feedback">
+                                  Please Enter Email Id.
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="row mb-3 required">
+                                <label class="col-md-4 col-form-label" for="selusecontactcode">Contact No</label>
+                                <div class="col-md-8">
+                                  <div class="input-group customWidth">
+                                    <select class="form-select" name="selusecontactcode" id="selusecontactcode" required>
+                                        
+                                    </select>
+                                    <input class="form-control onchangeNumericValidation" type="tel" id="txtusercontact" placeholder="Contact No" maxlength="10" required>
+                                    <div class="invalid-feedback">
+                                      Please Enter Contact Number.
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3 required">
+                              <label class="col-md-4 col-form-label" for="seluserdesignation">Designation</label>
+                              <div class="col-md-8">
+                                <select class="form-select" name="seluserdesignation" id="seluserdesignation">
+                                      
+                                </select>
+                              </div>
+                          </div>
+
+                        </div>
+                        <div class="col-md-6">
+
+                          <div class="row mb-3 required">
+                            <label for="selIssuetype" class="col-md-4 col-form-label">DOB</label>
+                            <div class="col-md-8">
+                              <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-calendar-day"></i></span>
+                                <input type="text" id="txtuserdatabirth" name="txtuserdatabirth" placeholder="dd/mm/yyyy" class="form-control">
+                              </div>
+                           </div>
+                          </div>
+
+                          <div class="row mb-3 required">
+                            <label for="selIssuetype" class="col-md-4 col-form-label">DOJ</label>
+                            <div class="col-md-8">
+                              <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-calendar-day"></i></span>
+                                <input type="text" id="txtuserdatajoin" name="txtuserdatajoin" placeholder="dd/mm/yyyy" class="form-control">
+                              </div>
+                            </div>
+                          </div>
+
+                            <div class="row mb-3">
+                                <label class="col-md-4 col-form-label">Admin User</label>
+                                <div class="col-md-8 pt-2">
+                                  <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchUserAdmin">
+                                  </div>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+                    </form>
+                      
+
+                  </div>
+              </div>
+          </div>
+
+
+          <div class="modal-footer justify-content-center">
+              <button type="button" class="btn btn-success raised" id="btnsaveUser" style="width:12rem">Submit</button>
+              <button type="button" class="btn btn-success raised d-none" id="btnupdateUser" style="width:12rem">Update</button>
+              <button class="btn btn-light btn-bordered raised" type="button" name="action" data-bs-dismiss="modal" style="width:12rem">Close</button>
+          </div>
+      </div>
+  </div>
+
+</div> -->
+
+<div class="modal fade " id="EmpCountModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+
+          <div class="modal-header">
+              <h4 class="modal-title" id="">Assigned Employee List</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+
+          <div class="row">
+              <div class="form-horizontal  lbllft">
+                  <div class="col-md-12">
+
+                      <input type="hidden" id="txtCountModalid">
+
+                      <div class="card-body " style="max-height:350px;overflow-y:auto">
+                          <div class="row form-group p-1">
+                              <label for="editusergrp" class="col-md-2">Report Type :</label>
+                              <div class="col-md-6">
+                                  <label id="editusergrp"></label>
+                              </div>
+                          </div>
+                          <div class="row pt-2">
+                              <div class="col-md-12">
+                                  <table id="divEmpReportCount" class="table table-hover" cellspacing="0" width="100%">
+                                      <thead>
+                                          <tr>
+                                              <th><span>Employee Name</span></th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr>
+                                              <td colspan="6">Processing...</td>
+
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ReportConfigModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title"><span id="editusergrpRptname"></span></h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body pb-0">
+              <div class="form-horizontal lbllft">
+                  <div class="row mb-3">
+                      <label class="col-form-label col-md-4">Enable</label>
+                      <div class="col-md-6">
+                          <div class="onoffswitch">
+                              <input type="checkbox" id="chkReportEnabel" name="chkReportEnabel" class="onoffswitch-checkbox">
+                              <label class="onoffswitch-label" for="chkReportEnabel">
+                                  <span class="onoffswitch-inner"></span>
+                                  <span class="onoffswitch-switch"></span>
+                              </label>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row mb-3" id="DivSelschtype" style="display:none">
+                      <label class="col-md-4">Schedule Type</label>
+                      <div class="col-md-6" id="divscheduletypelist">
+                          <select class="selectpicker" id="sheduletypelist" name="sheduletypelist" data-width="100%" data-live-search="true" onchange="fnScheduletypelist()">
+                              <option value=""></option>
+                              <option value="2">Daily</option>
+                              <option value="3">Weekly</option>
+                              <option value="4">Monthly</option>
+                          </select>
+                      </div>
+                  </div>
+
+                  <div class="row mb-3 required" id="DayOptions">
+                      <label class="col-md-4">Report Day</label>
+                      <div class="col-md-6">
+                          <select id="DayOptionsval" name="DayOptionsval" class="selectpicker form-control" data-size="5" data-live-search="true">
+                              <option value="2">Every Monday</option>
+                              <option value="3">Every Tuesday</option>
+                              <option value="4">Every Wednesday</option>
+                              <option value="5">Every Thursday</option>
+                              <option value="6">Every Friday</option>
+                              <option value="7">Every Saturday</option>
+                              <option value="1">Every Sunday</option>
+                          </select>
+                      </div>
+                  </div>
+
+                  <div class="row mb-3 required" id="Dayofmonth">
+                      <label class="col-md-4">Day of month</label>
+                      <div class="col-md-6">
+                          <select id="DateOptionsval" name="DateOptionsval" class="selectpicker form-control" data-size="5" data-live-search="true">
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                              <option value="6">6</option>
+                              <option value="7">7</option>
+                              <option value="8">8</option>
+                              <option value="9">9</option>
+                              <option value="10">10</option>
+                              <option value="11">11</option>
+                              <option value="12">12</option>
+                              <option value="13">13</option>
+                              <option value="14">14</option>
+                              <option value="15">15</option>
+                              <option value="16">16</option>
+                              <option value="17">17</option>
+                              <option value="18">18</option>
+                              <option value="19">19</option>
+                              <option value="20">20</option>
+                              <option value="21">21</option>
+                              <option value="22">22</option>
+                              <option value="23">23</option>
+                              <option value="24">24</option>
+                              <option value="25">25</option>
+                              <option value="26">26</option>
+                              <option value="27">27</option>
+                              <option value="28">28</option>
+                              <option value="29">29</option>
+                              <option value="30">30</option>
+                              <option value="31">31</option>
+                          </select>
+
+                      </div>
+                  </div>
+
+
+                  <div class="row mb-3" id="DivCCmailrpt">
+                      <label class="col-form-label col-md-4">CC</label>
+                      <div class="col-md-6">
+                          <input class="form-control" id="txtMailCC" type="text" />
+                          <p class="form-text small">Use comma to enter multiple email id</p>
+
+
+                      </div>
+                  </div>
+                  <div class="row mb-3" id="DivContactNo">
+                      <label class="col-form-label col-md-4">Contact No</label>
+                      <div class="col-md-6">
+                          <input class="form-control" id="txtContactNo" type="text" />
+                          <p class="form-text small">Use comma to enter multiple contact no. avoid (+) symbol</p>
+
+
+                      </div>
+                  </div>
+                  <div class="row mb-3" id="DivEmployeeList">
+                      <div class="input-group" id="DtSearchBoxWrap">
+                          <input type="text" class="form-control" id="txtkeyFilter" autocomplete="off" onkeyup="return fnJobempFilterKeyword(0);" placeholder="Search Employee" />
+                          <span class="input-group-text p-0">
+                              <button class="btn btn-light btn-bordered" type="button" id="keyFilClr" style="display:none;"><i class="fa fa-times"></i></button>
+                              <button class="btn btn-light btn-bordered" type="button" id="keyFilSrhBtn"><i class="fa fa-search"></i></button>
+                          </span>
+                          <span class="input-group-text p-0">
+                              <button class="btn btn-link fnClearAssignedEmp" type="button">Clear All</button>
+                          </span>
+                      </div>
+                      <ul class="" id="ulemplist"></ul>
+
+                      <label class="black-text text-center d-block empnorecords d-none">-- No Records Found --</label>
+                  </div>
+              </div>
+          </div>
+          <div class="modal-footer text-center-i">
+              <button class='btn btn-success raised' type="button" onclick="fnAddEmployeeRptMap()" style="width:12rem">Submit</button>
+              <button class="btn btn-light btn-bordered raised" type="button" name="action" style="width:12rem" data-bs-dismiss="modal"> Close</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+</section>
